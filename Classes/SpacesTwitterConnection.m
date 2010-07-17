@@ -18,13 +18,15 @@ static MGTwitterEngine* twitter;
 	return twitter;
 }
 
-+(void) initializeTwitterWithUsername: (NSString *)username andPassword: (NSString *)password withDelegate: (id)delegate
++(void) initializeWithDelegate:(id)delegate
 {
-	MGTwitterEngine *twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:delegate]; 
-	[twitterEngine setUsername:username password:password]; 
-	
-	// Get updates from people the authenticated user follows. 
-//	NSString *connectionID = [twitterEngine getFollowedTimelineFor:nil since:nil startingAtPage:0];
+	twitter = [[MGTwitterEngine alloc] initWithDelegate:delegate]; 
 }
+
++(void)setUsername:(NSString*)username andPassword:(NSString*)password
+{
+	[twitter setUsername:username password:password]; 
+}
+
 
 @end

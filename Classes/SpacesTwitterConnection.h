@@ -15,8 +15,7 @@
 }
 
 +(MGTwitterEngine *) sharedConnection;
-+(void) initializeTwitterWithUsername: (NSString *)username andPassword: (NSString *)password withDelegate: (id)delegate;
-
-
++(void) initializeWithDelegate:(id)delegate;
++(void)setUsername:(NSString*)username andPassword:(NSString*)password;
 
 @end
