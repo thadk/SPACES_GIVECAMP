@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Three20/Three20.h"
-
+#import "SpacesTwitterConnection.h"
 @interface SubmissionsPhotoSource : TTThumbsViewController {
-
+	NSString *tag;
+	SpacesTwitterConnection *twitter;
 }
-
+@property(nonatomic,retain)NSString *tag;
+@property(nonatomic,retain)SpacesTwitterConnection *twitter;
 @end

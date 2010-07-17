@@ -10,16 +10,17 @@
 
 
 @implementation SubmissionsPhotoSource
+@synthesize tag;
+@synthesize twitter;
 
-/*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
+- (id)initWithTwitterTag:(NSString*)_tag{
+    if ((self = [super init])) {
+			self.tag = _tag;
     }
     return self;
 }
-*/
+
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -27,12 +28,12 @@
 }
 */
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+  	twitter = [[SpacesTwitterConnection alloc] initWithDelegate:self];
+		[twitter getSubmissionsForTag:@"#clegivecamp"];
 }
-*/
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -41,6 +42,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+#pragma mark -
+#pragma mark CALLBACK
+
+//- (void)requestSucceeded:(NSString *)connectionIdentifier{
+//	int i = 9;
+//}
+//- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
+//	int i = 9;
+//}
+//- (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
+//	int i = 9;
+//	
+//}
+- (void)statusesReceived:(NSArray *)_statuses forRequest:(NSString *)connectionIdentifier{
+	int i = 9;
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
