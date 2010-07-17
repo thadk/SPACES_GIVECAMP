@@ -2,7 +2,7 @@
 //  SpacesTwitterConnection.h
 //  SPACES
 //
-//  Created by Joe Cannatti on 7/16/10.
+//  Created by Joe Cannatti, Troy Sartain on 7/16/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
