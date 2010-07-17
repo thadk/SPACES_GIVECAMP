@@ -7,6 +7,7 @@
 //
 
 #import "SPACESViewController.h"
+#import "PhotoPickerViewController.h"
 
 @implementation SPACESViewController
 
@@ -36,6 +37,11 @@
 }
 */
 
+
+- (IBAction)temporarySubmitButton:(id)sender {
+	PhotoPickerViewController *pickerVC = [[PhotoPickerViewController alloc] init];
+	[pickerVC release];
+}
 
 /*
 // Override to allow orientations other than the default portrait orientation.

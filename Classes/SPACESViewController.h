@@ -12,5 +12,7 @@
 
 }
 
+- (IBAction)temporarySubmitButton:(id)sender;
+
 @end
 
