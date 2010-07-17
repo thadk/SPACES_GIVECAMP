@@ -100,6 +100,8 @@
 		D1EFD6AE11F1EF4800C79C31 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EFD6A411F1EEE100C79C31 /* libThree20UI.a */; };
 		D1EFD6DB11F1EFBC00C79C31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EFD6DA11F1EFBC00C79C31 /* QuartzCore.framework */; };
 		D1EFD6E111F1EFDC00C79C31 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EFD6E011F1EFDC00C79C31 /* libxml2.dylib */; };
+		D1EFD8EC11F21A2D00C79C31 /* MockPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFD8EB11F21A2D00C79C31 /* MockPhotoSource.m */; };
+		D1EFD8ED11F21A2D00C79C31 /* MockPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFD8EB11F21A2D00C79C31 /* MockPhotoSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +411,8 @@
 		D1EFD68011F1EEE100C79C31 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = "<group>"; };
 		D1EFD6DA11F1EFBC00C79C31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D1EFD6E011F1EFDC00C79C31 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		D1EFD8EA11F21A2D00C79C31 /* MockPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockPhotoSource.h; sourceTree = "<group>"; };
+		D1EFD8EB11F21A2D00C79C31 /* MockPhotoSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockPhotoSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,6 +560,8 @@
 				D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */,
 				D1EFD61511F1EB6100C79C31 /* SubmissionsPhotoSource.h */,
 				D1EFD61611F1EB6100C79C31 /* SubmissionsPhotoSource.m */,
+				D1EFD8EA11F21A2D00C79C31 /* MockPhotoSource.h */,
+				D1EFD8EB11F21A2D00C79C31 /* MockPhotoSource.m */,
 				4C97221711F202BF00BA4EC4 /* LoginViewController.h */,
 				4C97221811F202BF00BA4EC4 /* LoginViewController.m */,
 				4C97221911F202BF00BA4EC4 /* LoginViewController.xib */,
@@ -1044,6 +1050,7 @@
 				4C97211F11F1EB0500BA4EC4 /* SPACESPostController.m in Sources */,
 				D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */,
 				4C97221A11F202BF00BA4EC4 /* LoginViewController.m in Sources */,
+				D1EFD8ED11F21A2D00C79C31 /* MockPhotoSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,6 +1120,7 @@
 				D195562A11F16CBF00BE5546 /* NSString+UUID.m in Sources */,
 				D195571E11F1833100BE5546 /* TwitterTableViewController.m in Sources */,
 				D1EFD61711F1EB6100C79C31 /* SubmissionsPhotoSource.m in Sources */,
+				D1EFD8EC11F21A2D00C79C31 /* MockPhotoSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

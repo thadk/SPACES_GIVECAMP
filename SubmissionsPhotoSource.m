@@ -7,7 +7,7 @@
 //
 
 #import "SubmissionsPhotoSource.h"
-
+#import "MockPhotoSource.h"
 
 @implementation SubmissionsPhotoSource
 @synthesize tag;
@@ -17,6 +17,7 @@
 - (id)initWithTwitterTag:(NSString*)_tag{
     if ((self = [super init])) {
 			self.tag = _tag;
+			self.title = _tag;
     }
     return self;
 }
@@ -32,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   	twitter = [[SpacesTwitterConnection alloc] initWithDelegate:self];
-		[twitter getSubmissionsForTag:@"#clegivecamp"];
+		[twitter getSubmissionsForTag:@"twitpic"];
 }
 
 /*
@@ -46,19 +47,51 @@
 #pragma mark -
 #pragma mark CALLBACK
 
-//- (void)requestSucceeded:(NSString *)connectionIdentifier{
-//	int i = 9;
-//}
-//- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
-//	int i = 9;
-//}
-//- (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
-//	int i = 9;
-//	
-//}
-- (void)statusesReceived:(NSArray *)_statuses forRequest:(NSString *)connectionIdentifier{
-	int i = 9;
+
+- (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
+	NSMutableArray *twitPics = [[NSMutableArray alloc] initWithCapacity:50];
+	for (NSDictionary *cur in searchResults) {
+		NSString *text = [cur objectForKey:@"text"];
+		NSError *error = nil;
+		NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"http://(www\\.)?twitpic\\.com/[^ ]+" options:0 error:&error];
+		
+		NSString *link = nil;
+		if(text){
+			NSArray *comps = [regex matchesInString:text options:NSMatchingReportProgress range:NSMakeRange(0, [text length]-1)];
+			if([comps count]){
+				NSRange range = [[comps objectAtIndex:0] range];
+				link = [text substringWithRange:range];
+			}
+		}
+		if (link) {
+			NSString *ID = [link	lastPathComponent];
+
+			NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:cur];
+			
+			NSString *imageFull = [NSString stringWithFormat:@"http://twitpic.com/show/large/%@.png",ID];
+			NSLog(@"Image Full: %@",imageFull);
+			[dict setObject:imageFull forKey:@"spaces_full_images_path"];
+			
+			NSString *imageThumb = [NSString stringWithFormat:@"http://twitpic.com/show/thumb/%@.png",ID];
+			NSLog(@"Image Thumb: %@",imageThumb);
+			[dict setObject:imageThumb forKey:@"spaces_thumb_images_path"];
+			
+			
+			[twitPics addObject:dict];
+		}
+	}
+	
+	NSMutableArray *mockPics = [NSMutableArray arrayWithCapacity:20];
+	for(NSDictionary *cur in twitPics){
+		MockPhoto *photo = [[MockPhoto alloc] initWithURL:[cur objectForKey:@"spaces_full_images_path"] smallURL:[cur objectForKey:@"spaces_thumb_images_path"] size:CGSizeZero];
+		[mockPics addObject:photo];
+		[photo release];
+	}
+	self.photoSource = [[MockPhotoSource alloc] initWithType:MockPhotoSourceNormal title:tag ? : @"SPACES" photos:mockPics photos2:mockPics];
+	[self reload];
+	
 }
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
