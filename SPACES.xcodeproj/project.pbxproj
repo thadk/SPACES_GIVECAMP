@@ -15,6 +15,8 @@
 		2899E5220DE3E06400AC0155 /* SPACESViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* SPACESViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* SPACESViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* SPACESViewController.m */; };
+		58817C9211F171E60063AE77 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58817C9011F171E60063AE77 /* PhotoPickerViewController.m */; };
+		58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */; };
 		D104309E11F14A430028C3CD /* libMGTwitterEngineLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D104309B11F14A2D0028C3CD /* libMGTwitterEngineLib.a */; };
 		D180C17F11F14F8700A5EB5F /* SpacesTwitterConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */; };
 		D19554A811F15F0300BE5546 /* Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554A711F15F0300BE5546 /* Spec.m */; };
@@ -107,7 +109,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D104308B11F14A2C0028C3CD /* MGTwitterEngine.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = E3225EDB114943C30008CCBB /* MGTwitterEngineLib */;
+			remoteGlobalIDString = E3225EDB114943C30008CCBB;
 			remoteInfo = MGTwitterEngineLib;
 		};
 /* End PBXContainerItemProxy section */
@@ -125,6 +127,9 @@
 		28D7ACF70DDB3853001CB0EB /* SPACESViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPACESViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* SPACES_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPACES_Prefix.pch; sourceTree = "<group>"; };
+		58817C8F11F171E60063AE77 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
+		58817C9011F171E60063AE77 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
+		58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPickerViewController.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SPACES-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SPACES-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D104308B11F14A2C0028C3CD /* MGTwitterEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MGTwitterEngine.xcodeproj; path = MGTwitterEngine/MGTwitterEngine.xcodeproj; sourceTree = "<group>"; };
 		D180C17D11F14F8700A5EB5F /* SpacesTwitterConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpacesTwitterConnection.h; path = Classes/SpacesTwitterConnection.h; sourceTree = "<group>"; };
@@ -287,6 +292,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				58817C8811F1719A0063AE77 /* Photo */,
 				D19554A511F15E6B00BE5546 /* Tests */,
 				D180C18011F14F9300A5EB5F /* Twitter */,
 				1D3623240D0F684500981E51 /* SPACESAppDelegate.h */,
@@ -349,6 +355,16 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58817C8811F1719A0063AE77 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				58817C8F11F171E60063AE77 /* PhotoPickerViewController.h */,
+				58817C9011F171E60063AE77 /* PhotoPickerViewController.m */,
+				58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 		D104308C11F14A2C0028C3CD /* Products */ = {
@@ -599,6 +615,7 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* SPACESViewController.xib in Resources */,
+				58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +654,7 @@
 				28D7ACF80DDB3853001CB0EB /* SPACESViewController.m in Sources */,
 				D180C17F11F14F8700A5EB5F /* SpacesTwitterConnection.m in Sources */,
 				D195562B11F16CBF00BE5546 /* NSString+UUID.m in Sources */,
+				58817C9211F171E60063AE77 /* PhotoPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
