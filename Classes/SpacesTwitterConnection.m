@@ -7,7 +7,7 @@
 //
 
 #import "SpacesTwitterConnection.h"
-
+#import "NSString+UUID.h"
 
 @implementation SpacesTwitterConnection
 
@@ -26,6 +26,11 @@ static MGTwitterEngine* twitter;
 +(void) setUsername: (NSString*)username andPassword:(NSString*)password
 {
 	[twitter setUsername:username password:password]; 
+}
+
++(NSString*)getAllSpacesTweets{
+	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
+	return ret;
 }
 
 +(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString*)msg
