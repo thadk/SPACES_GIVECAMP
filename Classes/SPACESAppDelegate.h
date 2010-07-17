@@ -16,6 +16,10 @@
 	IBOutlet UITabBarController *tabController;
 }
 
++ (SPACESAppDelegate *)sharedDelegate;
++ (NSString *)twitterAccountName;
++ (NSString *)twitterChallengePrefix;
+	
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet SPACESViewController *viewController;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabController;
