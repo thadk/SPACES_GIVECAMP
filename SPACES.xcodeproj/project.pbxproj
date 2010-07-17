@@ -1159,6 +1159,7 @@
 					"MGTwitterEngine/**",
 				);
 				INFOPLIST_FILE = "SPACES-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SPACES;
 			};
 			name = Debug;
@@ -1175,6 +1176,7 @@
 					"MGTwitterEngine/**",
 				);
 				INFOPLIST_FILE = "SPACES-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SPACES;
 				VALIDATE_PRODUCT = YES;
 			};

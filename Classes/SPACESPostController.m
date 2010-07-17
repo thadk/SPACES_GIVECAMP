@@ -9,6 +9,7 @@
 #import "SPACESPostController.h"
 #import "PhotoPickerViewController.h"
 #import "LoginViewController.h"
+
 #define kLeftMargin             20.0
 #define kRightMargin            20.0
 #define kToolbarHeight			44.0
