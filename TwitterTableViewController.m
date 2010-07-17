@@ -8,6 +8,7 @@
 
 #import "TwitterTableViewController.h"
 #import "SpacesTwitterConnection.h"
+#import "SPACESPostController.h"
 
 @implementation TwitterTableViewController
 @synthesize statuses;
@@ -155,30 +156,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+	
+	SPACESPostController *detailedViewController = [[SPACESPostController alloc] init];
+	detailedViewController.spacesURL = @"http://apple.com";
+	detailedViewController.spacesTag = @"ABC";
+	
+	// Pass the selected object to the new view controller.
+	[self.navigationController pushViewController:detailedViewController animated:YES];
+	[detailedViewController release];
 }
 
 #pragma mark -
 #pragma mark CALLBACK
 
-- (void)requestSucceeded:(NSString *)connectionIdentifier{
-	int i = 9;
-}
-- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
-	int i = 9;
-}
-- (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
-	int i = 9;
-	
-}
-- (void)statusesReceived:(NSArray *)statuses forRequest:(NSString *)connectionIdentifier{
-		self.statuses = statuses;
+//- (void)requestSucceeded:(NSString *)connectionIdentifier{
+//	int i = 9;
+//}
+//- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
+//	int i = 9;
+//}
+//- (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
+//	int i = 9;
+//	
+//}
+- (void)statusesReceived:(NSArray *)_statuses forRequest:(NSString *)connectionIdentifier{
+	 self.statuses = _statuses;
 	[self.tableView reloadData];
 }
 
