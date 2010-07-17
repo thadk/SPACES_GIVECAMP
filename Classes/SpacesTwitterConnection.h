@@ -15,7 +15,7 @@
 }
 
 +(MGTwitterEngine *) sharedConnection;
-+(void) initializeWithDelegate:(id)delegate;
++(void)initializeWithDelegate:(id)delegate;
 +(void)setUsername:(NSString*)username andPassword:(NSString*)password;
-
++(NSString*)getAllSpacesTweets;
 @end
