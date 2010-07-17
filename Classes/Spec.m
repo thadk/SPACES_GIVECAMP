@@ -39,27 +39,40 @@ SPEC_BEGIN(TestSpec)
 //});
 
 describe(@"SpacesTwitterConnection", ^{
-	it(@"should instantiate", ^{
-		// Try changing should to shouldNot, and vice-versa to see
-		// failures in action.
-		
-		id mock = [NSObject mock];
-		//[mock stub:@selector(string) andReturn:@"Unicorns"];
-		[SpacesTwitterConnection initializeWithDelegate:mock];
-		[[[SpacesTwitterConnection sharedConnection] shouldNot] equal:nil];
-		
-	});
 	
-	it(@"should return results for spaces tweeter feed", ^{
-		// Try changing should to shouldNot, and vice-versa to see
-		// failures in action.
-		
-		id mock = [NSObject mock];
-		[SpacesTwitterConnection initializeWithDelegate:mock];
-		NSString *tweets = [SpacesTwitterConnection getAllSpacesTweets];
-		[[tweets shouldNot] equal:nil];
-		
-	});
+//	it(@"should instantiate", ^{
+//		// Try changing should to shouldNot, and vice-versa to see
+//		// failures in action.
+//		
+//		id mock = [NSObject mock];
+//		//[mock stub:@selector(string) andReturn:@"Unicorns"];
+//		[SpacesTwitterConnection initializeWithDelegate:mock];
+//		[[[SpacesTwitterConnection sharedConnection] shouldNot] equal:nil];
+//		
+//	});
+//	
+//	it(@"should return results for spaces tweeter feed", ^{
+//		// Try changing should to shouldNot, and vice-versa to see
+//		// failures in action.
+//		
+//		id mock = [NSObject mock];
+//		[SpacesTwitterConnection initializeWithDelegate:mock];
+//		NSString *tweets = [SpacesTwitterConnection getAllSpacesTweets];
+//		[[tweets shouldNot] equal:nil];
+//		
+//	});
+//	
+//	it(@"should do something", ^{
+//		// Try changing should to shouldNot, and vice-versa to see
+//		// failures in action.
+//		
+//		id mock = [NSObject mock];
+//		[SpacesTwitterConnection initializeWithDelegate:mock];
+//		UIImage* pic = [UIImage imageWithData:[NSData data]];
+//		NSString* msg = @"";
+//		[SpacesTwitterConnection uploadPicAndPost:pic andMessage:msg];
+//		
+//	});
 	
 });
 

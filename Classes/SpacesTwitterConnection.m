@@ -28,12 +28,13 @@ static MGTwitterEngine* twitter;
 	[twitter setUsername:username password:password]; 
 }
 
-+(NSString*)getAllSpacesTweets{
++(NSString*)getAllSpacesTweets
+{
 	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
 	return ret;
 }
 
-+(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString*)msg
++(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg
 {
 	// create the URL
 	NSURL *postURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
@@ -110,7 +111,8 @@ static MGTwitterEngine* twitter;
 	
 	if (error)
 	{
-		NSLog(@"Error: %@", [error localizedDescription]);
+//		NSLog(@"Error: %@", [error localizedDescription]);
+		NSLog(@"Error: ");
 	}
 	
 	// convert data into string
@@ -133,3 +135,21 @@ static MGTwitterEngine* twitter;
 
 
 @end
+
+//  PROBABLY SIMPLER AND ASYNCHRONOUS
+//
+//NSData *imageData = UIImagePNGRepresentation(imageToPost);
+//NSURL *twitpicURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
+//
+//ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:twitpicURL] autorelease];
+//
+//[request setData:imageData forKey:@"media"];
+//[request setPostValue:@"myUsername" forKey:@"username"];
+//[request setPostValue:@"myPassword" forKey:@"password"];
+//[request setPostValue:@"myMessage" forKey:@"message"];
+//
+//[request setDelegate:self];
+//[request setDidFinishSelector:@selector(requestDone:)];
+//[request setDidFailSelector:@selector(requestFailed:)];
+//
+//[request start];
