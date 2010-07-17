@@ -42,7 +42,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	twitter = [[SpacesTwitterConnection alloc ]initWithDelegate:self];
+	twitter = [[SpacesTwitterConnection alloc] initWithDelegate:self];
 	[twitter getAllSpacesTweets];
 }
 

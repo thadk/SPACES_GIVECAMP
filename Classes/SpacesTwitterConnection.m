@@ -147,6 +147,10 @@
 	return [twitter getSearchResultsForQuery:_tag];
 }
 
+- (NSString *)checkUserCredentials {
+	return [twitter checkUserCredentials];
+}
+
 
 @end
 

@@ -23,4 +23,5 @@
 -(NSString *) getChallengeTweets;
 -(NSString*)getAllSpacesTweets;
 -(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg;
+-(NSString *)checkUserCredentials;
 @end
