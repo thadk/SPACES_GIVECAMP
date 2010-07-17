@@ -18,9 +18,9 @@
 @property(nonatomic,retain)	MGTwitterEngine* twitter;
 
 
-+(MGTwitterEngine *) sharedConnection;
-+(void)initializeWithDelegate:(id)delegate;
-+(void)setUsername:(NSString*)username andPassword:(NSString*)password;
-+(NSString*)getAllSpacesTweets;
-+(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg;
+-(id) initWithDelegate: (id)_delegate;
+-(void)setUsername:(NSString*)username andPassword:(NSString*)password;
+-(NSString *) getChallengeTweets;
+-(NSString*)getAllSpacesTweets;
+-(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg;
 @end

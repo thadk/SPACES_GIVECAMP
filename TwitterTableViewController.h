@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SpacesTwitterConnection.h"
 
 
 @interface TwitterTableViewController : UITableViewController {
 	NSArray *statuses;
+	SpacesTwitterConnection *twitter;
 }
 @property(nonatomic,retain)NSArray *statuses;
+@property(nonatomic,retain)SpacesTwitterConnection *twitter;
 @end

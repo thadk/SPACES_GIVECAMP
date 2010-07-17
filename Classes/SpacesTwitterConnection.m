@@ -12,7 +12,7 @@
 @implementation SpacesTwitterConnection
 @synthesize twitter;
 
--(void) initWithDelegate: (id)_delegate
+-(id) initWithDelegate:(id)_delegate
 {
 	if (self = [super init]) {
 		self.twitter = [[MGTwitterEngine alloc] initWithDelegate:_delegate]; 
@@ -20,24 +20,21 @@
 	}
 	else {
 		return nil;
-	}
-
-	
+	}	
 }
 
-
-+(void) setDelegate:(id)_delegate{
-	twitter = [[MGTwitterEngine alloc] initWithDelegate:_delegate]; 
+-(void)setUsername:(NSString*)username andPassword:(NSString*)password{
+	[twitter setUsername:username password:password];
 }
 
-+(NSString*)getAllSpacesTweets
+-(NSString*)getAllSpacesTweets
 {
 	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
 	NSLog(ret,nil);
 	return ret;
 }
 
-+(NSString *) getChallengeTweets
+-(NSString *) getChallengeTweets
 {
 	NSString *url = @"from%3Aspacesgallery";//
 	NSString *ret = [twitter getSearchResultsForQuery:url];
@@ -46,7 +43,7 @@
 	return ret;
 }
 
-+(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg
+-(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg
 {
 	// create the URL
 	NSURL *postURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];

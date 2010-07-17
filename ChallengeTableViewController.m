@@ -7,12 +7,10 @@
 //
 
 #import "ChallengeTableViewController.h"
-#import "SpacesTwitterConnection.h"
-
 
 @implementation ChallengeTableViewController
 @synthesize statuses;
-
+@synthesize twitter;
 #pragma mark -
 #pragma mark Initialization
 
@@ -41,8 +39,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[SpacesTwitterConnection initializeWithDelegate:self];
-	[SpacesTwitterConnection getChallengeTweets];
+	twitter = [[SpacesTwitterConnection alloc] initWithDelegate:self];
+	[twitter getChallengeTweets];
 }
 
 /*
@@ -168,18 +166,18 @@
 #pragma mark -
 #pragma mark CALLBACK
 
-- (void)requestSucceeded:(NSString *)connectionIdentifier{
-	int i = 9;
-}
-- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
-	int i = 9;
-}
-- (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
-	int i = 9;
-	
-}
-- (void)statusesReceived:(NSArray *)statuses forRequest:(NSString *)connectionIdentifier{
-	self.statuses = statuses;
+//- (void)requestSucceeded:(NSString *)connectionIdentifier{
+//	int i = 9;
+//}
+//- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
+//	int i = 9;
+//}
+//- (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
+//	int i = 9;
+//	
+//}
+- (void)statusesReceived:(NSArray *)_statuses forRequest:(NSString *)connectionIdentifier{
+	self.statuses = _statuses;
 	[self.tableView reloadData];
 }
 
