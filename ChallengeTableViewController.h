@@ -14,6 +14,7 @@
 {
 	NSArray *statuses;
 	SpacesTwitterConnection *twitter;
+	NSDateFormatter *format;
 }
 
 @property (nonatomic, retain) NSArray *statuses;
