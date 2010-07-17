@@ -23,7 +23,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {  
 	NSLog(@"application");  
-	[SpacesTwitterConnection initializeWithDelegate:self];
 //	NSString *tweets = [SpacesTwitterConnection getAllSpacesTweets];
 	//[[tweets shouldNot] equal:nil];
     // Override point for customization after application launch.

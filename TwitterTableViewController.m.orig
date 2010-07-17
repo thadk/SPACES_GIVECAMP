@@ -7,10 +7,14 @@
 //
 
 #import "TwitterTableViewController.h"
+#import "SpacesTwitterConnection.h"
+<<<<<<< HEAD
+=======
 #import "SPACESPostController.h"
 
+>>>>>>> 555f6996d019acd17f769e2410c0b0c4ba0a72ba
 @implementation TwitterTableViewController
-@synthesize statuses,twitter;
+@synthesize statuses;
 
 #pragma mark -
 #pragma mark Initialization
@@ -40,8 +44,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	twitter = [[SpacesTwitterConnection alloc ]initWithDelegate:self];
-	[twitter getAllSpacesTweets];
+	[SpacesTwitterConnection initializeWithDelegate:self];
+	[SpacesTwitterConnection getAllSpacesTweets];
 }
 
 /*

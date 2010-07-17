@@ -10,32 +10,31 @@
 #import "NSString+UUID.h"
 
 @implementation SpacesTwitterConnection
+@synthesize twitter;
 
-static MGTwitterEngine* twitter;
-
-+(MGTwitterEngine *) sharedConnection 
+-(id) initWithDelegate:(id)_delegate
 {
-	return twitter;
+	if (self = [super init]) {
+		self.twitter = [[MGTwitterEngine alloc] initWithDelegate:_delegate]; 
+		return self;
+	}
+	else {
+		return nil;
+	}	
 }
 
-+(void) initializeWithDelegate: (id)delegate
-{
-	twitter = [[MGTwitterEngine alloc] initWithDelegate:delegate]; 
+-(void)setUsername:(NSString*)username andPassword:(NSString*)password{
+	[twitter setUsername:username password:password];
 }
 
-+(void) setUsername: (NSString*)username andPassword:(NSString*)password
-{
-	[twitter setUsername:username password:password]; 
-}
-
-+(NSString*)getAllSpacesTweets
+-(NSString*)getAllSpacesTweets
 {
 	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
 	NSLog(ret,nil);
 	return ret;
 }
 
-+(NSString *) getChallengeTweets
+-(NSString *) getChallengeTweets
 {
 	NSString *url = @"from%3Aspacesgallery";//
 	NSString *ret = [twitter getSearchResultsForQuery:url];
@@ -44,7 +43,7 @@ static MGTwitterEngine* twitter;
 	return ret;
 }
 
-+(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg
+-(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg
 {
 	// create the URL
 	NSURL *postURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
@@ -141,6 +140,11 @@ static MGTwitterEngine* twitter;
 	[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"<"] intoString:&mediaURL];
 	
 	NSLog(@"mediaURL is %@", mediaURL);
+}
+
+
+-(NSString*)getSubmissionsForTag:(NSString*)_tag{
+	return [twitter getSearchResultsForQuery:_tag];
 }
 
 
