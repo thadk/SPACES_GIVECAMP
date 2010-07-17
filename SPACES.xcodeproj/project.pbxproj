@@ -77,6 +77,8 @@
 		D195556311F15F5900BE5546 /* NSValue+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D195552A11F15F5900BE5546 /* NSValue+KiwiAdditions.m */; };
 		D195556911F1600D00BE5546 /* SpacesTwitterConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */; };
 		D195557011F1613200BE5546 /* libMGTwitterEngineLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D104309B11F14A2D0028C3CD /* libMGTwitterEngineLib.a */; };
+		D195562A11F16CBF00BE5546 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = D195562911F16CBF00BE5546 /* NSString+UUID.m */; };
+		D195562B11F16CBF00BE5546 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = D195562911F16CBF00BE5546 /* NSString+UUID.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +257,8 @@
 		D195552811F15F5900BE5546 /* NSObject+KiwiVerifierAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KiwiVerifierAdditions.m"; sourceTree = "<group>"; };
 		D195552911F15F5900BE5546 /* NSValue+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+KiwiAdditions.h"; sourceTree = "<group>"; };
 		D195552A11F15F5900BE5546 /* NSValue+KiwiAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+KiwiAdditions.m"; sourceTree = "<group>"; };
+		D195562811F16CBF00BE5546 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
+		D195562911F16CBF00BE5546 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +293,8 @@
 				1D3623250D0F684500981E51 /* SPACESAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* SPACESViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* SPACESViewController.m */,
+				D195562811F16CBF00BE5546 /* NSString+UUID.h */,
+				D195562911F16CBF00BE5546 /* NSString+UUID.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -630,6 +636,7 @@
 				1D3623260D0F684500981E51 /* SPACESAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* SPACESViewController.m in Sources */,
 				D180C17F11F14F8700A5EB5F /* SpacesTwitterConnection.m in Sources */,
+				D195562B11F16CBF00BE5546 /* NSString+UUID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +703,7 @@
 				D195556211F15F5900BE5546 /* NSObject+KiwiVerifierAdditions.m in Sources */,
 				D195556311F15F5900BE5546 /* NSValue+KiwiAdditions.m in Sources */,
 				D195556911F1600D00BE5546 /* SpacesTwitterConnection.m in Sources */,
+				D195562A11F16CBF00BE5546 /* NSString+UUID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
