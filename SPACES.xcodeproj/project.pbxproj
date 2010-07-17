@@ -19,6 +19,7 @@
 		58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */; };
 		D104309E11F14A430028C3CD /* libMGTwitterEngineLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D104309B11F14A2D0028C3CD /* libMGTwitterEngineLib.a */; };
 		D180C17F11F14F8700A5EB5F /* SpacesTwitterConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */; };
+		D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */; };
 		D19554A811F15F0300BE5546 /* Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554A711F15F0300BE5546 /* Spec.m */; };
 		D195552B11F15F5900BE5546 /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B211F15F5900BE5546 /* KWAfterAllNode.m */; };
 		D195552C11F15F5900BE5546 /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B411F15F5900BE5546 /* KWAfterEachNode.m */; };
@@ -136,6 +137,8 @@
 		D104308B11F14A2C0028C3CD /* MGTwitterEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MGTwitterEngine.xcodeproj; path = MGTwitterEngine/MGTwitterEngine.xcodeproj; sourceTree = "<group>"; };
 		D180C17D11F14F8700A5EB5F /* SpacesTwitterConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpacesTwitterConnection.h; path = Classes/SpacesTwitterConnection.h; sourceTree = "<group>"; };
 		D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpacesTwitterConnection.m; path = Classes/SpacesTwitterConnection.m; sourceTree = "<group>"; };
+		D180C3EA11F1EB7C00A5EB5F /* ChallengeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeTableViewController.h; sourceTree = "<group>"; };
+		D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableViewController.m; sourceTree = "<group>"; };
 		D19553E911F15E2E00BE5546 /* Unit Test Bundle.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Test Bundle.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19553EA11F15E2E00BE5546 /* Unit Test Bundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Test Bundle-Info.plist"; sourceTree = "<group>"; };
 		D19554A711F15F0300BE5546 /* Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spec.m; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 				D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */,
 				D195571C11F1833100BE5546 /* TwitterTableViewController.h */,
 				D195571D11F1833100BE5546 /* TwitterTableViewController.m */,
+				D180C3EA11F1EB7C00A5EB5F /* ChallengeTableViewController.h */,
+				D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */,
 			);
 			name = Twitter;
 			path = ..;
@@ -662,6 +667,7 @@
 				D195562B11F16CBF00BE5546 /* NSString+UUID.m in Sources */,
 				58817C9211F171E60063AE77 /* PhotoPickerViewController.m in Sources */,
 				D195571F11F1833100BE5546 /* TwitterTableViewController.m in Sources */,
+				D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

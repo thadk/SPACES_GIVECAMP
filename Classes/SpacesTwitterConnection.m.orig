@@ -2,7 +2,7 @@
 //  SpacesTwitterConnection.m
 //  SPACES
 //
-//  Created by Joe Cannatti, Troy Sartain on 7/16/10.
+//  Created by Joe Cannatti on 7/16/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
@@ -28,23 +28,8 @@ static MGTwitterEngine* twitter;
 	[twitter setUsername:username password:password]; 
 }
 
-+(NSString*)getAllSpacesTweets
-{
-	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
-	NSLog(ret,nil);
-	return ret;
-}
-
-+(NSString *) getChallengeTweets
-{
-	NSString *url = @"from%3Aspacesgallery";//
-	NSString *ret = [twitter getSearchResultsForQuery:url];
-//	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
-	NSLog(ret,nil);
-	return ret;
-}
-
-+(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg
+<<<<<<< HEAD
++(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString*)msg
 {
 	// create the URL
 	NSURL *postURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
@@ -121,8 +106,7 @@ static MGTwitterEngine* twitter;
 	
 	if (error)
 	{
-//		NSLog(@"Error: %@", [error localizedDescription]);
-		NSLog(@"Error: ");
+		NSLog(@"Error: %@", [error localizedDescription]);
 	}
 	
 	// convert data into string
@@ -143,23 +127,14 @@ static MGTwitterEngine* twitter;
 	NSLog(@"mediaURL is %@", mediaURL);
 }
 
+=======
++(NSString*)getAllSpacesTweets{
+	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
+	return ret;
+}
+
+
+
+>>>>>>> 8a812c95c6c761b3a17fae52214c9e1addc28b09
 
 @end
-
-//  PROBABLY SIMPLER AND ASYNCHRONOUS
-//
-//NSData *imageData = UIImagePNGRepresentation(imageToPost);
-//NSURL *twitpicURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
-//
-//ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:twitpicURL] autorelease];
-//
-//[request setData:imageData forKey:@"media"];
-//[request setPostValue:@"myUsername" forKey:@"username"];
-//[request setPostValue:@"myPassword" forKey:@"password"];
-//[request setPostValue:@"myMessage" forKey:@"message"];
-//
-//[request setDelegate:self];
-//[request setDidFinishSelector:@selector(requestDone:)];
-//[request setDidFailSelector:@selector(requestFailed:)];
-//
-//[request start];
