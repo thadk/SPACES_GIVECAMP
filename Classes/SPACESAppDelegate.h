@@ -13,10 +13,11 @@
 @interface SPACESAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
     SPACESViewController *viewController;
+	IBOutlet UITabBarController *tabController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet SPACESViewController *viewController;
-
+@property (nonatomic, retain) IBOutlet UITabBarController *tabController;
 @end
 

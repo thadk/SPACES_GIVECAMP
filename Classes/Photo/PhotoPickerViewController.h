@@ -14,11 +14,13 @@
 	UIImageView *thumbnailView;
 	UILabel *selectImageLabel;
 	UIImage *thumbnailImage;
+	PhotoPickerViewController *photoController;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *submitButton;
 @property (nonatomic, retain) IBOutlet UIImageView *thumbnailView;
 @property (nonatomic, retain) IBOutlet UILabel *selectImageLabel;
+@property (nonatomic, retain) IBOutlet PhotoPickerViewController *photoController;
 @property (nonatomic, retain) UIImage *thumbnailImage;
 
 - (IBAction)submit:(id)sender;

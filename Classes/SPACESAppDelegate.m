@@ -15,14 +15,13 @@
 
 @synthesize window;
 @synthesize viewController;
+@synthesize tabController;
 
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-	[SpacesTwitterConnection initializeWithDelegate:self];
-	id t = [SpacesTwitterConnection getAllSpacesTweets];
     // Override point for customization after application launch.
 
     // Add the view controller's view to the window and display.
@@ -68,24 +67,6 @@
      Called when the application is about to terminate.
      See also applicationDidEnterBackground:.
      */
-}
-
-#pragma mark -
-#pragma mark CALLBACK
-
-- (void)requestSucceeded:(NSString *)connectionIdentifier{
-	int i = 9;
-}
-- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
-	int i = 9;
-}
-- (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
-	int i = 9;
-
-}
-
-- (void)statusesReceived:(NSArray *)statuses forRequest:(NSString *)connectionIdentifier{
-	int i = 9;
 }
 
 
