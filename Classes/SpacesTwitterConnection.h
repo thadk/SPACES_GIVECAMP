@@ -12,7 +12,11 @@
 
 @interface SpacesTwitterConnection : NSObject 
 {
+	MGTwitterEngine* twitter;
+
 }
+@property(nonatomic,retain)	MGTwitterEngine* twitter;
+
 
 +(MGTwitterEngine *) sharedConnection;
 +(void)initializeWithDelegate:(id)delegate;

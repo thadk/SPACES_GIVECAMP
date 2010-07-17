@@ -10,22 +10,24 @@
 #import "NSString+UUID.h"
 
 @implementation SpacesTwitterConnection
+@synthesize twitter;
 
-static MGTwitterEngine* twitter;
-
-+(MGTwitterEngine *) sharedConnection 
+-(void) initWithDelegate: (id)_delegate
 {
-	return twitter;
+	if (self = [super init]) {
+		self.twitter = [[MGTwitterEngine alloc] initWithDelegate:_delegate]; 
+		return self;
+	}
+	else {
+		return nil;
+	}
+
+	
 }
 
-+(void) initializeWithDelegate: (id)delegate
-{
-	twitter = [[MGTwitterEngine alloc] initWithDelegate:delegate]; 
-}
 
-+(void) setUsername: (NSString*)username andPassword:(NSString*)password
-{
-	[twitter setUsername:username password:password]; 
++(void) setDelegate:(id)_delegate{
+	twitter = [[MGTwitterEngine alloc] initWithDelegate:_delegate]; 
 }
 
 +(NSString*)getAllSpacesTweets
@@ -132,6 +134,11 @@ static MGTwitterEngine* twitter;
 	[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"<"] intoString:&mediaURL];
 	
 	NSLog(@"mediaURL is %@", mediaURL);
+}
+
+
+-(NSString*)getSubmissionsForTag:(NSString*)_tag{
+	return [twitter getSearchResultsForQuery:_tag];
 }
 
 
