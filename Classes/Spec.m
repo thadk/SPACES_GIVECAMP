@@ -55,9 +55,13 @@ describe(@"SpacesTwitterConnection", ^{
 		// failures in action.
 		
 		id mock = [NSObject mock];
+		[mock stub:@selector(requestSucceeded:)];
 		[SpacesTwitterConnection initializeWithDelegate:mock];
 		NSString *tweets = [SpacesTwitterConnection getAllSpacesTweets];
-		[[tweets shouldNot] equal:nil];
+		
+		[[mock should] receive:@selector(requestSucceeded:)];
+//		 - (void)requestSucceeded:(NSString *)connectionIdentifier;
+//		 - (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error;
 		
 	});
 	

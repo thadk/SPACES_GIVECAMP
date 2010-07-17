@@ -30,6 +30,7 @@ static MGTwitterEngine* twitter;
 
 +(NSString*)getAllSpacesTweets{
 	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
+	NSLog(ret,nil);
 	return ret;
 }
 
