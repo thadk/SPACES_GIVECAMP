@@ -21,8 +21,22 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {  
+	NSLog(@"application");  
+	[SpacesTwitterConnection initializeWithDelegate:self];
+//	NSString *tweets = [SpacesTwitterConnection getAllSpacesTweets];
+	//[[tweets shouldNot] equal:nil];
     // Override point for customization after application launch.
+	
+	// Test	+(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg  
+//	NSLog(@"setUsername");
+//	[SpacesTwitterConnection setUsername:@"spacesgallery" andPassword:@"spaces1978"];
+//	UIImage* pic = [UIImage imageNamed:@"iphone.jpg"];
+//	NSString* msg = @"test";
+//	NSLog(@"uploadPicAndPost");
+//	[SpacesTwitterConnection uploadPicAndPost:pic andMessage:msg];
+//	NSLog(@"done");
+	
 
     // Add the view controller's view to the window and display.
     [window addSubview:viewController.view];
