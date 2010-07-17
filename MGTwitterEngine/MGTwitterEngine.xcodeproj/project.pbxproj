@@ -27,6 +27,7 @@
 		C9CB60EC0DF98ED300EE8FCF /* MGTwitterMiscParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CB60EB0DF98ED300EE8FCF /* MGTwitterMiscParser.m */; };
 		C9EF98A10D68AB970041A17E /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF98A00D68AB970041A17E /* NSString+UUID.m */; };
 		C9FEB12C0D6095AF009AA322 /* MGTwitterStatusesParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FEB12B0D6095AF009AA322 /* MGTwitterStatusesParser.m */; };
+		D180C1BD11F1566900A5EB5F /* libYAJLiPhoneLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A50D05116BC56C005AC8B8 /* libYAJLiPhoneLib.a */; };
 		E3225EE4114943FC0008CCBB /* MGTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811E630D5F69B500720D77 /* MGTwitterEngine.m */; };
 		E3225EE5114944040008CCBB /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF98A00D68AB970041A17E /* NSString+UUID.m */; };
 		E3225EF51149442A0008CCBB /* MGTwitterHTTPURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE949B0D678D4400ADEBEC /* MGTwitterHTTPURLConnection.m */; };
@@ -195,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D180C1BD11F1566900A5EB5F /* libYAJLiPhoneLib.a in Frameworks */,
 				E36BB29C114FD5E300805207 /* libxml2.dylib in Frameworks */,
 				E36BB2B1114FD9EC00805207 /* CoreFoundation.framework in Frameworks */,
 			);

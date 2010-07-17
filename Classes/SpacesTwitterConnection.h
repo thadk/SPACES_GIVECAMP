@@ -1,0 +1,22 @@
+//
+//  SpacesTwitterConnection.h
+//  SPACES
+//
+//  Created by Joe Cannatti on 7/16/10.
+//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <MGTwitterEngine.h>
+
+
+@interface SpacesTwitterConnection : NSObject 
+{
+}
+
++(MGTwitterEngine *) sharedConnection;
++(void) initializeTwitterWithUsername: (NSString *)username andPassword: (NSString *)password withDelegate: (id)delegate;
+
+
+
+@end
