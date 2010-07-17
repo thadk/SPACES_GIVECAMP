@@ -7,9 +7,11 @@
 //
 
 #import "SPACESPostController.h"
+#import "PhotoPickerViewController.h"
 
 #define kLeftMargin             20.0
 #define kRightMargin            20.0
+#define kToolbarHeight			44.0
 
 @implementation SPACESPostController
 
@@ -34,20 +36,11 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
-	CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
 	
-	CGRect toolFrame = CGRectMake(0, appFrame.size.height - 40, appFrame.size.width, 40);
-	self.toolbar = [[[UIToolbar alloc] initWithFrame:toolFrame] autorelease];
+	CGRect viewBounds = self.view.bounds;
 	
-	UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePicker)];
-	UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	[toolbar setItems:[NSArray arrayWithObjects:space, item, space, nil] animated:NO];	
-	
-	
-	[self.view addSubview:self.toolbar];
-	
-	CGRect webFrame = CGRectMake(0, 0, appFrame.size.width, appFrame.size.height - 40);
+		
+	CGRect webFrame = CGRectMake(0, 0, viewBounds.size.width, viewBounds.size.height - kToolbarHeight);
 	self.spacesWebView = [[[UIWebView alloc] initWithFrame:webFrame] autorelease];
 	self.spacesWebView.backgroundColor = [UIColor whiteColor];
 	self.spacesWebView.scalesPageToFit = YES;
@@ -56,6 +49,22 @@
 	[self.view addSubview: self.spacesWebView];
 	
 	[self.spacesWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.spacesURL]]];
+	
+	
+	
+	
+	// gigure out the actual location of toolbar
+	CGRect toolFrame = CGRectMake(0, self.view.frame.size.height - kToolbarHeight-90, viewBounds.size.width, kToolbarHeight);
+	
+	self.toolbar = [[[UIToolbar alloc] initWithFrame:toolFrame] autorelease];
+	
+	UIBarButtonItem *submission = [[UIBarButtonItem alloc] initWithTitle:@"Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
+	UIBarButtonItem *submit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(submitPhoto)];
+	UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	[self.toolbar setItems:[NSArray arrayWithObjects:space, submission, submit, space, nil] animated:YES];	
+	
+	[self.view addSubview:self.toolbar];
+	
 }
 
 /*
@@ -116,6 +125,25 @@
                              @"<html><center><font size=+5 color='red'>An error occurred:<br>%@</font></center></html>",
                              error.localizedDescription];
     [self.spacesWebView loadHTMLString:errorString baseURL:nil];
+}
+
+
+
+
+
+- (IBAction)submitPhoto {
+	
+	//check for user credentials
+	if (YES) {
+		PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
+		[self.navigationController presentModalViewController:pickerController animated:YES];
+		[pickerController release];
+	}
+	else {
+		LoginViewController *loginViewController = [[LoginViewController alloc] init];
+		[self.navigationController presentModalViewController:loginViewController animated:YES];
+		[loginViewController release];
+	}
 }
 
 @end

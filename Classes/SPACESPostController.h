@@ -20,4 +20,6 @@
 @property (nonatomic, retain) IBOutlet UIWebView *spacesWebView;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
 
+- (IBAction)submitPhoto;
+
 @end

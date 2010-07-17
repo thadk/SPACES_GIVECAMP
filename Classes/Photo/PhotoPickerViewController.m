@@ -116,6 +116,7 @@
 
 - (IBAction)submit:(id)sender {
 	
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark ---cleanup
