@@ -8,6 +8,8 @@
 
 #import "SPACESAppDelegate.h"
 #import "SPACESViewController.h"
+#import "SpacesTwitterConnection.h"
+#import "NSString+UUID.h"
 
 @implementation SPACESAppDelegate
 
@@ -19,7 +21,9 @@
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    
+	[SpacesTwitterConnection initializeWithDelegate:self];
+	NSString *tweets = [SpacesTwitterConnection getAllSpacesTweets];
+	//[[tweets shouldNot] equal:nil];
     // Override point for customization after application launch.
 
     // Add the view controller's view to the window and display.
