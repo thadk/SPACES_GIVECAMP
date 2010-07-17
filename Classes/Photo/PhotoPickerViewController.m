@@ -34,12 +34,13 @@
  */
 
 
-/*
+
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
- - (void)viewDidLoad {
- [super viewDidLoad];
- }
- */
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+}
+
 
 
 /*

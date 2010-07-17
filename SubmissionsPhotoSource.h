@@ -12,7 +12,11 @@
 @interface SubmissionsPhotoSource : TTThumbsViewController {
 	NSString *tag;
 	SpacesTwitterConnection *twitter;
+	UIView *shade;
 }
+
+-(void)getChallangeSubmission:(NSString*)_tag;
+
 @property(nonatomic,retain)NSString *tag;
 @property(nonatomic,retain)SpacesTwitterConnection *twitter;
 @end

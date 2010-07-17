@@ -40,6 +40,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+
 	twitter = [[SpacesTwitterConnection alloc ]initWithDelegate:self];
 	[twitter getAllSpacesTweets];
 }

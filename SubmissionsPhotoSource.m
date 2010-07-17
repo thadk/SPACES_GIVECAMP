@@ -8,6 +8,7 @@
 
 #import "SubmissionsPhotoSource.h"
 #import "MockPhotoSource.h"
+#import "SBJSON.h"
 
 @implementation SubmissionsPhotoSource
 @synthesize tag;
@@ -29,11 +30,18 @@
 }
 */
 
+-(void)viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBar.tintColor = [UIColor magentaColor];
+	self.navigationBarTintColor = [UIColor magentaColor];
+	self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];	
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  	twitter = [[SpacesTwitterConnection alloc] initWithDelegate:self];
-		[twitter getSubmissionsForTag:@"twitpic"];
+	[self getChallangeSubmission:tag ? : @"SPC097"];
 }
 
 /*
@@ -47,17 +55,50 @@
 #pragma mark -
 #pragma mark CALLBACK
 
-
 - (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier{
+	//int i = 9;
+}
+
+-(void)getChallangeSubmission:(NSString*)_tag{
+	
+	shade = [[UIView alloc] initWithFrame:self.view.frame];
+	shade.backgroundColor = [UIColor blackColor];
+	shade.alpha = 0.7;
+	
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 31/2, self.view.frame.size.height/2 - 31/2, 31, 31)];
+	[spinner startAnimating];
+	[shade addSubview:spinner];
+	[spinner release];
+	[self.view addSubview:shade];
+	
+	NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://bloggedupspaces.org/tweetapp/contestJSON.php?SPChashtag=%@",_tag]]];
+	NSHTTPURLResponse *res = nil;
+ // NSString *url = [NSString stringWithFormat:@"http://bloggedupspaces.org/tweetapp/contestJSON.php?SPChashtag=%@",_tag];
+	NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:nil];
+//	MGTwitterStatusesYAJLParser *parser = [[MGTwitterStatusesYAJLParser alloc] initWithJSON:jsonResults 
+//																																								 delegate:self 
+//																																		 connectionIdentifier:@"m" 
+//																																							requestType:MGTwitterRepliesRequest 
+//																																						 responseType:MGTwitterStatuses 
+//																																											URL:[NSURL URLWithString:url]
+//																																					deliveryOptions:MGTwitterEngineDeliveryAllResultsOption];
+	SBJSON *sb = [[SBJSON alloc]init];
+  NSDictionary *results = [sb objectWithString:[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]];
+	[self statusesReceived:[results objectForKey:@"results"] forRequest:@"m"];
+	//int i =9;
+}
+
+- (void)statusesReceived:(NSArray *)statuses forRequest:(NSString *)connectionIdentifier{
 	NSMutableArray *twitPics = [[NSMutableArray alloc] initWithCapacity:50];
-	for (NSDictionary *cur in searchResults) {
+	for (NSDictionary *cur in statuses) {
 		NSString *text = [cur objectForKey:@"text"];
+		NSLog(@"cur: ---- %@",text);
 		NSError *error = nil;
 		NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"http://(www\\.)?twitpic\\.com/[^ ]+" options:0 error:&error];
 		
 		NSString *link = nil;
 		if(text){
-			NSArray *comps = [regex matchesInString:text options:NSMatchingReportProgress range:NSMakeRange(0, [text length]-1)];
+			NSArray *comps = [regex matchesInString:text options:NSMatchingReportProgress range:NSMakeRange(0, [text length])];
 			if([comps count]){
 				NSRange range = [[comps objectAtIndex:0] range];
 				link = [text substringWithRange:range];
@@ -65,7 +106,7 @@
 		}
 		if (link) {
 			NSString *ID = [link	lastPathComponent];
-
+			
 			NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:cur];
 			
 			NSString *imageFull = [NSString stringWithFormat:@"http://twitpic.com/show/large/%@.png",ID];
@@ -90,6 +131,11 @@
 	self.photoSource = [[MockPhotoSource alloc] initWithType:MockPhotoSourceNormal title:tag ? : @"SPACES" photos:mockPics photos2:mockPics];
 	[self reload];
 	
+	if (shade) {
+		[shade removeFromSuperview];
+		[shade release];
+		shade = 0;
+	}
 }
 
 
