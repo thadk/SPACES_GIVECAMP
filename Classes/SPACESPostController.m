@@ -10,15 +10,13 @@
 #import "PhotoPickerViewController.h"
 #import "LoginViewController.h"
 
-#define kLeftMargin             20.0
-#define kRightMargin            20.0
 #define kToolbarHeight			44.0
 
 @implementation SPACESPostController
 
-@synthesize spacesWebView;
 @synthesize spacesURL;
 @synthesize spacesTag;
+@synthesize spacesWebView;
 @synthesize toolbar;
 
 /*
@@ -39,8 +37,6 @@
 	[super viewDidLoad];
 	
 	CGRect viewBounds = self.view.bounds;
-	
-		
 	CGRect webFrame = CGRectMake(0, 0, viewBounds.size.width, viewBounds.size.height - kToolbarHeight);
 	self.spacesWebView = [[[UIWebView alloc] initWithFrame:webFrame] autorelease];
 	self.spacesWebView.backgroundColor = [UIColor whiteColor];
@@ -51,21 +47,25 @@
 	
 	[self.spacesWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.spacesURL]]];
 	
-	
-	
-	
-	// gigure out the actual location of toolbar
+	// figure out the actual location to place the toolbar
+	// !!! ========================================================== !!!
 	CGRect toolFrame = CGRectMake(0, self.view.frame.size.height - kToolbarHeight-90, viewBounds.size.width, kToolbarHeight);
 	
 	self.toolbar = [[[UIToolbar alloc] initWithFrame:toolFrame] autorelease];
+	UIBarButtonItem *submission = [[UIBarButtonItem alloc] 
+								   initWithTitle:@"Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
+	UIBarButtonItem *submit = [[UIBarButtonItem alloc] 
+							   initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(submitPhoto)];
+	UIBarButtonItem *space = [[UIBarButtonItem alloc] 
+							  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	
-	UIBarButtonItem *submission = [[UIBarButtonItem alloc] initWithTitle:@"Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
-	UIBarButtonItem *submit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(submitPhoto)];
-	UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	[self.toolbar setItems:[NSArray arrayWithObjects:space, submission, submit, space, nil] animated:YES];	
+	[self.toolbar setItems:[NSArray arrayWithObjects:space, submission, submit, space, nil] animated:YES];
+	
+	[submission release];
+	[submit release];
+	[space release];
 	
 	[self.view addSubview:self.toolbar];
-	
 }
 
 /*
@@ -97,6 +97,7 @@
 	[spacesURL release];
 	[spacesTag release];
 	[spacesWebView release];
+	[toolbar release];
     [super dealloc];
 }
 
@@ -130,12 +131,13 @@
 
 
 
-
-
 - (IBAction)submitPhoto {
 	
+	NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+	NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+	
 	//check for user credentials
-	if (YES) {
+	if (username != nil && password != nil) {
 		PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
 		[self.navigationController presentModalViewController:pickerController animated:YES];
 		[pickerController release];

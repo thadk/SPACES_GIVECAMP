@@ -29,16 +29,16 @@
 
 -(NSString*)getAllSpacesTweets
 {
-	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
+	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:200];
 	NSLog(ret,nil);
 	return ret;
 }
 
 -(NSString *) getChallengeTweets
 {
-	NSString *url = @"from%3Aspacesgallery";//
-	NSString *ret = [twitter getSearchResultsForQuery:url];
-//	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:100];
+//	NSString *url = @"from:spacesgallery+#DailyArtDose";
+//	NSString *ret = [twitter getSearchResultsForQuery:url];
+	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:200];
 	NSLog(ret,nil);
 	return ret;
 }
@@ -146,6 +146,10 @@
 -(NSString*)getSubmissionsForTag:(NSString*)_tag{
 
 	return [twitter getSearchResultsForQuery:_tag];
+}
+
+- (NSString *)checkUserCredentials {
+	return [twitter checkUserCredentials];
 }
 
 

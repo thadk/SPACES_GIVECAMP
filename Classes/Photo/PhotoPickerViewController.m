@@ -11,11 +11,7 @@
 
 @implementation PhotoPickerViewController
 
-@synthesize selectImageLabel;
-@synthesize submitButton;
-@synthesize thumbnailView;
 @synthesize thumbnailImage;
-@synthesize photoController;
 
 /*
  // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -136,6 +132,8 @@
 
 
 - (void)dealloc {
+	if (thumbnailImage) [thumbnailImage release], thumbnailImage = nil;
+	
     [super dealloc];
 }
 

@@ -8,6 +8,7 @@
 
 #import "TwitterTableViewController.h"
 #import "SPACESPostController.h"
+#import "CustomSpacesCell.h"
 
 @implementation TwitterTableViewController
 @synthesize statuses,twitter;
@@ -28,14 +29,15 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	format = [[NSDateFormatter alloc] init];
+	[format setDateFormat:@"MMM dd, yyyy HH:mm"];
+	self.title = @"SPACES";
 }
-*/
 
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -88,18 +90,39 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CustomSpacesCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    CustomSpacesCell *cell = (CustomSpacesCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) 
+	{
+		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CustomSpacesCell" owner:nil options:nil];
+		for (id currentObject in topLevelObjects)
+		{
+			if ([currentObject isKindOfClass:[UITableViewCell class]])
+			{
+				cell = (CustomSpacesCell *) currentObject;
+				break;
+			}
+		}
+//		for (int currentObject in topLevelObjects)
+//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...
-    cell.textLabel.text = [[statuses objectAtIndex:indexPath.row] objectForKey:@"text"];
-  	cell.textLabel.font = [UIFont systemFontOfSize:15];
-	  cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-  	cell.textLabel.numberOfLines = 0;
+	
+	NSDictionary* response = [statuses objectAtIndex: indexPath.row];
+	NSNumber *dateNum = [response objectForKey: @"created_at"];
+	NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
+	NSString *dateStr = [format stringFromDate:date];
+	cell.published.text = dateStr;
+	
+    cell.status.text = [response objectForKey: @"text"];
+	
+	
+//    cell.textLabel.text = [[statuses objectAtIndex: indexPath.row] objectForKey: @"text"];
+//  	cell.textLabel.font = [UIFont systemFontOfSize: 15];
+//	cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+//  	cell.textLabel.numberOfLines = 0;
     return cell;
 }
 
@@ -158,13 +181,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	
-	SPACESPostController *detailedViewController = [[SPACESPostController alloc] init];
-	detailedViewController.spacesURL = @"http://apple.com";
-	detailedViewController.spacesTag = @"ABC";
-	
-	// Pass the selected object to the new view controller.
-	[self.navigationController pushViewController:detailedViewController animated:YES];
-	[detailedViewController release];
+//	SPACESPostController *detailedViewController = [[SPACESPostController alloc] init];
+//	detailedViewController.spacesURL = @"http://apple.com";
+//	detailedViewController.spacesTag = @"ABC";
+//	
+//	// Pass the selected object to the new view controller.
+//	[self.navigationController pushViewController:detailedViewController animated:YES];
+//	[detailedViewController release];
 }
 
 #pragma mark -
@@ -181,7 +204,17 @@
 //	
 //}
 - (void)statusesReceived:(NSArray *)_statuses forRequest:(NSString *)connectionIdentifier{
-	 self.statuses = _statuses;
+	NSMutableArray *tempStatuses = [NSMutableArray arrayWithArray: _statuses];
+	for (int i=[tempStatuses count]-1; i>=0; i--) 
+	{
+		NSString *text = [[tempStatuses objectAtIndex: i] objectForKey: @"text"];
+		NSRange range = [text rangeOfString:@"#Daily"];
+		if (range.location != NSNotFound)
+		{
+			[tempStatuses removeObjectAtIndex: i];
+		}
+	}
+	self.statuses = [NSArray arrayWithArray: tempStatuses];
 	[self.tableView reloadData];
 }
 
@@ -205,6 +238,7 @@
 
 
 - (void)dealloc {
+	[format release];
     [super dealloc];
 }
 

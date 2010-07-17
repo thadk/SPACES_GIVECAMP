@@ -21,6 +21,18 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
++ (SPACESAppDelegate *)sharedDelegate {
+	return (SPACESAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
++ (NSString *)twitterAccountName {
+	return @"@galleryspaces";
+}
+
++ (NSString *)twitterChallengePrefix {
+	return @"#spc";
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {  
 	NSLog(@"application");  
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];	
