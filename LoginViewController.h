@@ -24,6 +24,9 @@
 	
 	NSString *username;
 	NSString *password;
+	
+	id successfulLoginObject;
+	SEL successfulLoginSelector;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
@@ -42,6 +45,8 @@
 - (IBAction)twitterSignup;
 - (IBAction)twitterLogin;
 - (IBAction)cancelLogin;
+
+- (void)onSuccessfulLoginPerformSelector:(SEL)selector withObject:(id)anObject;
 
 
 @end

@@ -36,9 +36,12 @@
 	return @"#SPC";
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {  
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	NSLog(@"application");  
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+	
+	twitterCredentialsChecked = NO;
+	networkReachable = NO;
 	
 //	NSString *tweets = [SpacesTwitterConnection getAllSpacesTweets];
 	//[[tweets shouldNot] equal:nil];
@@ -75,6 +78,14 @@
     [self updateStateWithReachability:twitterHostReachability];
 	
 	
+	
+	
+	[NSThread detachNewThreadSelector:@selector(checkTwitterCredentials) toTarget:self withObject:nil];
+	
+	
+	
+	
+	
 	[window makeKeyAndVisible];
 
     return YES;
@@ -102,6 +113,8 @@
 	
 	// network is reachable
 	if (self.networkReachable) {
+		
+		NSLog(@"Network Reachable");
 		[noReachViewController dismissModalViewControllerAnimated:YES];
 	}
 	else {
@@ -117,6 +130,58 @@
 		
 	}
 }
+
+
+-(void) checkTwitterCredentials {
+	NSAutoreleasePool *autoReleasePool = [[NSAutoreleasePool alloc] init];
+	
+	NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+	NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+	
+	SpacesTwitterConnection *twitter = [[SpacesTwitterConnection alloc] initWithDelegate:self];
+	
+	// check for user credentials
+	if (username != nil && password != nil) {
+		
+		while (twitterCredentialsChecked == NO) {
+			if (networkReachable) {
+				
+				NSLog(@"Thread: Start Check Credentials");
+				
+				[twitter setUsername:username andPassword:password];
+				[twitter performSelectorOnMainThread:@selector(checkUserCredentials) withObject:nil waitUntilDone:YES];
+			}
+			
+			[NSThread sleepForTimeInterval:5];
+		}
+		
+	}
+	
+	[twitter release];
+	
+	[autoReleasePool drain];
+}
+
+
+
+- (void)userInfoReceived:(NSArray *)userInfo forRequest:(NSString *)connectionIdentifier {
+	
+	NSDictionary *user = [userInfo objectAtIndex:0];
+	
+	if ([user objectForKey:@"id"] != nil) {
+		NSLog(@"Twitter Credentials Verified and Checked!");
+	}
+	else {
+		NSLog(@"Twitter Credentials Failed but Checked!");
+		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+	}
+	
+	twitterCredentialsChecked = YES;
+	
+}
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

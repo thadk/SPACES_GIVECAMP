@@ -35,6 +35,12 @@
 */
 
 
+- (void)onSuccessfulLoginPerformSelector:(SEL)selector withObject:(id)anObject {
+	successfulLoginObject = [anObject retain];
+	successfulLoginSelector = selector;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -223,6 +229,9 @@
 		
 		dispatch_release(delay_queue);
 		
+		if (successfulLoginObject != nil && successfulLoginSelector != nil) {
+			[successfulLoginObject performSelector:successfulLoginSelector];
+		}
 		
 	}
 	else {
