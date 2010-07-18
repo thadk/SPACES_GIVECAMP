@@ -35,6 +35,7 @@
 	[super viewDidLoad];
 	messageView.layer.cornerRadius=5;
 	messageView.clipsToBounds = YES;
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 }
 
 
