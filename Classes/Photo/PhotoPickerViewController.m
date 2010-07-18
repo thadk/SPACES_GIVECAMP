@@ -7,10 +7,13 @@
 //
 
 #import "PhotoPickerViewController.h"
+#import "SPACESAppDelegate.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 @implementation PhotoPickerViewController
 
+@synthesize challengeIdentifier;
 @synthesize thumbnailImage;
 
 /*
@@ -37,10 +40,10 @@
 	messageView.clipsToBounds = YES;
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 	
-	self.navigationItem.leftBarButtonItem.style = UIBarButtonItemStyleBordered;
-	self.navigationItem.leftBarButtonItem.title = @"Cancel";
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleBordered target:self action:@selector(submit:)];
-	self.navigationItem.rightBarButtonItem.title = @"Submit";
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submit:)];
+
+	[self updateRemainingCharsLabel];
 }
 
 
@@ -127,6 +130,43 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark --- text input delegate methods
+- (int)maxTweetChars {
+	int maxLength = 114 - ([[SPACESAppDelegate twitterAccountName] length] + 1) - ([[SPACESAppDelegate twitterChallengePrefix] length] + 1 + 3);
+	return maxLength;
+}
+
+- (void)updateRemainingCharsLabelWithLength:(int)length {
+	remainingCharsLabel.text = [NSString stringWithFormat:@"%d characters remaining.", [self maxTweetChars] - length];
+	[remainingCharsLabel setNeedsDisplay];	
+}
+
+- (void)updateRemainingCharsLabel {
+	[self updateRemainingCharsLabelWithLength:messageView.text.length];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+	[textView resignFirstResponder];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+	if([text isEqualToString:@"\n"]) {
+		[textView resignFirstResponder];
+		return NO;
+	}
+
+	int maxLength = [self maxTweetChars];
+	
+	if (maxLength > 0 && (textView.text.length + [text length]) > maxLength && range.length == 0) {
+		return NO;
+	}
+
+	[self updateRemainingCharsLabelWithLength:messageView.text.length + text.length];
+	
+	return YES;
+}
+
+
 #pragma mark ---cleanup
 
 - (void)didReceiveMemoryWarning {
@@ -143,6 +183,7 @@
 
 
 - (void)dealloc {
+	if (challengeIdentifier) [challengeIdentifier release], challengeIdentifier = nil;
 	if (thumbnailImage) [thumbnailImage release], thumbnailImage = nil;
 	
     [super dealloc];

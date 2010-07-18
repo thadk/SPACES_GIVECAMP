@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PhotoPickerViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate> {
+@interface PhotoPickerViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextViewDelegate> {
 	IBOutlet UIButton *cancelButton;
 	IBOutlet UIImageView *thumbnailView;
 	IBOutlet UILabel *selectImageLabel;
 	IBOutlet UITextView *messageView;
+	IBOutlet UILabel *remainingCharsLabel;
 	
 	NSString *challengeIdentifier;
 	UIImage *thumbnailImage;
