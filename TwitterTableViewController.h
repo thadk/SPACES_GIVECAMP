@@ -10,13 +10,15 @@
 #import "SpacesTwitterConnection.h"
 
 
-@interface TwitterTableViewController : UITableViewController {
+@interface TwitterTableViewController : UITableViewController<UIActionSheetDelegate> {
 	NSArray *statuses;
 	SpacesTwitterConnection *twitter;
 	NSDateFormatter *format;
 	
 	UIView *shade;
 }
+
+-(void)follow;
 @property(nonatomic,retain)NSArray *statuses;
 @property(nonatomic,retain)SpacesTwitterConnection *twitter;
 @property(nonatomic,retain)UIView *shade;
