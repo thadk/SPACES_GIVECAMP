@@ -33,9 +33,11 @@
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBar.tintColor = [UIColor magentaColor];
+	self.navigationBarStyle = UIBarStyleBlack;
 	self.navigationBarTintColor = [UIColor magentaColor];
-	self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];	
+
+	self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
 }
 
 
