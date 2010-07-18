@@ -63,7 +63,7 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:animationCurve];
-    self.toolbar.frame = CGRectMake(self.toolbar.frame.origin.x, self.toolbar.frame.origin.y - keyboardFrame.size.height,
+    self.toolbar.frame = CGRectMake(self.toolbar.frame.origin.x, self.view.frame.size.height - keyboardFrame.size.height - self.toolbar.frame.size.height,
 									self.toolbar.frame.size.width, self.toolbar.frame.size.height);
     [UIView commitAnimations];
 }
@@ -84,7 +84,7 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:animationCurve];
-    self.toolbar.frame = CGRectMake(self.toolbar.frame.origin.x, self.toolbar.frame.origin.y + keyboardFrame.size.height,
+    self.toolbar.frame = CGRectMake(self.toolbar.frame.origin.x, self.view.frame.size.height - self.toolbar.frame.size.height,
 									self.toolbar.frame.size.width, self.toolbar.frame.size.height);
     [UIView commitAnimations];
 }
