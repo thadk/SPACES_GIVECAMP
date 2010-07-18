@@ -10,7 +10,6 @@
 #import "PhotoPickerViewController.h"
 #import "LoginViewController.h"
 #import "SubmissionsPhotoSource.h"
-#import "SpacesTwitterConnection.h"
 
 #define kToolbarHeight			44.0
 
@@ -21,6 +20,7 @@
 @synthesize spacesWebView;
 @synthesize toolbar;
 @synthesize loadWebIndicatorView;
+@synthesize twitter;
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -118,6 +118,7 @@
 	[spacesTag release];
 	[spacesWebView release];
 	[toolbar release];
+	if (twitter) [twitter release], twitter = nil;
     [super dealloc];
 }
 
@@ -168,7 +169,7 @@
 	if (username != nil && password != nil) {
 		
 		
-		SpacesTwitterConnection *twitter = [[[SpacesTwitterConnection alloc] initWithDelegate:self] autorelease];
+		self.twitter = [[[SpacesTwitterConnection alloc] initWithDelegate:self] autorelease];
 		[twitter setUsername:username andPassword:password];
 		[twitter checkUserCredentials];
 		
@@ -201,7 +202,8 @@
 		
 		PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
 		[self.navigationController pushViewController:pickerController animated:YES];
-//		[self.navigationController presentModalViewController:pickerController animated:YES];
+		pickerController.twitter = twitter;
+		pickerController.challengeIdentifier = spacesTag;
 		[pickerController release];
 		
 	}
