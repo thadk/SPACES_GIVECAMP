@@ -24,6 +24,10 @@
 		4C97259F11F2A5A000BA4EC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C97259E11F2A5A000BA4EC4 /* SystemConfiguration.framework */; };
 		4C9725BD11F2C44F00BA4EC4 /* NoReachabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9725BB11F2C44F00BA4EC4 /* NoReachabilityViewController.m */; };
 		4C9725BE11F2C44F00BA4EC4 /* NoReachabilityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9725BC11F2C44F00BA4EC4 /* NoReachabilityViewController.xib */; };
+		587904CB11F34EE2009A5B34 /* liblibASIHTTPRequest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5879045011F34DE4009A5B34 /* liblibASIHTTPRequest.a */; };
+		5879050611F34FDB009A5B34 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5879050511F34FDB009A5B34 /* CFNetwork.framework */; };
+		5879050E11F35033009A5B34 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5879050D11F35033009A5B34 /* libz.dylib */; };
+		5879051C11F35059009A5B34 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5879051B11F35059009A5B34 /* MobileCoreServices.framework */; };
 		58817C9211F171E60063AE77 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58817C9011F171E60063AE77 /* PhotoPickerViewController.m */; };
 		58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */; };
 		58817E7611F2803E0063AE77 /* spaces_app-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817E7411F2803E0063AE77 /* spaces_app-57.png */; };
@@ -142,6 +146,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5879042111F34C18009A5B34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54 /* ASIHTTPRequest iPhone.app */;
+			remoteInfo = iPhone;
+		};
+		5879042311F34C18009A5B34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B55B60C70F765BB00064029C /* Tests.app */;
+			remoteInfo = Tests;
+		};
+		5879042511F34C18009A5B34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B576D72311C7F34D0059B815 /* ASIHTTPRequest iPad.app */;
+			remoteInfo = iPad;
+		};
+		5879044F11F34DE4009A5B34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5879044711F34DC6009A5B34 /* liblibASIHTTPRequest.a */;
+			remoteInfo = libASIHTTPRequest;
+		};
+		587904C911F34ECC009A5B34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5879044611F34DC6009A5B34 /* libASIHTTPRequest */;
+			remoteInfo = libASIHTTPRequest;
+		};
 		D104309811F14A2D0028C3CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D104308B11F14A2C0028C3CD /* MGTwitterEngine.xcodeproj */;
@@ -308,6 +347,10 @@
 		5879035C11F33DAF009A5B34 /* tab_about.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tab_about.ai; sourceTree = "<group>"; };
 		5879035D11F33DAF009A5B34 /* tab_challenges.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tab_challenges.ai; sourceTree = "<group>"; };
 		5879035E11F33DAF009A5B34 /* tab_spaces.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tab_spaces.ai; sourceTree = "<group>"; };
+		5879041511F34C18009A5B34 /* iPhone.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iPhone.xcodeproj; path = "pokeb-asi-http-request/iPhone.xcodeproj"; sourceTree = "<group>"; };
+		5879050511F34FDB009A5B34 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5879050D11F35033009A5B34 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5879051B11F35059009A5B34 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		58817C8F11F171E60063AE77 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		58817C9011F171E60063AE77 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPickerViewController.xib; sourceTree = "<group>"; };
@@ -517,6 +560,10 @@
 				D1EFD6DB11F1EFBC00C79C31 /* QuartzCore.framework in Frameworks */,
 				D1EFD6E111F1EFDC00C79C31 /* libxml2.dylib in Frameworks */,
 				4C97259F11F2A5A000BA4EC4 /* SystemConfiguration.framework in Frameworks */,
+				587904CB11F34EE2009A5B34 /* liblibASIHTTPRequest.a in Frameworks */,
+				5879050611F34FDB009A5B34 /* CFNetwork.framework in Frameworks */,
+				5879050E11F35033009A5B34 /* libz.dylib in Frameworks */,
+				5879051C11F35059009A5B34 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +613,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5879041511F34C18009A5B34 /* iPhone.xcodeproj */,
 				D1EFDB1711F26CF700C79C31 /* JSON */,
 				D1EFD67011F1EEE100C79C31 /* Dependencies */,
 				D1EFD59111F1E82800C79C31 /* Three20.xcodeproj */,
@@ -579,6 +627,9 @@
 				D19553EA11F15E2E00BE5546 /* Unit Test Bundle-Info.plist */,
 				D1EFD6DA11F1EFBC00C79C31 /* QuartzCore.framework */,
 				D1EFD6E011F1EFDC00C79C31 /* libxml2.dylib */,
+				5879050511F34FDB009A5B34 /* CFNetwork.framework */,
+				5879050D11F35033009A5B34 /* libz.dylib */,
+				5879051B11F35059009A5B34 /* MobileCoreServices.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -646,6 +697,17 @@
 				5879035E11F33DAF009A5B34 /* tab_spaces.ai */,
 			);
 			name = "Original Art Files";
+			sourceTree = "<group>";
+		};
+		5879041611F34C18009A5B34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5879042211F34C18009A5B34 /* ASIHTTPRequest iPhone.app */,
+				5879042411F34C18009A5B34 /* Tests.app */,
+				5879042611F34C18009A5B34 /* ASIHTTPRequest iPad.app */,
+				5879045011F34DE4009A5B34 /* liblibASIHTTPRequest.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		58817C8811F1719A0063AE77 /* Photo */ = {
@@ -951,6 +1013,7 @@
 			dependencies = (
 				D104309D11F14A3A0028C3CD /* PBXTargetDependency */,
 				D1EFD5C811F1E88C00C79C31 /* PBXTargetDependency */,
+				587904CA11F34ECC009A5B34 /* PBXTargetDependency */,
 			);
 			name = SPACES;
 			productName = SPACES;
@@ -987,6 +1050,10 @@
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 5879041611F34C18009A5B34 /* Products */;
+					ProjectRef = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
+				},
 				{
 					ProductGroup = D104308C11F14A2C0028C3CD /* Products */;
 					ProjectRef = D104308B11F14A2C0028C3CD /* MGTwitterEngine.xcodeproj */;
@@ -1029,6 +1096,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5879042211F34C18009A5B34 /* ASIHTTPRequest iPhone.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "ASIHTTPRequest iPhone.app";
+			remoteRef = 5879042111F34C18009A5B34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5879042411F34C18009A5B34 /* Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Tests.app;
+			remoteRef = 5879042311F34C18009A5B34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5879042611F34C18009A5B34 /* ASIHTTPRequest iPad.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "ASIHTTPRequest iPad.app";
+			remoteRef = 5879042511F34C18009A5B34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5879045011F34DE4009A5B34 /* liblibASIHTTPRequest.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibASIHTTPRequest.a;
+			remoteRef = 5879044F11F34DE4009A5B34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D104309911F14A2D0028C3CD /* MGTwitterEngine.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -1311,6 +1406,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		587904CA11F34ECC009A5B34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libASIHTTPRequest;
+			targetProxy = 587904C911F34ECC009A5B34 /* PBXContainerItemProxy */;
+		};
 		D104309D11F14A3A0028C3CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MGTwitterEngineLib;
@@ -1341,6 +1441,7 @@
 				HEADER_SEARCH_PATHS = (
 					three20/Build/Products/three20,
 					"MGTwitterEngine/**",
+					"pokeb-asi-http-request/**",
 				);
 				INFOPLIST_FILE = "SPACES-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
@@ -1362,6 +1463,7 @@
 				HEADER_SEARCH_PATHS = (
 					three20/Build/Products/three20,
 					"MGTwitterEngine/**",
+					"pokeb-asi-http-request/**",
 				);
 				INFOPLIST_FILE = "SPACES-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
