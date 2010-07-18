@@ -45,12 +45,12 @@
 					<object class="IBUIView" id="969204073">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{61, 132}, {198, 226}}</string>
+						<string key="NSFrame">{{60, 131}, {200, 228}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MC4yNQA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace">
+							<bytes key="NSWhite">MC41AA</bytes>
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="680934576">
 								<int key="NSID">2</int>
 							</object>
 						</object>
@@ -110,11 +110,16 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="239132912">
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="403270738">
 								<int key="NSID">1</int>
 							</object>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
+						<object class="NSColor" key="IBUIShadowColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC4yNQA</bytes>
+							<reference key="NSCustomColorSpace" ref="680934576"/>
+						</object>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUINumberOfLines">0</int>
@@ -139,7 +144,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
-					<object class="IBUILabel" id="188563568">
+					<object class="IBUILabel" id="1001817560">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 0}, {280, 15}}</string>
@@ -158,7 +163,7 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
-							<reference key="NSCustomColorSpace" ref="239132912"/>
+							<reference key="NSCustomColorSpace" ref="403270738"/>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -233,7 +238,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">remainingCharsLabel</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="188563568"/>
+						<reference key="destination" ref="1001817560"/>
 					</object>
 					<int key="connectionID">22</int>
 				</object>
@@ -257,7 +262,7 @@
 							<reference ref="880553054"/>
 							<reference ref="753779881"/>
 							<reference ref="969204073"/>
-							<reference ref="188563568"/>
+							<reference ref="1001817560"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -299,7 +304,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
-						<reference key="object" ref="188563568"/>
+						<reference key="object" ref="1001817560"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>

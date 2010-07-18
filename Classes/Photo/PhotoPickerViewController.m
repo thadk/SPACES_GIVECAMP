@@ -13,7 +13,9 @@
 
 @implementation PhotoPickerViewController
 
+@synthesize fullImage;
 @synthesize challengeIdentifier;
+@synthesize twitter;
 @synthesize thumbnailImage;
 
 /*
@@ -59,6 +61,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {
 	
 	// Create a thumbnail version of the image for the event object.
+	self.fullImage = selectedImage;
 	CGSize size = selectedImage.size;
 	CGFloat ratio = 0;
 	if (size.width > size.height) {
@@ -122,6 +125,8 @@
 
 - (IBAction)submit:(id)sender {
 	// TODO: submit image to twitpic
+	NSString *tweetMessage = [NSString stringWithFormat:@"%@ %@ %@", messageView.text, [SPACESAppDelegate twitterAccountName], self.challengeIdentifier];
+	[twitter uploadPicAndPost:self.fullImage andMessage:tweetMessage];
 	
 	[self.navigationController popViewControllerAnimated:YES];
 }
@@ -132,7 +137,7 @@
 
 #pragma mark --- text input delegate methods
 - (int)maxTweetChars {
-	int maxLength = 114 - ([[SPACESAppDelegate twitterAccountName] length] + 1) - ([[SPACESAppDelegate twitterChallengePrefix] length] + 1 + 3);
+	int maxLength = 114 - ([[SPACESAppDelegate twitterAccountName] length] + 1) - ([self.challengeIdentifier length] + 1 + 3);
 	return maxLength;
 }
 
@@ -183,6 +188,7 @@
 
 
 - (void)dealloc {
+	if (fullImage) [fullImage release], fullImage = nil;
 	if (challengeIdentifier) [challengeIdentifier release], challengeIdentifier = nil;
 	if (thumbnailImage) [thumbnailImage release], thumbnailImage = nil;
 	
