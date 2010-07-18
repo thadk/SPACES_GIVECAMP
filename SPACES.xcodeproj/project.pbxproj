@@ -39,7 +39,6 @@
 		D180C5F511F2319F00A5EB5F /* CustomSpacesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */; };
 		D180C6BD11F24E8B00A5EB5F /* CustomChallengesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */; };
 		D180C6BE11F24E8B00A5EB5F /* CustomChallengesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */; };
-		D180C83A11F28B3C00A5EB5F /* gradient2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D180C83911F28B3C00A5EB5F /* gradient2.jpg */; };
 		D180C8E811F2B33900A5EB5F /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D180C8E611F2B33900A5EB5F /* gradient.png */; };
 		D180C8E911F2B33900A5EB5F /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180C8E711F2B33900A5EB5F /* gradient@2x.png */; };
 		D180C9E411F2D4B500A5EB5F /* pink_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D180C9E311F2D4B500A5EB5F /* pink_gradient.png */; };
@@ -308,6 +307,10 @@
 		4C9725BA11F2C44F00BA4EC4 /* NoReachabilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoReachabilityViewController.h; sourceTree = "<group>"; };
 		4C9725BB11F2C44F00BA4EC4 /* NoReachabilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoReachabilityViewController.m; sourceTree = "<group>"; };
 		4C9725BC11F2C44F00BA4EC4 /* NoReachabilityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoReachabilityViewController.xib; sourceTree = "<group>"; };
+		5879035B11F33DAF009A5B34 /* 100717_spaces_app.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 100717_spaces_app.ai; sourceTree = "<group>"; };
+		5879035C11F33DAF009A5B34 /* tab_about.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tab_about.ai; sourceTree = "<group>"; };
+		5879035D11F33DAF009A5B34 /* tab_challenges.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tab_challenges.ai; sourceTree = "<group>"; };
+		5879035E11F33DAF009A5B34 /* tab_spaces.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tab_spaces.ai; sourceTree = "<group>"; };
 		58817C8F11F171E60063AE77 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		58817C9011F171E60063AE77 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPickerViewController.xib; sourceTree = "<group>"; };
@@ -329,7 +332,6 @@
 		D180C6BA11F24E8B00A5EB5F /* CustomChallengesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomChallengesCell.h; sourceTree = "<group>"; };
 		D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomChallengesCell.m; sourceTree = "<group>"; };
 		D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomChallengesCell.xib; sourceTree = "<group>"; };
-		D180C83911F28B3C00A5EB5F /* gradient2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient2.jpg; sourceTree = "<group>"; };
 		D180C8E611F2B33900A5EB5F /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
 		D180C8E711F2B33900A5EB5F /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
 		D180C9E311F2D4B500A5EB5F /* pink_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_gradient.png; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				5879035A11F33D88009A5B34 /* Original Art Files */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				D19553EA11F15E2E00BE5546 /* Unit Test Bundle-Info.plist */,
@@ -616,7 +619,6 @@
 				58817F0B11F292220063AE77 /* Default.png */,
 				58817E7411F2803E0063AE77 /* spaces_app-57.png */,
 				58817E7511F2803E0063AE77 /* spaces_app-114.png */,
-				D180C83911F28B3C00A5EB5F /* gradient2.jpg */,
 				D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */,
 				D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */,
 				2899E5210DE3E06400AC0155 /* SPACESViewController.xib */,
@@ -644,6 +646,17 @@
 				4C97211E11F1EB0500BA4EC4 /* SPACESPostController.m */,
 			);
 			name = Post;
+			sourceTree = "<group>";
+		};
+		5879035A11F33D88009A5B34 /* Original Art Files */ = {
+			isa = PBXGroup;
+			children = (
+				5879035B11F33DAF009A5B34 /* 100717_spaces_app.ai */,
+				5879035C11F33DAF009A5B34 /* tab_about.ai */,
+				5879035D11F33DAF009A5B34 /* tab_challenges.ai */,
+				5879035E11F33DAF009A5B34 /* tab_spaces.ai */,
+			);
+			name = "Original Art Files";
 			sourceTree = "<group>";
 		};
 		58817C8811F1719A0063AE77 /* Photo */ = {
@@ -1169,7 +1182,6 @@
 				58817F1411F2924F0063AE77 /* spaces_app-58.png in Resources */,
 				58817F3511F2955A0063AE77 /* Default4.png in Resources */,
 				4C9725BE11F2C44F00BA4EC4 /* NoReachabilityViewController.xib in Resources */,
-				D180C83A11F28B3C00A5EB5F /* gradient2.jpg in Resources */,
 				D180C8E811F2B33900A5EB5F /* gradient.png in Resources */,
 				D180C8E911F2B33900A5EB5F /* gradient@2x.png in Resources */,
 				D180C9E411F2D4B500A5EB5F /* pink_gradient.png in Resources */,
@@ -1354,6 +1366,10 @@
 				);
 				INFOPLIST_FILE = "SPACES-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = SPACES;
 			};
 			name = Debug;
@@ -1371,6 +1387,10 @@
 				);
 				INFOPLIST_FILE = "SPACES-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = SPACES;
 				VALIDATE_PRODUCT = YES;
 			};

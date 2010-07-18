@@ -12,7 +12,11 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+<<<<<<< HEAD
 			<integer value="56"/>
+=======
+			<integer value="26"/>
+>>>>>>> 77670e5ad789850112111f82d620f5081975ddda
 			<integer value="12"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -64,12 +68,22 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
+<<<<<<< HEAD
 				<object class="IBUIViewController" key="IBUISelectedViewController" id="914843941">
 					<object class="IBUITabBarItem" key="IBUITabBarItem" id="46781348">
 						<string key="IBUITitle">About</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">tab_about.png</string>
+=======
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="39362352">
+					<string key="IBUITitle">Challenges</string>
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="519097183">
+						<string key="IBUITitle">Challenges</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">tab_twitter.png</string>
+>>>>>>> 77670e5ad789850112111f82d620f5081975ddda
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<reference key="IBUITabBar"/>
@@ -81,6 +95,34 @@
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
+<<<<<<< HEAD
+=======
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="550641212">
+						<nil key="NSNextResponder"/>
+						<int key="NSvFlags">256</int>
+						<string key="NSFrameSize">{0, 0}</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIMultipleTouchEnabled">YES</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+					</object>
+					<object class="NSMutableArray" key="IBUIViewControllers">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="IBUIViewController" id="660292535">
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="530549061">
+								<reference key="IBUINavigationBar"/>
+								<string key="IBUITitle">Root View Controller</string>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							</object>
+							<reference key="IBUIParentViewController" ref="39362352"/>
+							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+								<int key="interfaceOrientation">1</int>
+							</object>
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<bool key="IBUIHorizontal">NO</bool>
+						</object>
+					</object>
+>>>>>>> 77670e5ad789850112111f82d620f5081975ddda
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -90,7 +132,7 @@
 							<string key="IBUITitle">SPACES</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">tab_twitter.png</string>
+								<string key="NSResourceName">tab_spaces.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<reference key="IBUITabBar"/>
@@ -127,10 +169,17 @@
 							</object>
 						</object>
 					</object>
+<<<<<<< HEAD
 					<object class="IBUINavigationController" id="39362352">
 						<string key="IBUITitle">Challenges</string>
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="519097183">
 							<string key="IBUITitle">Gawk</string>
+=======
+					<reference ref="39362352"/>
+					<object class="IBUIViewController" id="914843941">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="46781348">
+							<string key="IBUITitle">About</string>
+>>>>>>> 77670e5ad789850112111f82d620f5081975ddda
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab_challenges.png</string>
@@ -851,7 +900,7 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{30, 30}</string>
-				<string>{30, 30}</string>
+				<string>{16, 16}</string>
 				<string>{30, 30}</string>
 			</object>
 		</object>
