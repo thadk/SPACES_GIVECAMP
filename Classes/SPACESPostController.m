@@ -41,6 +41,7 @@
 	CGRect viewBounds = self.view.bounds;
 	CGRect webFrame = CGRectMake(0, 0, viewBounds.size.width, viewBounds.size.height - kToolbarHeight);
 	self.spacesWebView = [[[UIWebView alloc] initWithFrame:webFrame] autorelease];
+	self.spacesWebView.delegate = self;
 	self.spacesWebView.backgroundColor = [UIColor whiteColor];
 	self.spacesWebView.scalesPageToFit = YES;
 	self.spacesWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
@@ -81,11 +82,6 @@
 	[self.view addSubview:self.toolbar];
 }
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    self.spacesWebView.delegate = self;
-}
- */
 
 /*
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -174,9 +170,7 @@
 		LoginViewController *loginViewController = [[LoginViewController alloc] init];
 		[loginViewController onSuccessfulLoginPerformSelector:@selector(showPhotoPickerView) withObject:self];
 		
-		loginViewController.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 		loginViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelLogin)];
-		
 		
 		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
 		[loginViewController release];
