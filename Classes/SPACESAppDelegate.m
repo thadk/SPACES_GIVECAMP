@@ -12,6 +12,7 @@
 #import "NSString+UUID.h"
 #import "Reachability.h"
 #import "NoReachabilityViewController.h"
+#import "Three20/Three20.h"
 
 @implementation SPACESAppDelegate
 
@@ -39,6 +40,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	NSLog(@"application");  
+	[[TTURLRequestQueue mainQueue] setMaxContentLength:0];
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	
 	twitterCredentialsChecked = NO;
