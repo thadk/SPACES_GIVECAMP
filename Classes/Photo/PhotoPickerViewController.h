@@ -21,13 +21,17 @@
 	NSString *challengeIdentifier;
 	SpacesTwitterConnection *twitter;
 	UIImage *thumbnailImage;
+	
+	UIView *shade;
 }
 
 @property (nonatomic, retain) UIImage *fullImage;
 @property (nonatomic, retain) NSString *challengeIdentifier;
 @property (nonatomic, retain) SpacesTwitterConnection *twitter;
 @property (nonatomic, retain) UIImage *thumbnailImage;
+@property (nonatomic, retain) UIView *shade;
 
+-(void) removeShade;
 - (IBAction)submit:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)capture:(id)sender;

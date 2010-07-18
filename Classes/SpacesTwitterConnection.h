@@ -13,6 +13,7 @@
 @interface SpacesTwitterConnection : NSObject 
 {
 	MGTwitterEngine* twitter;
+	id sender;
 
 }
 @property(nonatomic,retain)	MGTwitterEngine* twitter;
@@ -23,7 +24,7 @@
 -(NSString *) getChallengeTweets;
 -(NSString*)getAllSpacesTweets;
 -(NSString*)getSomeSpacesTweets: (int) cnt;
--(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg;
+-(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg sender:(id)sender;
 -(NSString *)checkUserCredentials;
 -(NSString*)getSubmissionsForTag:(NSString*)_tag;
 -(void)followSPACES;

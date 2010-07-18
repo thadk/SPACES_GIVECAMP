@@ -119,7 +119,16 @@
 	
 	NSMutableArray *mockPics = [NSMutableArray arrayWithCapacity:20];
 	for(NSDictionary *cur in twitPics){
-		MockPhoto *photo = [[MockPhoto alloc] initWithURL:[cur objectForKey:@"spaces_full_images_path"] smallURL:[cur objectForKey:@"spaces_thumb_images_path"] size:CGSizeZero];
+		NSString *username = [[cur objectForKey:@"user"] objectForKey:@"name"];
+		NSString *text = [[cur objectForKey:@"text"] stringByReplacingOccurrencesOfString:@"@spacesgallery" withString:@" "];
+		NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"#SPC[0-9][0-9][0-9]" options:NSRegularExpressionCaseInsensitive  error:nil];
+		text = [regex stringByReplacingMatchesInString:text options:NSMatchingReportProgress range:NSMakeRange(0, [text length]) withTemplate:@" "];
+		regex = [NSRegularExpression regularExpressionWithPattern:@"http://[^ ]+" options:NSRegularExpressionCaseInsensitive  error:nil];
+		text = [regex stringByReplacingMatchesInString:text options:NSMatchingReportProgress range:NSMakeRange(0, [text length]) withTemplate:@" "];
+		text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		NSString *caption = [NSString stringWithFormat:@"Image From:%@ \n\n %@",username,text];
+		//MockPhoto *photo = [[MockPhoto alloc] initWithURL:[cur objectForKey:@"spaces_full_images_path"] smallURL:[cur objectForKey:@"spaces_thumb_images_path"] size:CGSizeZero];
+		MockPhoto *photo = [[MockPhoto alloc] initWithURL:[cur objectForKey:@"spaces_full_images_path"]  smallURL:[cur objectForKey:@"spaces_thumb_images_path"] size:CGSizeZero caption:caption];
 		[mockPics addObject:photo];
 		[photo release];
 	}

@@ -24,6 +24,7 @@
 @synthesize challengeIdentifier;
 @synthesize twitter;
 @synthesize thumbnailImage;
+@synthesize shade;
 
 /*
  // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -53,6 +54,27 @@
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submit:)];
 
 	[self updateRemainingCharsLabel];
+	
+	self.shade = [[UIView alloc] initWithFrame:self.view.frame];
+	shade.backgroundColor = [UIColor blackColor];
+	shade.alpha = 0.7;
+	
+	
+	CGRect t = shade.frame;
+	t.origin.y = 0;
+	shade.frame = t;
+	
+	
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	CGRect f = spinner.frame;
+	f.origin.x = self.view.frame.size.width /2 - f.size.width/2;
+	f.origin.y = self.view.frame.size.height /2 - f.size.height/2 - 20;
+	spinner.frame = f;
+	[spinner startAnimating];
+	[shade addSubview:spinner];
+	[spinner release];  
+	
+	
 }
 
 
@@ -66,6 +88,9 @@
  */
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {
+	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+		UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+	}
 	
 	// Create a thumbnail version of the image for the event object.
 	self.fullImage = selectedImage;
@@ -121,21 +146,22 @@
 }
 
 - (IBAction)capture:(id)sender {
+	[messageView resignFirstResponder];
+
 	UIActionSheet *sourceActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Photo Source"
 																   delegate:self
 														  cancelButtonTitle:@"Cancel" 
 													 destructiveButtonTitle:nil 
 														  otherButtonTitles:@"Take New Photo", @"Use Existing Photo", nil];
-	[sourceActionSheet showInView:self.view];
+	[sourceActionSheet showFromTabBar:[SPACESAppDelegate sharedDelegate].tabBar];
 	[sourceActionSheet release];
 }
 
 - (IBAction)submit:(id)sender {
 	// TODO: submit image to twitpic
 	NSString *tweetMessage = [NSString stringWithFormat:@"%@ %@ %@", messageView.text, [SPACESAppDelegate twitterAccountName], self.challengeIdentifier];
-	[twitter uploadPicAndPost:self.fullImage andMessage:tweetMessage];
-	
-	[self.navigationController popViewControllerAnimated:YES];
+	[self.view addSubview:shade];
+	[twitter uploadPicAndPost:self.fullImage andMessage:tweetMessage sender:self ];	
 }
 
 - (IBAction)cancel:(id)sender {
@@ -178,6 +204,11 @@
 	return YES;
 }
 
+-(void) removeShade{	
+	[shade removeFromSuperview];
+	[[self navigationController] popViewControllerAnimated:YES];
+}
+
 
 #pragma mark ---cleanup
 
@@ -198,7 +229,7 @@
 	if (fullImage) [fullImage release], fullImage = nil;
 	if (challengeIdentifier) [challengeIdentifier release], challengeIdentifier = nil;
 	if (thumbnailImage) [thumbnailImage release], thumbnailImage = nil;
-	
+	if (shade) [shade release], shade = nil;
     [super dealloc];
 }
 
