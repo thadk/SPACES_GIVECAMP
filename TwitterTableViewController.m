@@ -106,7 +106,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
 	NSLog(@"Rows %d", [statuses count]);
-    return [statuses count] + 1;
+    return ([statuses count] >= 5) ? ([statuses count] + 1) : 6;
 }
 
 
@@ -130,15 +130,16 @@
     }
     
     // Configure the cell...
-	
-    if (indexPath.row == [statuses count])
+	cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+	cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+	if (indexPath.row == [statuses count])
 	{
 		cell.published.text = @"";
 		cell.status.text = @"   LOAD MORE...";
 		cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"pink_gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
 		cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"pink_gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
 	}
-	else
+	else if(indexPath.row < [statuses count])
 	{
 		NSDictionary* response = [statuses objectAtIndex: indexPath.row];
 		NSNumber *dateNum = [response objectForKey: @"created_at"];
@@ -146,8 +147,6 @@
 		NSString *dateStr = [format stringFromDate:date];
 		cell.published.text = dateStr;		
 		cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-		cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
-		cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
 	}
 	[cell setBackgroundColor:[UIColor clearColor]];
 	
@@ -163,6 +162,11 @@
 		calcSize = [@"   LOAD MORE..." sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
 		return 44;
 	}
+	else if (indexPath.row >= [statuses count])
+	{
+		return 85;
+	}
+
 	else
 	{
 		 calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] 
