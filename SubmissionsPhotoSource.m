@@ -85,6 +85,7 @@
 - (void)statusesReceived:(NSArray *)statuses forRequest:(NSString *)connectionIdentifier{
 	NSMutableArray *twitPics = [[NSMutableArray alloc] initWithCapacity:50];
 	for (NSDictionary *cur in statuses) {
+		if (![cur isKindOfClass:[NSDictionary class]])continue;
 		NSString *text = [cur objectForKey:@"text"];
 		NSLog(@"cur: ---- %@",text);
 		NSError *error = nil;
