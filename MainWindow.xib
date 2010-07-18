@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="41"/>
+			<integer value="26"/>
 			<integer value="12"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -64,13 +64,13 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="810086912">
-					<string key="IBUITitle">SPACES</string>
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="425189274">
-						<string key="IBUITitle">SPACES</string>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="39362352">
+					<string key="IBUITitle">Challenges</string>
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="519097183">
+						<string key="IBUITitle">Challenges</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">tab_spaces.png</string>
+							<string key="NSResourceName">tab_twitter.png</string>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<reference key="IBUITabBar"/>
@@ -82,7 +82,7 @@
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="850024018">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="550641212">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{0, 0}</string>
@@ -93,13 +93,13 @@
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="826219200">
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="703085223">
+						<object class="IBUIViewController" id="660292535">
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="530549061">
 								<reference key="IBUINavigationBar"/>
 								<string key="IBUITitle">Root View Controller</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="810086912"/>
+							<reference key="IBUIParentViewController" ref="39362352"/>
 							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 								<int key="interfaceOrientation">1</int>
 							</object>
@@ -110,14 +110,13 @@
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<reference ref="810086912"/>
-					<object class="IBUINavigationController" id="39362352">
-						<string key="IBUITitle">Challenges</string>
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="519097183">
-							<string key="IBUITitle">Gawk</string>
+					<object class="IBUINavigationController" id="810086912">
+						<string key="IBUITitle">SPACES</string>
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="425189274">
+							<string key="IBUITitle">SPACES</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">tab_twitter.png</string>
+								<string key="NSResourceName">tab_spaces.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<reference key="IBUITabBar"/>
@@ -129,7 +128,7 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIHorizontal">NO</bool>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="550641212">
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="850024018">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{0, 0}</string>
@@ -140,12 +139,12 @@
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="660292535">
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="530549061">
+							<object class="IBUIViewController" id="826219200">
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="703085223">
 									<string key="IBUITitle">Root View Controller</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
-								<reference key="IBUIParentViewController" ref="39362352"/>
+								<reference key="IBUIParentViewController" ref="810086912"/>
 								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 									<int key="interfaceOrientation">1</int>
 								</object>
@@ -154,6 +153,7 @@
 							</object>
 						</object>
 					</object>
+					<reference ref="39362352"/>
 					<object class="IBUIViewController" id="914843941">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="46781348">
 							<string key="IBUITitle">About</string>
@@ -842,7 +842,7 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{30, 30}</string>
-				<string>{30, 30}</string>
+				<string>{16, 16}</string>
 				<string>{30, 30}</string>
 			</object>
 		</object>
