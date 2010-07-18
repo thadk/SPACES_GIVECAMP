@@ -153,35 +153,35 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 1D6058910D05DD3D006BFB54 /* ASIHTTPRequest iPhone.app */;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
 			remoteInfo = iPhone;
 		};
 		5879042311F34C18009A5B34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = B55B60C70F765BB00064029C /* Tests.app */;
+			remoteGlobalIDString = B55B60C70F765BB00064029C;
 			remoteInfo = Tests;
 		};
 		5879042511F34C18009A5B34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = B576D72311C7F34D0059B815 /* ASIHTTPRequest iPad.app */;
+			remoteGlobalIDString = B576D72311C7F34D0059B815;
 			remoteInfo = iPad;
 		};
 		5879044F11F34DE4009A5B34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 5879044711F34DC6009A5B34 /* liblibASIHTTPRequest.a */;
+			remoteGlobalIDString = 5879044711F34DC6009A5B34;
 			remoteInfo = libASIHTTPRequest;
 		};
 		587904C911F34ECC009A5B34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5879041511F34C18009A5B34 /* iPhone.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 5879044611F34DC6009A5B34 /* libASIHTTPRequest */;
+			remoteGlobalIDString = 5879044611F34DC6009A5B34;
 			remoteInfo = libASIHTTPRequest;
 		};
 		D104309811F14A2D0028C3CD /* PBXContainerItemProxy */ = {
