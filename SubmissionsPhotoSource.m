@@ -71,17 +71,9 @@
 	[spinner release];
 	[self.view addSubview:shade];
 	
-	NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://bloggedupspaces.org/tweetapp/contestJSON.php?SPChashtag=%@",_tag]]];
+	NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://bloggedupspaces.org/tweetapp/submissionJSON.php?SPChashtag=%@",_tag]]];
 	NSHTTPURLResponse *res = nil;
- // NSString *url = [NSString stringWithFormat:@"http://bloggedupspaces.org/tweetapp/contestJSON.php?SPChashtag=%@",_tag];
 	NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:nil];
-//	MGTwitterStatusesYAJLParser *parser = [[MGTwitterStatusesYAJLParser alloc] initWithJSON:jsonResults 
-//																																								 delegate:self 
-//																																		 connectionIdentifier:@"m" 
-//																																							requestType:MGTwitterRepliesRequest 
-//																																						 responseType:MGTwitterStatuses 
-//																																											URL:[NSURL URLWithString:url]
-//																																					deliveryOptions:MGTwitterEngineDeliveryAllResultsOption];
 	SBJSON *sb = [[SBJSON alloc]init];
   NSDictionary *results = [sb objectWithString:[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]];
 	[self statusesReceived:[results objectForKey:@"results"] forRequest:@"m"];

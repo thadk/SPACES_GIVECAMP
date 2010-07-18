@@ -16,7 +16,7 @@
 }
 
 -(void)getChallangeSubmission:(NSString*)_tag;
-
+- (id)initWithTwitterTag:(NSString*)_tag;
 @property(nonatomic,retain)NSString *tag;
 @property(nonatomic,retain)SpacesTwitterConnection *twitter;
 @end

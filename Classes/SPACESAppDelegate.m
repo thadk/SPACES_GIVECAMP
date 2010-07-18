@@ -30,7 +30,7 @@
 }
 
 + (NSString *)twitterChallengePrefix {
-	return @"#spc";
+	return @"#SPC";
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {  
