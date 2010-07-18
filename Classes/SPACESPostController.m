@@ -120,7 +120,6 @@
 	[spacesTag release];
 	[spacesWebView release];
 	[toolbar release];
-	if (twitter) [twitter release], twitter = nil;
     [super dealloc];
 }
 

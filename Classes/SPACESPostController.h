@@ -15,17 +15,12 @@
 	NSString *spacesTag;
 	UIWebView *spacesWebView;
 	UIToolbar *toolbar;
-	SpacesTwitterConnection *twitter;
-	
-	UIActivityIndicatorView *loadWebIndicatorView;
 }
 
 @property (nonatomic, retain) IBOutlet NSString *spacesURL;
 @property (nonatomic, retain) IBOutlet NSString *spacesTag;
 @property (nonatomic, retain) IBOutlet UIWebView *spacesWebView;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadWebIndicatorView;
-@property (nonatomic, retain) SpacesTwitterConnection *twitter;
 
 - (IBAction)submitPhoto;
 - (void)showPhotoPickerView;
