@@ -10,12 +10,15 @@
 #import "SPACESViewController.h"
 #import "SpacesTwitterConnection.h"
 #import "NSString+UUID.h"
+#import "Reachability.h"
+#import "NoReachabilityViewController.h"
 
 @implementation SPACESAppDelegate
 
 @synthesize window;
 @synthesize viewController;
 @synthesize tabController;
+@synthesize networkReachable;
 
 
 #pragma mark -
@@ -50,12 +53,69 @@
 //	[SpacesTwitterConnection uploadPicAndPost:pic andMessage:msg];
 //	NSLog(@"done");
 	
+	
 
     // Add the view controller's view to the window and display.
     [window addSubview:viewController.view];
-    [window makeKeyAndVisible];
+	
+	
+	
+	noReachViewController = [[NoReachabilityViewController alloc] init];
+	
+    
+	
+	// Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the
+    // method "reachabilityChanged" will be called.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:)
+												 name:kReachabilityChangedNotification object:nil];
+	
+    // Monitoring Twitter
+    twitterHostReachability = [[Reachability reachabilityWithHostName:@"www.twitter.com"] retain];
+    [twitterHostReachability startNotifier];
+    [self updateStateWithReachability:twitterHostReachability];
+	
+	
+	[window makeKeyAndVisible];
 
     return YES;
+}
+
+
+
+// Called by Reachability whenever status changes.
+- (void) reachabilityChanged:(NSNotification* )note {
+	
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    [self updateStateWithReachability:curReach];
+}
+
+
+- (void) updateStateWithReachability: (Reachability*) curReach {
+	
+    if (curReach == twitterHostReachability) {
+        
+		NetworkStatus netStatus = [curReach currentReachabilityStatus];
+        self.networkReachable = (netStatus != NotReachable);
+		
+    }
+	
+	// network is reachable
+	if (self.networkReachable) {
+		[noReachViewController dismissModalViewControllerAnimated:YES];
+	}
+	else {
+		// present modal view
+		 
+		if (window.rootViewController.modalViewController != nil) {
+			[window.rootViewController.modalViewController presentModalViewController:noReachViewController animated:YES];
+		}
+		else {
+			
+			[window.rootViewController presentModalViewController:noReachViewController animated:YES];
+		}
+		
+	}
 }
 
 
@@ -110,6 +170,8 @@
 - (void)dealloc {
     [viewController release];
     [window release];
+	[noReachViewController release];
+	[twitterHostReachability release];
     [super dealloc];
 }
 

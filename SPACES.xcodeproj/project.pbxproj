@@ -20,6 +20,10 @@
 		4C97221B11F202BF00BA4EC4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C97221911F202BF00BA4EC4 /* LoginViewController.xib */; };
 		4C97241311F2525700BA4EC4 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97241111F2525700BA4EC4 /* SignupViewController.m */; };
 		4C97241411F2525700BA4EC4 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C97241211F2525700BA4EC4 /* SignupViewController.xib */; };
+		4C97258A11F2A3CA00BA4EC4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97258911F2A3CA00BA4EC4 /* Reachability.m */; };
+		4C97259F11F2A5A000BA4EC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C97259E11F2A5A000BA4EC4 /* SystemConfiguration.framework */; };
+		4C9725BD11F2C44F00BA4EC4 /* NoReachabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9725BB11F2C44F00BA4EC4 /* NoReachabilityViewController.m */; };
+		4C9725BE11F2C44F00BA4EC4 /* NoReachabilityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9725BC11F2C44F00BA4EC4 /* NoReachabilityViewController.xib */; };
 		58817C9211F171E60063AE77 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58817C9011F171E60063AE77 /* PhotoPickerViewController.m */; };
 		58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */; };
 		58817E7611F2803E0063AE77 /* spaces_app-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817E7411F2803E0063AE77 /* spaces_app-57.png */; };
@@ -290,6 +294,12 @@
 		4C97241011F2525700BA4EC4 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		4C97241111F2525700BA4EC4 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		4C97241211F2525700BA4EC4 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		4C97258811F2A3CA00BA4EC4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4C97258911F2A3CA00BA4EC4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4C97259E11F2A5A000BA4EC4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4C9725BA11F2C44F00BA4EC4 /* NoReachabilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoReachabilityViewController.h; sourceTree = "<group>"; };
+		4C9725BB11F2C44F00BA4EC4 /* NoReachabilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoReachabilityViewController.m; sourceTree = "<group>"; };
+		4C9725BC11F2C44F00BA4EC4 /* NoReachabilityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoReachabilityViewController.xib; sourceTree = "<group>"; };
 		58817C8F11F171E60063AE77 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		58817C9011F171E60063AE77 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPickerViewController.xib; sourceTree = "<group>"; };
@@ -494,6 +504,7 @@
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				D1EFD6DB11F1EFBC00C79C31 /* QuartzCore.framework in Frameworks */,
 				D1EFD6E111F1EFDC00C79C31 /* libxml2.dylib in Frameworks */,
+				4C97259F11F2A5A000BA4EC4 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +523,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C97258811F2A3CA00BA4EC4 /* Reachability.h */,
+				4C97258911F2A3CA00BA4EC4 /* Reachability.m */,
 				4C97211C11F1EAD800BA4EC4 /* Post */,
 				58817C8811F1719A0063AE77 /* Photo */,
 				D19554A511F15E6B00BE5546 /* Tests */,
@@ -522,6 +535,9 @@
 				28D7ACF70DDB3853001CB0EB /* SPACESViewController.m */,
 				D195562811F16CBF00BE5546 /* NSString+UUID.h */,
 				D195562911F16CBF00BE5546 /* NSString+UUID.m */,
+				4C9725BA11F2C44F00BA4EC4 /* NoReachabilityViewController.h */,
+				4C9725BB11F2C44F00BA4EC4 /* NoReachabilityViewController.m */,
+				4C9725BC11F2C44F00BA4EC4 /* NoReachabilityViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -590,6 +606,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				4C97259E11F2A5A000BA4EC4 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1117,6 +1134,7 @@
 				58817F1311F2924F0063AE77 /* spaces_app-29.png in Resources */,
 				58817F1411F2924F0063AE77 /* spaces_app-58.png in Resources */,
 				58817F3511F2955A0063AE77 /* Default4.png in Resources */,
+				4C9725BE11F2C44F00BA4EC4 /* NoReachabilityViewController.xib in Resources */,
 				D180C83A11F28B3C00A5EB5F /* gradient2.jpg in Resources */,
 				D180C8E811F2B33900A5EB5F /* gradient.png in Resources */,
 				D180C8E911F2B33900A5EB5F /* gradient@2x.png in Resources */,
@@ -1177,6 +1195,8 @@
 				D1EFDB2E11F26CF700C79C31 /* SBJsonBase.m in Sources */,
 				D1EFDB2F11F26CF700C79C31 /* SBJsonParser.m in Sources */,
 				D1EFDB3011F26CF700C79C31 /* SBJsonWriter.m in Sources */,
+				4C97258A11F2A3CA00BA4EC4 /* Reachability.m in Sources */,
+				4C9725BD11F2C44F00BA4EC4 /* NoReachabilityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
