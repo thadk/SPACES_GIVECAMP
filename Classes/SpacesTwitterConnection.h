@@ -26,4 +26,5 @@
 -(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg;
 -(NSString *)checkUserCredentials;
 -(NSString*)getSubmissionsForTag:(NSString*)_tag;
+-(void)followSPACES;
 @end
