@@ -66,8 +66,10 @@
 	[self.view addSubview:shade];
 }
 -(void)getData{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
 	twitter = [[SpacesTwitterConnection alloc ]initWithDelegate:self];
 	[twitter performSelectorOnMainThread:@selector(getAllSpacesTweets) withObject:nil waitUntilDone:NO];
+	[pool drain];
 }
 
 /*
@@ -293,6 +295,7 @@
 
 - (void)dealloc {
 	[format release];
+	if(twitter)[twitter release];
     [super dealloc];
 }
 
