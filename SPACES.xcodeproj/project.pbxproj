@@ -27,6 +27,9 @@
 		D180C5F511F2319F00A5EB5F /* CustomSpacesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */; };
 		D180C6BD11F24E8B00A5EB5F /* CustomChallengesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */; };
 		D180C6BE11F24E8B00A5EB5F /* CustomChallengesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */; };
+		D180C83A11F28B3C00A5EB5F /* gradient2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D180C83911F28B3C00A5EB5F /* gradient2.jpg */; };
+		D180C8E811F2B33900A5EB5F /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D180C8E611F2B33900A5EB5F /* gradient.png */; };
+		D180C8E911F2B33900A5EB5F /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180C8E711F2B33900A5EB5F /* gradient@2x.png */; };
 		D19554A811F15F0300BE5546 /* Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554A711F15F0300BE5546 /* Spec.m */; };
 		D195552B11F15F5900BE5546 /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B211F15F5900BE5546 /* KWAfterAllNode.m */; };
 		D195552C11F15F5900BE5546 /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B411F15F5900BE5546 /* KWAfterEachNode.m */; };
@@ -275,6 +278,9 @@
 		D180C6BA11F24E8B00A5EB5F /* CustomChallengesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomChallengesCell.h; sourceTree = "<group>"; };
 		D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomChallengesCell.m; sourceTree = "<group>"; };
 		D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomChallengesCell.xib; sourceTree = "<group>"; };
+		D180C83911F28B3C00A5EB5F /* gradient2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient2.jpg; sourceTree = "<group>"; };
+		D180C8E611F2B33900A5EB5F /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
+		D180C8E711F2B33900A5EB5F /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
 		D19553E911F15E2E00BE5546 /* Unit Test Bundle.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Test Bundle.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19553EA11F15E2E00BE5546 /* Unit Test Bundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Test Bundle-Info.plist"; sourceTree = "<group>"; };
 		D19554A711F15F0300BE5546 /* Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spec.m; sourceTree = "<group>"; };
@@ -509,6 +515,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D180C83911F28B3C00A5EB5F /* gradient2.jpg */,
 				D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */,
 				D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */,
 				2899E5210DE3E06400AC0155 /* SPACESViewController.xib */,
@@ -559,6 +566,8 @@
 		D180C18011F14F9300A5EB5F /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				D180C8E611F2B33900A5EB5F /* gradient.png */,
+				D180C8E711F2B33900A5EB5F /* gradient@2x.png */,
 				D1EFD62611F1EBC800C79C31 /* Three20.bundle */,
 				D180C17D11F14F8700A5EB5F /* SpacesTwitterConnection.h */,
 				D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */,
@@ -1017,6 +1026,9 @@
 				4C97221B11F202BF00BA4EC4 /* LoginViewController.xib in Resources */,
 				D180C5F511F2319F00A5EB5F /* CustomSpacesCell.xib in Resources */,
 				D180C6BE11F24E8B00A5EB5F /* CustomChallengesCell.xib in Resources */,
+				D180C83A11F28B3C00A5EB5F /* gradient2.jpg in Resources */,
+				D180C8E811F2B33900A5EB5F /* gradient.png in Resources */,
+				D180C8E911F2B33900A5EB5F /* gradient@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

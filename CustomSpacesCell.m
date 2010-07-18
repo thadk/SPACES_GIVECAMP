@@ -23,12 +23,13 @@
 }
 */
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void) layoutSubviews 
+{	
+    [super layoutSubviews];
+    self.status.frame = CGRectMake(10, 10, 300, self.frame.size.height-25);
+	self.status.numberOfLines = 0;
+	self.published.frame = CGRectMake(50, self.frame.size.height-20, 260, 20);		
 }
-*/
 
 /*
 // Override to allow orientations other than the default portrait orientation.

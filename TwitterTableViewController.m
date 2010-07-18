@@ -105,6 +105,12 @@
 //		for (int currentObject in topLevelObjects)
 //        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+	else {
+//		CGRect f = cell.frame;
+//		f.size.height = [self tableView: tableView heightForRowAtIndexPath: indexPath];
+//		cell.frame = f;
+	}
+
     
     // Configure the cell...
 	
@@ -114,22 +120,26 @@
 	NSString *dateStr = [format stringFromDate:date];
 	cell.published.text = dateStr;
 	
-    cell.status.text = [response objectForKey: @"text"];
+    cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+	cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
 	
+	[cell setBackgroundColor:[UIColor clearColor]];
 	
-//    cell.textLabel.text = [[statuses objectAtIndex: indexPath.row] objectForKey: @"text"];
-//  	cell.textLabel.font = [UIFont systemFontOfSize: 15];
+//  cell.textLabel.text = [[statuses objectAtIndex: indexPath.row] objectForKey: @"text"];
+//  cell.textLabel.font = [UIFont systemFontOfSize: 15];
 //	cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-//  	cell.textLabel.numberOfLines = 0;
+//  cell.textLabel.numberOfLines = 0;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UIFont *font = [UIFont boldSystemFontOfSize:15];
-	CGSize size = CGSizeMake([[self tableView] frame].size.width - 20.0, FLT_MAX);
+	UIFont *font = [UIFont fontWithName:@"Helvetica" size:13.0f];
+	CGSize size = CGSizeMake([[self tableView] frame].size.width - 40.0, FLT_MAX);
 	CGSize calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
-
-	return calcSize.height;
+//	
+	return calcSize.height + 35;
+//    return [indexPath row] * 1.5 + 20;
 }
 
 
