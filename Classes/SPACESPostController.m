@@ -52,19 +52,20 @@
 	
 	// figure out the actual location to place the toolbar
 	// !!! ========================================================== !!!
-	CGRect toolFrame = CGRectMake(0, self.view.frame.size.height - kToolbarHeight-90, viewBounds.size.width, kToolbarHeight);
+	CGRect toolFrame = CGRectMake(0, self.view.frame.size.height - kToolbarHeight-105, viewBounds.size.width, kToolbarHeight+15);
 	
 	self.toolbar = [[[UIToolbar alloc] initWithFrame:toolFrame] autorelease];
 	self.toolbar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 
 	UIBarButtonItem *submission = [[UIBarButtonItem alloc] 
-								   initWithTitle:@"Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
+								   initWithTitle:@"View Other People's Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
 	UIBarButtonItem *submit = [[UIBarButtonItem alloc] 
-							   initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(submitPhoto)];
+							   initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submitPhoto)];
+	self.navigationItem.rightBarButtonItem = submit;
 	UIBarButtonItem *space = [[UIBarButtonItem alloc] 
 							  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	
-	[self.toolbar setItems:[NSArray arrayWithObjects:space, submission, submit, space, nil] animated:YES];
+	[self.toolbar setItems:[NSArray arrayWithObjects:space,submission,space,nil] animated:YES];
 	
 	[submission release];
 	[submit release];
@@ -72,7 +73,6 @@
 	
 	
 	self.loadWebIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:loadWebIndicatorView] autorelease];
 	[self.loadWebIndicatorView release];
 	
 	[self.loadWebIndicatorView startAnimating];
@@ -176,6 +176,7 @@
 	else {
 		LoginViewController *loginViewController = [[LoginViewController alloc] init];
 		
+		loginViewController.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 		loginViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelLogin)];
 		
 		
@@ -199,7 +200,8 @@
 	if ([user objectForKey:@"id"] != nil) {
 		
 		PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
-		[self.navigationController presentModalViewController:pickerController animated:YES];
+		[self.navigationController pushViewController:pickerController animated:YES];
+//		[self.navigationController presentModalViewController:pickerController animated:YES];
 		[pickerController release];
 		
 	}

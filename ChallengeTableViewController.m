@@ -12,7 +12,7 @@
 #import "CustomChallengesCell.h"
 #import "SBJSON.h"
 @implementation ChallengeTableViewController
-@synthesize statuses, twitter;
+@synthesize statuses, twitter, shade;
 
 #pragma mark -
 #pragma mark Initialization
@@ -38,21 +38,44 @@
 	format = [[NSDateFormatter alloc] init];
 	[format setDateFormat:@"MMM dd, yyyy HH:mm"];
 	self.title = @"Challenges";
-
+	self.statuses = [NSArray array];
+	
+	self.shade = [[UIView alloc] initWithFrame:self.view.frame];
+	shade.backgroundColor = [UIColor blackColor];
+	shade.alpha = 0.7;
+	
+	CGRect t = shade.frame;
+	t.origin.y = 0;
+	shade.frame = t;
+	
+	
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	CGRect f = spinner.frame;
+	f.origin.x = self.view.frame.size.width /2 - f.size.width/2;
+	f.origin.y = self.view.frame.size.height /2 - f.size.height/2 - 50;
+	spinner.frame = f;
+	[spinner startAnimating];
+	[shade addSubview:spinner];
+	[spinner release];  
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
-
+	[self performSelectorInBackground:@selector(getData) withObject:nil];
+	[self.view addSubview:shade];
+}
+-(void)getData{
+	
 	NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://bloggedupspaces.org/tweetapp/announcementJSON.php"]];
 	NSHTTPURLResponse *res = nil;
 	NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:nil];
 	SBJSON *sb = [[SBJSON alloc]init];
 	NSDictionary *results = [sb objectWithString:[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]];
 	self.statuses = [results objectForKey:@"results"];
-	
+	[self.tableView reloadData];
+	[shade removeFromSuperview];
 }
 
 /*
@@ -90,7 +113,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [statuses count];
+	int ret = ([statuses count] >= 6) ? [statuses count] : 6;
+    return ret;
 }
 
 // Customize the appearance of table view cells.
@@ -114,33 +138,51 @@
 			//		for (int currentObject in topLevelObjects)
 			//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
-		else {
-			//		CGRect f = cell.frame;
-			//		f.size.height = [self tableView: tableView heightForRowAtIndexPath: indexPath];
-			//		cell.frame = f;
-		}
-		
-		
-		// Configure the cell...
+		//		for (int currentObject in topLevelObjects)
+		//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+	else {
+				CGRect f = cell.frame;
+				f.size.height = [self tableView: tableView heightForRowAtIndexPath: indexPath];
+				cell.frame = f;
+	}
+	
+    
+    // Configure the cell...
+	
+	cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+	cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+	
+	if (indexPath.row < [statuses count]) {
 		NSDictionary* response = [statuses objectAtIndex: indexPath.row];
+		cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 		NSNumber *dateNum = [response objectForKey: @"created_at"];
 		NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
 		NSString *dateStr = [format stringFromDate:date];
-		cell.published.text = dateStr;		
-		cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-	cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
-	cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
-	[cell setBackgroundColor:[UIColor clearColor]];
-    return cell;
+		cell.published.text = dateStr;
+			
+		[cell setBackgroundColor:[UIColor clearColor]];
+		cell.published.text = dateStr;
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+	return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	UIFont *font = [UIFont fontWithName:@"Helvetica" size:13.0f];
-	CGSize size = CGSizeMake([[self tableView] frame].size.width - 40.0, FLT_MAX);
-	CGSize calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
-	return calcSize.height + 35;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	CGFloat ret = 55.0;
+	if (indexPath.row < [statuses count]) {
+		UIFont *font = [UIFont fontWithName:@"Helvetica" size:13.0f];
+		CGSize size = CGSizeMake([[self tableView] frame].size.width - 40.0, FLT_MAX);
+		CGSize calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
+		ret = calcSize.height + 35;
+	}
+	else {
+		ret = 85;
+	}
+
+	//	
+	return ret;
+	//    return [indexPath row] * 1.5 + 20;
 }
 
 

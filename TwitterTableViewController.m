@@ -11,7 +11,7 @@
 #import "CustomSpacesCell.h"
 
 @implementation TwitterTableViewController
-@synthesize statuses,twitter;
+@synthesize statuses,twitter,shade;
 
 #pragma mark -
 #pragma mark Initialization
@@ -37,15 +37,37 @@
 	format = [[NSDateFormatter alloc] init];
 	[format setDateFormat:@"MMM dd, yyyy HH:mm"];
 	self.title = @"SPACES";
+	self.statuses = nil;
+	
+	self.shade = [[UIView alloc] initWithFrame:self.view.frame];
+	shade.backgroundColor = [UIColor blackColor];
+	shade.alpha = 0.7;
+	
+	CGRect t = shade.frame;
+	t.origin.y = 0;
+	shade.frame = t;
+	
+	
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	CGRect f = spinner.frame;
+	f.origin.x = self.view.frame.size.width /2 - f.size.width/2;
+	f.origin.y = self.view.frame.size.height /2 - f.size.height/2 - 50;
+	spinner.frame = f;
+	[spinner startAnimating];
+	[shade addSubview:spinner];
+	[spinner release];  
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
-
+	[self performSelectorInBackground:@selector(getData) withObject:nil];
+	[self.view addSubview:shade];
+}
+-(void)getData{
 	twitter = [[SpacesTwitterConnection alloc ]initWithDelegate:self];
-	[twitter getAllSpacesTweets];
+	[twitter performSelectorOnMainThread:@selector(getAllSpacesTweets) withObject:nil waitUntilDone:NO];
 }
 
 /*
@@ -238,6 +260,11 @@
 		}
 	}
 	self.statuses = [NSArray arrayWithArray: tempStatuses];
+	
+	[shade removeFromSuperview];
+
+	
+	
 	[self.tableView reloadData];
 }
 
