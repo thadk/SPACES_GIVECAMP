@@ -90,7 +90,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [statuses count];
+	int ret = ([statuses count] >= 6) ? [statuses count] : 6;
+    return ret;
 }
 
 // Customize the appearance of table view cells.
@@ -114,36 +115,46 @@
 		//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
 	else {
-		//		CGRect f = cell.frame;
-		//		f.size.height = [self tableView: tableView heightForRowAtIndexPath: indexPath];
-		//		cell.frame = f;
+				CGRect f = cell.frame;
+				f.size.height = [self tableView: tableView heightForRowAtIndexPath: indexPath];
+				cell.frame = f;
 	}
 	
     
     // Configure the cell...
 	
-	NSDictionary* response = [statuses objectAtIndex: indexPath.row];
-	NSNumber *dateNum = [response objectForKey: @"created_at"];
-	NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
-	NSString *dateStr = [format stringFromDate:date];
-	cell.published.text = dateStr;
-	
-    cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
 	cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
 	
-	[cell setBackgroundColor:[UIColor clearColor]];
-	cell.published.text = dateStr;
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return cell;
+	if (indexPath.row < [statuses count]) {
+		NSDictionary* response = [statuses objectAtIndex: indexPath.row];
+		cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		NSNumber *dateNum = [response objectForKey: @"created_at"];
+		NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
+		NSString *dateStr = [format stringFromDate:date];
+		cell.published.text = dateStr;
+			
+		[cell setBackgroundColor:[UIColor clearColor]];
+		cell.published.text = dateStr;
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+	return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UIFont *font = [UIFont fontWithName:@"Helvetica" size:13.0f];
-	CGSize size = CGSizeMake([[self tableView] frame].size.width - 40.0, FLT_MAX);
-	CGSize calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
+	CGFloat ret = 55.0;
+	if (indexPath.row < [statuses count]) {
+		UIFont *font = [UIFont fontWithName:@"Helvetica" size:13.0f];
+		CGSize size = CGSizeMake([[self tableView] frame].size.width - 40.0, FLT_MAX);
+		CGSize calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
+		ret = calcSize.height + 35;
+	}
+	else {
+		ret = 55;
+	}
+
 	//	
-	return calcSize.height + 35;
+	return ret;
 	//    return [indexPath row] * 1.5 + 20;
 }
 
