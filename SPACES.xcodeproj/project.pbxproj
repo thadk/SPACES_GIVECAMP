@@ -146,6 +146,7 @@
 		D1EFDB2E11F26CF700C79C31 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2011F26CF700C79C31 /* SBJsonBase.m */; };
 		D1EFDB2F11F26CF700C79C31 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2211F26CF700C79C31 /* SBJsonParser.m */; };
 		D1EFDB3011F26CF700C79C31 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2411F26CF700C79C31 /* SBJsonWriter.m */; };
+		D1FE7EE911F35B7A009C153C /* AccDisclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FE7EE811F35B7A009C153C /* AccDisclosure.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -547,6 +548,7 @@
 		D1EFDB2211F26CF700C79C31 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		D1EFDB2311F26CF700C79C31 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		D1EFDB2411F26CF700C79C31 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		D1FE7EE811F35B7A009C153C /* AccDisclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AccDisclosure.png; path = ../../../Desktop/AccDisclosure.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -654,6 +656,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D1FE7EE811F35B7A009C153C /* AccDisclosure.png */,
 				D180C8E611F2B33900A5EB5F /* gradient.png */,
 				D180C8E711F2B33900A5EB5F /* gradient@2x.png */,
 				D180CAE311F3484400A5EB5F /* pink_gradient@2x.png */,
@@ -1288,6 +1291,7 @@
 				D180CACB11F33A7300A5EB5F /* tab_challenges@2x.png in Resources */,
 				D180CAD311F33D8600A5EB5F /* AboutViewController.xib in Resources */,
 				D180CAE511F3484400A5EB5F /* pink_gradient@2x.png in Resources */,
+				D1FE7EE911F35B7A009C153C /* AccDisclosure.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

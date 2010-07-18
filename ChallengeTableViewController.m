@@ -164,7 +164,8 @@
 			
 		[cell setBackgroundColor:[UIColor clearColor]];
 		cell.published.text = dateStr;
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AccDisclosure.png"]];
 	}
 	return cell;
 }
