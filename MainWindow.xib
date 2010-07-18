@@ -12,11 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-<<<<<<< HEAD
 			<integer value="40"/>
-=======
-			<integer value="26"/>
->>>>>>> 2e12068b3b149ffdd46a5b6797214e55b45e1ec7
 			<integer value="12"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -121,11 +117,7 @@
 							<string key="IBUITitle">Challenges</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-<<<<<<< HEAD
 								<string key="NSResourceName">tab_challenges.png</string>
-=======
-								<string key="NSResourceName">tab_twitter.png</string>
->>>>>>> 2e12068b3b149ffdd46a5b6797214e55b45e1ec7
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<reference key="IBUITabBar"/>
@@ -167,11 +159,7 @@
 							<string key="IBUITitle">About</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-<<<<<<< HEAD
 								<string key="NSResourceName">tab_about.png</string>
-=======
-								<string key="NSResourceName">tab_challenges.png</string>
->>>>>>> 2e12068b3b149ffdd46a5b6797214e55b45e1ec7
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<reference key="IBUITabBar"/>
@@ -402,13 +390,9 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>UIResponder</string>
-					<string>{{585, 66}, {320, 480}}</string>
+					<string>{{631, 66}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-<<<<<<< HEAD
 					<string>{{418, 423}, {320, 480}}</string>
-=======
-					<string>{{585, 276}, {320, 480}}</string>
->>>>>>> 2e12068b3b149ffdd46a5b6797214e55b45e1ec7
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>SPACESAppDelegate</string>
