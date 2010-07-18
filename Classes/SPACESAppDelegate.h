@@ -19,6 +19,7 @@
 	Reachability* twitterHostReachability;
 	BOOL networkReachable;
 	NoReachabilityViewController *noReachViewController;
+	IBOutlet UITabBar *tabBar;
 }
 
 + (SPACESAppDelegate *)sharedDelegate;
@@ -31,6 +32,7 @@
 @property (nonatomic, retain) IBOutlet SPACESViewController *viewController;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabController;
 @property (nonatomic) BOOL networkReachable;
+@property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 
 
 @end

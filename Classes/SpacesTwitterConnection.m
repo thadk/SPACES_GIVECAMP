@@ -8,6 +8,8 @@
 
 #import "SpacesTwitterConnection.h"
 #import "NSString+UUID.h"
+#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequest.h"
 
 @implementation SpacesTwitterConnection
 @synthesize twitter;
@@ -58,103 +60,48 @@
 
 -(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg
 {
-	// create the URL
-	NSURL *postURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
-	
-	// create the connection
-	NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:postURL
-															   cachePolicy:NSURLRequestUseProtocolCachePolicy
-														   timeoutInterval:30.0];
-	
-	// change type to POST (default is GET)
-	[postRequest setHTTPMethod:@"POST"];
-	
-	// just some random text that will never occur in the body
-	NSString *stringBoundary = @"0xKhTmLbOuNdArY---This_Is_ThE_BoUnDaRyy---pqo";
-	
-	// header value
-	NSString *headerBoundary = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",
-								stringBoundary];
-	
-	// set header
-	[postRequest addValue:headerBoundary forHTTPHeaderField:@"Content-Type"];
-	
-	// create data
-	NSMutableData *postBody = [NSMutableData data];
-	
-	NSString *username = twitter.username;
-	NSString *password = twitter.password;
-	NSString *message = msg;
-	
-	// username part
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"username\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[username dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-	
-	// password part
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"password\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[password dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-	
-	// message part
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"message\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[message dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-	
-	// media part
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[@"Content-Disposition: form-data; name=\"media\"; filename=\"dummy.jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[@"Content-Type: image/jpeg\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[@"Content-Transfer-Encoding: binary\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-	
-	// get the image data from main bundle directly into NSData object
 	
 	NSData *imageData = UIImageJPEGRepresentation(pic, .90);
+	NSURL *twitpicURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
 	
-	// add it to body
-	[postBody appendData:imageData];
-	[postBody appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+	ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:twitpicURL] autorelease];
 	
-	// final boundary
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	[request setData:imageData forKey:@"media"];
+	[request setPostValue:twitter.username forKey:@"username"];
+	[request setPostValue:twitter.password forKey:@"password"];
+	[request setPostValue:msg forKey:@"message"];
 	
-	// add body to post
-	[postRequest setHTTPBody:postBody];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(requestDone:)];
+	[request setDidFailSelector:@selector(requestFailed:)];
 	
-	// pointers to some necessary objects
-	NSURLResponse* response;
-	NSError* error;
-	
-	// synchronous filling of data from HTTP POST response
-	NSData *responseData = [NSURLConnection sendSynchronousRequest:postRequest returningResponse:&response error:&error];
-	
-	if (error)
-	{
-//		NSLog(@"Error: %@", [error localizedDescription]);
-		NSLog(@"Error: ");
-	}
-	
-	// convert data into string
-	NSString *responseString = [[[NSString alloc] initWithBytes:[responseData bytes]
-														 length:[responseData length]
-													   encoding:NSUTF8StringEncoding] autorelease];
-	
-	// see if we get a welcome result
-	NSLog(@"%@", responseString);
-	
-	// create a scanner
-	NSString *mediaURL = nil;
-	NSScanner *scanner = [NSScanner scannerWithString:responseString];
-	[scanner scanUpToString:@"<mediaurl>" intoString:nil];
-	[scanner scanString:@"<mediaurl>" intoString:nil];
-	[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"<"] intoString:&mediaURL];
-	
-	NSLog(@"mediaURL is %@", mediaURL);
+	[request start];
+
+//	// convert data into string
+//	NSString *responseString = [[[NSString alloc] initWithBytes:[responseData bytes]
+//														 length:[responseData length]
+//													   encoding:NSUTF8StringEncoding] autorelease];
+//	
+//	// see if we get a welcome result
+//	NSLog(@"%@", responseString);
+//	
+//	// create a scanner
+//	NSString *mediaURL = nil;
+//	NSScanner *scanner = [NSScanner scannerWithString:responseString];
+//	[scanner scanUpToString:@"<mediaurl>" intoString:nil];
+//	[scanner scanString:@"<mediaurl>" intoString:nil];
+//	[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"<"] intoString:&mediaURL];
+//	
+//	NSLog(@"mediaURL is %@", mediaURL);
 }
 
+- (void)requestDone:(ASIHTTPRequest *)request {
+	CFShow(request);
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request {
+	CFShow(request);
+}
 
 -(NSString*)getSubmissionsForTag:(NSString*)_tag{
 
