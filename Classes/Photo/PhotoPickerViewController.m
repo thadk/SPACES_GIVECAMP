@@ -88,7 +88,9 @@
  */
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {
-	UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+		UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+	}
 	
 	// Create a thumbnail version of the image for the event object.
 	self.fullImage = selectedImage;
