@@ -10,6 +10,7 @@
 #import "SPACESPostController.h"
 #import "CustomSpacesCell.h"
 #import "LoginViewController.h"
+#import "SPACESAppDelegate.h"
 @implementation TwitterTableViewController
 @synthesize statuses,twitter,shade;
 
@@ -107,7 +108,8 @@
 																						cancelButtonTitle:@"Cancel" 
 																			 destructiveButtonTitle:nil 
 																						otherButtonTitles:@"Follow Us",nil];
-	[sheet showInView:self.view];
+	[sheet showFromTabBar:[SPACESAppDelegate sharedDelegate].tabBar];
+
 	[sheet release];
 }
 
