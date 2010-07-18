@@ -60,7 +60,7 @@
 	self.toolbar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 
 	UIBarButtonItem *submission = [[UIBarButtonItem alloc] 
-								   initWithTitle:@"View Other People's Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
+								   initWithTitle:@"View All Photo Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
 	UIBarButtonItem *submit = [[UIBarButtonItem alloc] 
 							   initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submitPhoto)];
 	self.navigationItem.rightBarButtonItem = submit;
