@@ -164,14 +164,8 @@
 	
 	//check for user credentials
 	if (username != nil && password != nil) {
-		SpacesTwitterConnection *twitter = [[[SpacesTwitterConnection alloc] initWithDelegate:self] autorelease];
-		[twitter setUsername:username andPassword:password];
-
-		PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
-		[self.navigationController pushViewController:pickerController animated:YES];
-		pickerController.twitter = twitter;
-		pickerController.challengeIdentifier = spacesTag;
-		[pickerController release];
+		[self showPhotoPickerView];
+		
 	}
 	else {
 		LoginViewController *loginViewController = [[LoginViewController alloc] init];
@@ -185,6 +179,23 @@
 		[self.navigationController presentModalViewController:navController animated:YES];
 		[navController release];
 	}
+}
+
+- (void)showPhotoPickerView {
+	
+	NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+	NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+	
+	SpacesTwitterConnection *twitter = [[[SpacesTwitterConnection alloc] initWithDelegate:self] autorelease];
+	[twitter setUsername:username andPassword:password];
+	
+	PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
+	[self.navigationController pushViewController:pickerController animated:YES];
+	[pickerController release];
+	
+	pickerController.twitter = twitter;
+	pickerController.challengeIdentifier = spacesTag;
+	
 }
 
 

@@ -1024,7 +1024,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* SPACES */ = {
+		1D6058900D05DD3D006BFB54 /* iPhone */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SPACES" */;
 			buildPhases = (
@@ -1113,7 +1113,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* SPACES */,
+				1D6058900D05DD3D006BFB54 /* iPhone */,
 				D19553E811F15E2E00BE5546 /* Unit Test Bundle */,
 			);
 		};
