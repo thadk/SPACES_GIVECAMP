@@ -11,6 +11,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+@interface PhotoPickerViewController(Private)
+- (int)maxTweetChars;
+- (void)updateRemainingCharsLabelWithLength:(int)length;
+- (void)updateRemainingCharsLabel;
+@end
+
+
 @implementation PhotoPickerViewController
 
 @synthesize fullImage;
