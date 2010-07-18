@@ -27,6 +27,12 @@
 	[twitter setUsername:username password:password];
 }
 
+-(void)followSPACES{
+		[twitter enableUpdatesFor:@"spacesgallery"];
+		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"You are now following SPACES" message:@"Nice to meet you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+}
+
 -(NSString*)getAllSpacesTweets
 {
 	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:20];

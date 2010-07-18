@@ -67,7 +67,7 @@
 	[self.view addSubview:shade];
 }
 -(void)getData{
-	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
 	NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://bloggedupspaces.org/tweetapp/announcementJSON.php"]];
 	NSHTTPURLResponse *res = nil;
 	NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:nil];
@@ -76,6 +76,7 @@
 	self.statuses = [results objectForKey:@"results"];
 	[self.tableView reloadData];
 	[shade removeFromSuperview];
+	[pool release];
 }
 
 /*
@@ -163,7 +164,8 @@
 			
 		[cell setBackgroundColor:[UIColor clearColor]];
 		cell.published.text = dateStr;
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AccDisclosure.png"]];
 	}
 	return cell;
 }
@@ -231,38 +233,39 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	
-	NSString *hashTag = @"";
-    NSString *statusText = [[statuses objectAtIndex:indexPath.row] objectForKey:@"text"];
-	NSArray *chunks = [statusText componentsSeparatedByString: @" "];
-	for (NSString *word in chunks)
-	{	
-		NSRange range = [word rangeOfString:@"#SPC" options:NSCaseInsensitiveSearch];
-		if (range.location != NSNotFound)
-		{
-			hashTag = word;
-			break;
+	if (indexPath.row < [statuses count]) {
+		NSString *hashTag = @"";
+			NSString *statusText = [[statuses objectAtIndex:indexPath.row] objectForKey:@"text"];
+		NSArray *chunks = [statusText componentsSeparatedByString: @" "];
+		for (NSString *word in chunks)
+		{	
+			NSRange range = [word rangeOfString:@"#SPC" options:NSCaseInsensitiveSearch];
+			if (range.location != NSNotFound)
+			{
+				hashTag = word;
+				break;
+			}
 		}
-	}
-	
-	NSString *spacesURL = @"";
-	for (NSString *word in chunks)
-	{	
-		NSRange range = [word rangeOfString:@"http"];
-		if (range.location != NSNotFound)
-		{
-			spacesURL = word;
-			break;
+		
+		NSString *spacesURL = @"";
+		for (NSString *word in chunks)
+		{	
+			NSRange range = [word rangeOfString:@"http"];
+			if (range.location != NSNotFound)
+			{
+				spacesURL = word;
+				break;
+			}
 		}
+		
+		SPACESPostController *detailedViewController = [[SPACESPostController alloc] init];
+		detailedViewController.spacesURL = spacesURL;
+		detailedViewController.spacesTag = hashTag;
+		
+		// Pass the selected object to the new view controller.
+		[self.navigationController pushViewController:detailedViewController animated:YES];
+		[detailedViewController release];
 	}
-	
-	SPACESPostController *detailedViewController = [[SPACESPostController alloc] init];
-	detailedViewController.spacesURL = spacesURL;
-	detailedViewController.spacesTag = hashTag;
-	
-	// Pass the selected object to the new view controller.
-	[self.navigationController pushViewController:detailedViewController animated:YES];
-	[detailedViewController release];
 }
 
 #pragma mark -

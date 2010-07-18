@@ -7,10 +7,22 @@
 //
 
 #import "PhotoPickerViewController.h"
+#import "SPACESAppDelegate.h"
+
 #import <QuartzCore/QuartzCore.h>
+
+@interface PhotoPickerViewController(Private)
+- (int)maxTweetChars;
+- (void)updateRemainingCharsLabelWithLength:(int)length;
+- (void)updateRemainingCharsLabel;
+@end
+
 
 @implementation PhotoPickerViewController
 
+@synthesize fullImage;
+@synthesize challengeIdentifier;
+@synthesize twitter;
 @synthesize thumbnailImage;
 
 /*
@@ -37,10 +49,10 @@
 	messageView.clipsToBounds = YES;
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 	
-	self.navigationItem.leftBarButtonItem.style = UIBarButtonItemStyleBordered;
-	self.navigationItem.leftBarButtonItem.title = @"Cancel";
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleBordered target:self action:@selector(submit:)];
-	self.navigationItem.rightBarButtonItem.title = @"Submit";
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submit:)];
+
+	[self updateRemainingCharsLabel];
 }
 
 
@@ -56,6 +68,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {
 	
 	// Create a thumbnail version of the image for the event object.
+	self.fullImage = selectedImage;
 	CGSize size = selectedImage.size;
 	CGFloat ratio = 0;
 	if (size.width > size.height) {
@@ -119,6 +132,8 @@
 
 - (IBAction)submit:(id)sender {
 	// TODO: submit image to twitpic
+	NSString *tweetMessage = [NSString stringWithFormat:@"%@ %@ %@", messageView.text, [SPACESAppDelegate twitterAccountName], self.challengeIdentifier];
+	[twitter uploadPicAndPost:self.fullImage andMessage:tweetMessage];
 	
 	[self.navigationController popViewControllerAnimated:YES];
 }
@@ -126,6 +141,43 @@
 - (IBAction)cancel:(id)sender {
 	[self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark --- text input delegate methods
+- (int)maxTweetChars {
+	int maxLength = 114 - ([[SPACESAppDelegate twitterAccountName] length] + 1) - ([self.challengeIdentifier length] + 1 + 3);
+	return maxLength;
+}
+
+- (void)updateRemainingCharsLabelWithLength:(int)length {
+	remainingCharsLabel.text = [NSString stringWithFormat:@"%d characters remaining.", [self maxTweetChars] - length];
+	[remainingCharsLabel setNeedsDisplay];	
+}
+
+- (void)updateRemainingCharsLabel {
+	[self updateRemainingCharsLabelWithLength:messageView.text.length];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+	[textView resignFirstResponder];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+	if([text isEqualToString:@"\n"]) {
+		[textView resignFirstResponder];
+		return NO;
+	}
+
+	int maxLength = [self maxTweetChars];
+	
+	if (maxLength > 0 && (textView.text.length + [text length]) > maxLength && range.length == 0) {
+		return NO;
+	}
+
+	[self updateRemainingCharsLabelWithLength:messageView.text.length + text.length];
+	
+	return YES;
+}
+
 
 #pragma mark ---cleanup
 
@@ -143,6 +195,8 @@
 
 
 - (void)dealloc {
+	if (fullImage) [fullImage release], fullImage = nil;
+	if (challengeIdentifier) [challengeIdentifier release], challengeIdentifier = nil;
 	if (thumbnailImage) [thumbnailImage release], thumbnailImage = nil;
 	
     [super dealloc];

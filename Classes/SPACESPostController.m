@@ -10,7 +10,6 @@
 #import "PhotoPickerViewController.h"
 #import "LoginViewController.h"
 #import "SubmissionsPhotoSource.h"
-#import "SpacesTwitterConnection.h"
 
 #define kToolbarHeight			59.0
 
@@ -121,6 +120,7 @@
 	[spacesTag release];
 	[spacesWebView release];
 	[toolbar release];
+	if (twitter) [twitter release], twitter = nil;
     [super dealloc];
 }
 

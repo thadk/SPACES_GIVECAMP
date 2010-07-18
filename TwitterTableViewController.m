@@ -9,7 +9,7 @@
 #import "TwitterTableViewController.h"
 #import "SPACESPostController.h"
 #import "CustomSpacesCell.h"
-
+#import "LoginViewController.h"
 @implementation TwitterTableViewController
 @synthesize statuses,twitter,shade;
 
@@ -43,6 +43,7 @@
 	shade.backgroundColor = [UIColor blackColor];
 	shade.alpha = 0.7;
 	
+	
 	CGRect t = shade.frame;
 	t.origin.y = 0;
 	shade.frame = t;
@@ -56,6 +57,11 @@
 	[spinner startAnimating];
 	[shade addSubview:spinner];
 	[spinner release];  
+	
+	UIBarButtonItem *follow = [[UIBarButtonItem alloc] initWithTitle:@"Follow" style:UIBarButtonItemStyleBordered target:self action:@selector(follow)];
+	self.navigationItem.leftBarButtonItem = follow;
+	[follow release];
+	
 }
 
 
@@ -66,8 +72,10 @@
 	[self.view addSubview:shade];
 }
 -(void)getData{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
 	twitter = [[SpacesTwitterConnection alloc ]initWithDelegate:self];
 	[twitter performSelectorOnMainThread:@selector(getAllSpacesTweets) withObject:nil waitUntilDone:NO];
+	[pool drain];
 }
 
 /*
@@ -92,6 +100,37 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+-(void)follow{
+	NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+	NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+	
+	
+	//check for user credentials
+	if (username != nil && password != nil) {
+		
+		
+		[twitter setUsername:username andPassword:password];
+		[twitter checkUserCredentials];
+		[twitter followSPACES];
+		
+	}
+	else {
+		LoginViewController *loginViewController = [[LoginViewController alloc] init];
+		
+		loginViewController.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+		loginViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelLogin)];
+		
+		
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+		[loginViewController release];
+		
+		
+		[self.navigationController presentModalViewController:navController animated:YES];
+		[navController release];
+	}
+	
+}
 
 
 #pragma mark -
@@ -293,6 +332,7 @@
 
 - (void)dealloc {
 	[format release];
+	if(twitter)[twitter release];
     [super dealloc];
 }
 

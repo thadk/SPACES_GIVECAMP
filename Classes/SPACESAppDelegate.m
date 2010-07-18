@@ -29,11 +29,11 @@
 }
 
 + (NSString *)twitterAccountName {
-	return @"@galleryspaces";
+	return @"@spacesgallery";
 }
 
 + (NSString *)twitterChallengePrefix {
-	return @"#SPC";
+	return @"#spc";
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
