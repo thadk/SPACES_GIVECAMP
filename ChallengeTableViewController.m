@@ -189,7 +189,7 @@
 	NSArray *chunks = [statusText componentsSeparatedByString: @" "];
 	for (NSString *word in chunks)
 	{	
-		NSRange range = [word rangeOfString:@"#SPC"];
+		NSRange range = [word rangeOfString:@"#SPC" options:NSCaseInsensitiveSearch];
 		if (range.location != NSNotFound)
 		{
 			hashTag = word;
