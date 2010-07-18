@@ -144,6 +144,7 @@
 
 
 -(NSString*)getSubmissionsForTag:(NSString*)_tag{
+
 	return [twitter getSearchResultsForQuery:_tag];
 }
 

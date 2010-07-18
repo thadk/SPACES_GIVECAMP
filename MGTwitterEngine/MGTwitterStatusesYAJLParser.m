@@ -63,7 +63,7 @@
 		
 		[self _parsedObject:_status];
 		
-		[parsedObjects addObject:_status];
+		if(_status)[parsedObjects addObject:_status];
 		[_status release];
 		_status = nil;
 	}

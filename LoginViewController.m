@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "SpacesTwitterConnection.h"
 #import "PhotoPickerViewController.h"
+#import "SignupViewController.h"
 
 
 @implementation LoginViewController
@@ -19,6 +20,10 @@
 @synthesize toolbar;
 @synthesize signupButtonItem;
 @synthesize loginButtonItem;
+
+@synthesize flashMessageView;
+@synthesize flashMessageLabel;
+@synthesize loginActivityView;
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -32,6 +37,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.flashMessageView.hidden = YES;
 }
 
 
@@ -80,6 +87,12 @@
     self.toolbar.frame = CGRectMake(self.toolbar.frame.origin.x, self.toolbar.frame.origin.y + keyboardFrame.size.height,
 									self.toolbar.frame.size.width, self.toolbar.frame.size.height);
     [UIView commitAnimations];
+}
+
+
+
+- (void)viewDidDisappear:(BOOL)animated {
+	self.flashMessageView.hidden = YES;
 }
 
 
@@ -132,10 +145,24 @@
 
 
 - (IBAction)twitterSignup {
-	NSLog(@"SIGNUP");
+	
+	SignupViewController *signupController = [[SignupViewController alloc] init];
+	[self.navigationController pushViewController:signupController animated:YES];
+	[signupController release];
+	
 }
 
 - (IBAction)twitterLogin {
+	
+	
+	self.flashMessageView.backgroundColor = [UIColor blackColor];
+	self.flashMessageLabel.textColor = [UIColor whiteColor];
+	self.flashMessageLabel.text = @"Logging in...";
+	self.loginActivityView.hidden = NO;
+	[self.loginActivityView startAnimating];
+	self.flashMessageView.hidden = NO;
+	
+	
 	
 	NSLog(@"USER: %@", self.usernameField.text);
 	NSLog(@"PASS: %@", self.passwordField.text);
@@ -159,21 +186,53 @@
 #pragma mark Twitter_CALLBACK
 
 
+// response from twitter check credentials call
 - (void)userInfoReceived:(NSArray *)userInfo forRequest:(NSString *)connectionIdentifier {
 	NSLog(@"CONN ID: %@", connectionIdentifier);
 	NSLog(@"USER INFO: %@", userInfo);
 	
+	
+	[self.loginActivityView stopAnimating];
+	
 	NSDictionary *user = [userInfo objectAtIndex:0];
 	
 	if ([user objectForKey:@"id"] != nil) {
+		
+		self.flashMessageView.backgroundColor = [UIColor greenColor];
+		self.flashMessageLabel.textColor = [UIColor whiteColor];
+		self.flashMessageLabel.text = @"Log in successful!";
+		self.loginActivityView.hidden = YES;
+		self.flashMessageView.hidden = NO;
+		
+		
 		[[NSUserDefaults standardUserDefaults] setObject:username forKey:@"username"];
 		[[NSUserDefaults standardUserDefaults] setObject:password forKey:@"password"];
 		
-		[self dismissModalViewControllerAnimated:YES];
+		//[self performSelector:@selector(dismissModalViewControllerAnimated:) withObject:nil afterDelay:1];
+		
+		
+		
+		dispatch_queue_t delay_queue = dispatch_queue_create("delay_queue", NULL);
+		dispatch_async(delay_queue, ^{
+			[NSThread sleepForTimeInterval:1];
+			dispatch_async(dispatch_get_main_queue(), ^{
+				self.flashMessageView.hidden = YES;
+				[self dismissModalViewControllerAnimated:YES];
+			});
+		});
+		
+		dispatch_release(delay_queue);
+		
 		
 	}
 	else {
-		// cannot log in, popup?
+		
+		self.flashMessageView.backgroundColor = [UIColor redColor];
+		self.flashMessageLabel.textColor = [UIColor yellowColor];
+		self.flashMessageLabel.text = @"Unable to log in!";
+		self.loginActivityView.hidden = YES;
+		self.flashMessageView.hidden = NO;
+		
 	}
 	
 }
