@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SignupViewController : UIViewController {
+@interface SignupViewController : UIViewController <UIWebViewDelegate> {
 	UIWebView *signupWebView;
 
 }

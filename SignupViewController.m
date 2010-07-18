@@ -61,4 +61,32 @@
 }
 
 
+
+
+#pragma mark -
+#pragma mark UIWebViewDelegate
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    // starting the load, show the activity indicator in the status bar
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    // finished loading, hide the activity indicator in the status bar
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    // load error, hide the activity indicator in the status bar
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+    // report the error inside the webview
+    NSString* errorString = [NSString stringWithFormat:
+                             @"<html><center><font size=+5 color='red'>An error occurred:<br>%@</font></center></html>",
+                             error.localizedDescription];
+    [self.signupWebView loadHTMLString:errorString baseURL:nil];
+}
+
+
+
 @end

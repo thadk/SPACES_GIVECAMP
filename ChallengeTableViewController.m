@@ -157,14 +157,19 @@
 	if (indexPath.row < [statuses count]) {
 		NSDictionary* response = [statuses objectAtIndex: indexPath.row];
 		cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-		NSNumber *dateNum = [response objectForKey: @"created_at"];
-		NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
-		NSString *dateStr = [format stringFromDate:date];
-		cell.published.text = dateStr;
+		NSString *dateStr = [response objectForKey: @"created_at"];
+		NSArray *p  = [dateStr componentsSeparatedByString:@" "];
+		NSMutableArray *mP = [NSMutableArray arrayWithArray:p];
+		[mP removeLastObject];
+		[mP removeLastObject];
+		[mP removeObjectAtIndex:0];
+		NSString *dateRes = @"";
+		for(NSString *i in  mP){
+			dateRes = [dateRes stringByAppendingFormat:@"%@ ",i];
+		}
+		cell.published.text = dateRes;
 			
 		[cell setBackgroundColor:[UIColor clearColor]];
-		cell.published.text = dateStr;
-		//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AccDisclosure.png"]];
 	}
 	return cell;

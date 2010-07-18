@@ -11,7 +11,7 @@
 #import "LoginViewController.h"
 #import "SubmissionsPhotoSource.h"
 
-#define kToolbarHeight			44.0
+#define kToolbarHeight			59.0
 
 @implementation SPACESPostController
 
@@ -19,8 +19,7 @@
 @synthesize spacesTag;
 @synthesize spacesWebView;
 @synthesize toolbar;
-@synthesize loadWebIndicatorView;
-@synthesize twitter;
+//@synthesize loadWebIndicatorView;
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -50,9 +49,12 @@
 	
 	[self.spacesWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.spacesURL]]];
 	
+	
+	
+	
 	// figure out the actual location to place the toolbar
 	// !!! ========================================================== !!!
-	CGRect toolFrame = CGRectMake(0, self.view.frame.size.height - kToolbarHeight-105, viewBounds.size.width, kToolbarHeight+15);
+	CGRect toolFrame = CGRectMake(0, self.view.frame.size.height - kToolbarHeight-90, viewBounds.size.width, kToolbarHeight);
 	
 	self.toolbar = [[[UIToolbar alloc] initWithFrame:toolFrame] autorelease];
 	self.toolbar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
@@ -62,6 +64,7 @@
 	UIBarButtonItem *submit = [[UIBarButtonItem alloc] 
 							   initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submitPhoto)];
 	self.navigationItem.rightBarButtonItem = submit;
+	
 	UIBarButtonItem *space = [[UIBarButtonItem alloc] 
 							  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	
@@ -72,10 +75,9 @@
 	[space release];
 	
 	
-	self.loadWebIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-	[self.loadWebIndicatorView release];
-	
-	[self.loadWebIndicatorView startAnimating];
+	//self.loadWebIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+	//[self.loadWebIndicatorView release];
+	//[self.loadWebIndicatorView startAnimating];
 	[self.view addSubview:self.toolbar];
 }
 
@@ -118,7 +120,6 @@
 	[spacesTag release];
 	[spacesWebView release];
 	[toolbar release];
-	if (twitter) [twitter release], twitter = nil;
     [super dealloc];
 }
 
@@ -133,16 +134,16 @@
     // starting the load, show the activity indicator in the status bar
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	[self.loadWebIndicatorView startAnimating];
-	self.loadWebIndicatorView.hidden = NO;
+	//[self.loadWebIndicatorView startAnimating];
+	//self.loadWebIndicatorView.hidden = NO;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     // finished loading, hide the activity indicator in the status bar
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	[self.loadWebIndicatorView stopAnimating];
-	self.loadWebIndicatorView.hidden = YES;
+	//[self.loadWebIndicatorView stopAnimating];
+	//self.loadWebIndicatorView.hidden = YES;
 	
 }
 
@@ -167,15 +168,11 @@
 	
 	//check for user credentials
 	if (username != nil && password != nil) {
-		
-		
-		self.twitter = [[[SpacesTwitterConnection alloc] initWithDelegate:self] autorelease];
-		[twitter setUsername:username andPassword:password];
-		[twitter checkUserCredentials];
-		
+		[self showPhotoPickerView];
 	}
 	else {
 		LoginViewController *loginViewController = [[LoginViewController alloc] init];
+		[loginViewController onSuccessfulLoginPerformSelector:@selector(showPhotoPickerView) withObject:self];
 		
 		loginViewController.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 		loginViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelLogin)];
@@ -184,47 +181,16 @@
 		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
 		[loginViewController release];
 		
-		
 		[self.navigationController presentModalViewController:navController animated:YES];
 		[navController release];
 	}
 }
 
-
-
-- (void)userInfoReceived:(NSArray *)userInfo forRequest:(NSString *)connectionIdentifier {
-	NSLog(@"CONN ID: %@", connectionIdentifier);
-	NSLog(@"USER INFO: %@", userInfo);
-	
-	NSDictionary *user = [userInfo objectAtIndex:0];
-	
-	if ([user objectForKey:@"id"] != nil) {
-		
-		PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
-		[self.navigationController pushViewController:pickerController animated:YES];
-		pickerController.twitter = twitter;
-		pickerController.challengeIdentifier = spacesTag;
-		[pickerController release];
-		
-	}
-	else {
-		
-		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
-		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
-		
-		
-		LoginViewController *loginViewController = [[LoginViewController alloc] init];
-		loginViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel 
-																											 target:self action:@selector(cancelLogin)];
-		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-		[loginViewController release];
-		
-		[self.navigationController presentModalViewController:navController animated:YES];
-		[navController release];
-	}
-	
+- (void)showPhotoPickerView {
+	PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
+	[self.navigationController pushViewController:pickerController animated:YES];
+	[pickerController release];
 }
-
 
 
 -(void)cancelLogin {

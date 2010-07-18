@@ -11,6 +11,7 @@
 @class SPACESViewController;
 @class Reachability;
 @class NoReachabilityViewController;
+@class SpacesTwitterConnection;
 
 @interface SPACESAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
@@ -20,6 +21,7 @@
 	BOOL networkReachable;
 	NoReachabilityViewController *noReachViewController;
 	IBOutlet UITabBar *tabBar;
+	BOOL twitterCredentialsChecked;
 }
 
 + (SPACESAppDelegate *)sharedDelegate;
@@ -27,6 +29,7 @@
 + (NSString *)twitterChallengePrefix;
 
 -(void) updateStateWithReachability: (Reachability*) curReach;
+-(void) checkTwitterCredentials;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet SPACESViewController *viewController;
