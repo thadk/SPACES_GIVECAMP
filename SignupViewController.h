@@ -10,7 +10,7 @@
 
 
 @interface SignupViewController : UIViewController <UIWebViewDelegate> {
-	UIWebView *signupWebView;
+	IBOutlet UIWebView *signupWebView;
 
 }
 

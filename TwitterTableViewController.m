@@ -64,13 +64,35 @@
 	
 }
 
+-(void)logout {
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+	
+	self.navigationItem.rightBarButtonItem = nil;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 	[self performSelectorInBackground:@selector(getData) withObject:nil];
 	[self.view addSubview:shade];
+	
+	
+	
+	NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+	NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+	
+	if (username != nil && password != nil && self.navigationItem.rightBarButtonItem == nil) {
+		
+		NSLog(@"Create logout button");
+		
+		UIBarButtonItem *logout = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logout)];
+		self.navigationItem.rightBarButtonItem = logout;
+		[logout release];
+	}
+	
 }
+
 -(void)getData{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
 	twitter = [[SpacesTwitterConnection alloc ]initWithDelegate:self];

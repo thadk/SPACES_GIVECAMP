@@ -17,6 +17,9 @@
 	
 	UIView *shade;
 }
+
+-(void)logout;
+
 @property(nonatomic,retain)NSArray *statuses;
 @property(nonatomic,retain)SpacesTwitterConnection *twitter;
 @property(nonatomic,retain)UIView *shade;
