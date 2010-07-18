@@ -13,6 +13,7 @@
 @interface SpacesTwitterConnection : NSObject 
 {
 	MGTwitterEngine* twitter;
+	id sender;
 
 }
 @property(nonatomic,retain)	MGTwitterEngine* twitter;

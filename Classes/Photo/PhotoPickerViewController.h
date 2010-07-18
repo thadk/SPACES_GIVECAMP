@@ -31,6 +31,7 @@
 @property (nonatomic, retain) UIImage *thumbnailImage;
 @property (nonatomic, retain) UIView *shade;
 
+-(void) removeShade;
 - (IBAction)submit:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)capture:(id)sender;

@@ -19,6 +19,7 @@
 @synthesize viewController;
 @synthesize tabController;
 @synthesize networkReachable;
+@synthesize tabBar;
 
 
 #pragma mark -

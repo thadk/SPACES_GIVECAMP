@@ -88,6 +88,7 @@
  */
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {
+	UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
 	
 	// Create a thumbnail version of the image for the event object.
 	self.fullImage = selectedImage;
@@ -143,12 +144,14 @@
 }
 
 - (IBAction)capture:(id)sender {
+	[messageView resignFirstResponder];
+
 	UIActionSheet *sourceActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Photo Source"
 																   delegate:self
 														  cancelButtonTitle:@"Cancel" 
 													 destructiveButtonTitle:nil 
 														  otherButtonTitles:@"Take New Photo", @"Use Existing Photo", nil];
-	[sourceActionSheet showInView:self.view];
+	[sourceActionSheet showFromTabBar:[SPACESAppDelegate sharedDelegate].tabBar];
 	[sourceActionSheet release];
 }
 
@@ -197,6 +200,11 @@
 	[self updateRemainingCharsLabelWithLength:messageView.text.length + text.length];
 	
 	return YES;
+}
+
+-(void) removeShade{	
+	[shade removeFromSuperview];
+	[[self navigationController] popViewControllerAnimated:YES];
 }
 
 
