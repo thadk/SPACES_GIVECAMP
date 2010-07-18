@@ -56,7 +56,7 @@
 	return ret;
 }
 
--(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg
+-(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg sender:(id)sender
 {
 	// create the URL
 	NSURL *postURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
@@ -152,7 +152,9 @@
 	[scanner scanString:@"<mediaurl>" intoString:nil];
 	[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"<"] intoString:&mediaURL];
 	
-	NSLog(@"mediaURL is %@", mediaURL);
+	NSLog(@"mediaURL is %@", mediaURL);	
+	[[sender shade] removeFromSuperview];
+	[[sender navigationController] popViewControllerAnimated:YES];
 }
 
 
