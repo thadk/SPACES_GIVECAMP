@@ -44,18 +44,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+	toolbar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+	
+	self.title = @"Twitter Sign In";
+	
+	
 	self.flashMessageView.hidden = YES;
-}
-
-
-- (void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
 	
 	// register for keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(liftMainViewWhenKeybordAppears:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(returnMainViewToInitialposition:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+	
+
 }
 
 - (void) liftMainViewWhenKeybordAppears:(NSNotification*)aNotification{
@@ -76,7 +84,7 @@
 
 - (void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 - (void) returnMainViewToInitialposition:(NSNotification*)aNotification{
@@ -125,12 +133,11 @@
 
 
 - (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[username release];
 	[password release];
     [super dealloc];
 }
-
-
 
 
 
@@ -147,9 +154,6 @@
 
 
 
-
-
-
 - (IBAction)twitterSignup {
 	
 	SignupViewController *signupController = [[SignupViewController alloc] init];
@@ -161,17 +165,14 @@
 - (IBAction)twitterLogin {
 	
 	
-	self.flashMessageView.backgroundColor = [UIColor blackColor];
+	//self.flashMessageView.backgroundColor = [UIColor blackColor];
+	self.flashMessageView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+	
 	self.flashMessageLabel.textColor = [UIColor whiteColor];
 	self.flashMessageLabel.text = @"Logging in...";
 	self.loginActivityView.hidden = NO;
 	[self.loginActivityView startAnimating];
 	self.flashMessageView.hidden = NO;
-	
-	
-	
-	NSLog(@"USER: %@", self.usernameField.text);
-	NSLog(@"PASS: %@", self.passwordField.text);
 	
 	[username release];
 	[password release];
@@ -180,9 +181,7 @@
 	
 	SpacesTwitterConnection *twitter = [[[SpacesTwitterConnection alloc] initWithDelegate:self] autorelease];
 	[twitter setUsername:self.usernameField.text andPassword:self.passwordField.text];
-	NSString *results = [twitter checkUserCredentials];
-	
-	NSLog(@"RESULT: %@", results);
+	[twitter checkUserCredentials];
 	
 }
 
@@ -194,9 +193,6 @@
 
 // response from twitter check credentials call
 - (void)userInfoReceived:(NSArray *)userInfo forRequest:(NSString *)connectionIdentifier {
-	NSLog(@"CONN ID: %@", connectionIdentifier);
-	NSLog(@"USER INFO: %@", userInfo);
-	
 	
 	[self.loginActivityView stopAnimating];
 	
@@ -206,7 +202,7 @@
 		
 		self.flashMessageView.backgroundColor = [UIColor greenColor];
 		self.flashMessageLabel.textColor = [UIColor whiteColor];
-		self.flashMessageLabel.text = @"Log in successful!";
+		self.flashMessageLabel.text = @"Login successful!";
 		self.loginActivityView.hidden = YES;
 		self.flashMessageView.hidden = NO;
 		
@@ -245,8 +241,6 @@
 	}
 	
 }
-
-
 
 
 - (IBAction)cancelLogin {
