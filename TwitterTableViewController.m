@@ -58,7 +58,7 @@
 	[shade addSubview:spinner];
 	[spinner release];  
 	
-	UIBarButtonItem *follow = [[UIBarButtonItem alloc] initWithTitle:@"Follow" style:UIBarButtonItemStyleBordered target:self action:@selector(follow)];
+	UIBarButtonItem *follow = [[UIBarButtonItem alloc] initWithTitle:@"Follow" style:UIBarButtonItemStyleBordered target:self action:@selector(displayAction)];
 	self.navigationItem.leftBarButtonItem = follow;
 	[follow release];
 	
@@ -101,6 +101,22 @@
 }
 */
 
+-(void)displayAction{
+	UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"We're on Twitter!"  
+																										 delegate:self 
+																						cancelButtonTitle:@"Cancel" 
+																			 destructiveButtonTitle:nil 
+																						otherButtonTitles:@"Follow Us",nil];
+	[sheet showInView:self.view];
+	[sheet release];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex == 0) {
+		[self follow];
+	}
+}
 -(void)follow{
 	NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
 	NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
