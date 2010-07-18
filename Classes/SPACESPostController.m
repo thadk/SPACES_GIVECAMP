@@ -176,6 +176,7 @@
 	else {
 		LoginViewController *loginViewController = [[LoginViewController alloc] init];
 		
+		loginViewController.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 		loginViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelLogin)];
 		
 		
@@ -199,7 +200,8 @@
 	if ([user objectForKey:@"id"] != nil) {
 		
 		PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
-		[self.navigationController presentModalViewController:pickerController animated:YES];
+		[self.navigationController pushViewController:pickerController animated:YES];
+//		[self.navigationController presentModalViewController:pickerController animated:YES];
 		[pickerController release];
 		
 	}
