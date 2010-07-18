@@ -32,7 +32,6 @@
 		58817F1311F2924F0063AE77 /* spaces_app-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817F1111F2924F0063AE77 /* spaces_app-29.png */; };
 		58817F1411F2924F0063AE77 /* spaces_app-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817F1211F2924F0063AE77 /* spaces_app-58.png */; };
 		58817F3511F2955A0063AE77 /* Default4.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817F3411F2955A0063AE77 /* Default4.png */; };
-		588E92A111F2C05C001046D9 /* tab_spaces.png in Resources */ = {isa = PBXBuildFile; fileRef = 588E92A011F2C05C001046D9 /* tab_spaces.png */; };
 		D104309E11F14A430028C3CD /* libMGTwitterEngineLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D104309B11F14A2D0028C3CD /* libMGTwitterEngineLib.a */; };
 		D180C17F11F14F8700A5EB5F /* SpacesTwitterConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */; };
 		D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */; };
@@ -46,9 +45,12 @@
 		D180C9E411F2D4B500A5EB5F /* pink_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D180C9E311F2D4B500A5EB5F /* pink_gradient.png */; };
 		D180CA6711F32EEE00A5EB5F /* tab_about.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CA6211F32EEE00A5EB5F /* tab_about.png */; };
 		D180CA6811F32EEE00A5EB5F /* tab_about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CA6311F32EEE00A5EB5F /* tab_about@2x.png */; };
-		D180CA6911F32EEE00A5EB5F /* tab_spaces@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CA6411F32EEE00A5EB5F /* tab_spaces@2x.png */; };
 		D180CA6A11F32EEE00A5EB5F /* tab_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CA6511F32EEE00A5EB5F /* tab_twitter.png */; };
 		D180CA6B11F32EEE00A5EB5F /* tab_twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CA6611F32EEE00A5EB5F /* tab_twitter@2x.png */; };
+		D180CACA11F33A7300A5EB5F /* tab_challenges.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CAC811F33A7300A5EB5F /* tab_challenges.png */; };
+		D180CACB11F33A7300A5EB5F /* tab_challenges@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CAC911F33A7300A5EB5F /* tab_challenges@2x.png */; };
+		D180CAD211F33D8600A5EB5F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D180CAD011F33D8600A5EB5F /* AboutViewController.m */; };
+		D180CAD311F33D8600A5EB5F /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180CAD111F33D8600A5EB5F /* AboutViewController.xib */; };
 		D19554A811F15F0300BE5546 /* Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554A711F15F0300BE5546 /* Spec.m */; };
 		D195552B11F15F5900BE5546 /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B211F15F5900BE5546 /* KWAfterAllNode.m */; };
 		D195552C11F15F5900BE5546 /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B411F15F5900BE5546 /* KWAfterEachNode.m */; };
@@ -314,7 +316,6 @@
 		58817F1111F2924F0063AE77 /* spaces_app-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spaces_app-29.png"; sourceTree = "<group>"; };
 		58817F1211F2924F0063AE77 /* spaces_app-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spaces_app-58.png"; sourceTree = "<group>"; };
 		58817F3411F2955A0063AE77 /* Default4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default4.png; sourceTree = "<group>"; };
-		588E92A011F2C05C001046D9 /* tab_spaces.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_spaces.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SPACES-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SPACES-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D104308B11F14A2C0028C3CD /* MGTwitterEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MGTwitterEngine.xcodeproj; path = MGTwitterEngine/MGTwitterEngine.xcodeproj; sourceTree = "<group>"; };
 		D180C17D11F14F8700A5EB5F /* SpacesTwitterConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpacesTwitterConnection.h; path = Classes/SpacesTwitterConnection.h; sourceTree = "<group>"; };
@@ -333,9 +334,13 @@
 		D180C9E311F2D4B500A5EB5F /* pink_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_gradient.png; sourceTree = "<group>"; };
 		D180CA6211F32EEE00A5EB5F /* tab_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_about.png; sourceTree = "<group>"; };
 		D180CA6311F32EEE00A5EB5F /* tab_about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_about@2x.png"; sourceTree = "<group>"; };
-		D180CA6411F32EEE00A5EB5F /* tab_spaces@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_spaces@2x.png"; sourceTree = "<group>"; };
 		D180CA6511F32EEE00A5EB5F /* tab_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_twitter.png; sourceTree = "<group>"; };
 		D180CA6611F32EEE00A5EB5F /* tab_twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_twitter@2x.png"; sourceTree = "<group>"; };
+		D180CAC811F33A7300A5EB5F /* tab_challenges.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_challenges.png; sourceTree = "<group>"; };
+		D180CAC911F33A7300A5EB5F /* tab_challenges@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_challenges@2x.png"; sourceTree = "<group>"; };
+		D180CACF11F33D8600A5EB5F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		D180CAD011F33D8600A5EB5F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		D180CAD111F33D8600A5EB5F /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		D19553E911F15E2E00BE5546 /* Unit Test Bundle.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Test Bundle.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19553EA11F15E2E00BE5546 /* Unit Test Bundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Test Bundle-Info.plist"; sourceTree = "<group>"; };
 		D19554A711F15F0300BE5546 /* Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spec.m; sourceTree = "<group>"; };
@@ -533,6 +538,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D180CACE11F33D6C00A5EB5F /* About */,
 				4C97258811F2A3CA00BA4EC4 /* Reachability.h */,
 				4C97258911F2A3CA00BA4EC4 /* Reachability.m */,
 				4C97211C11F1EAD800BA4EC4 /* Post */,
@@ -592,13 +598,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D180CAC811F33A7300A5EB5F /* tab_challenges.png */,
+				D180CAC911F33A7300A5EB5F /* tab_challenges@2x.png */,
 				D180CA6211F32EEE00A5EB5F /* tab_about.png */,
 				D180CA6311F32EEE00A5EB5F /* tab_about@2x.png */,
-				D180CA6411F32EEE00A5EB5F /* tab_spaces@2x.png */,
 				D180CA6511F32EEE00A5EB5F /* tab_twitter.png */,
 				D180CA6611F32EEE00A5EB5F /* tab_twitter@2x.png */,
 				D180C9E311F2D4B500A5EB5F /* pink_gradient.png */,
-				588E92A011F2C05C001046D9 /* tab_spaces.png */,
 				58817F3411F2955A0063AE77 /* Default4.png */,
 				58817F1111F2924F0063AE77 /* spaces_app-29.png */,
 				58817F1211F2924F0063AE77 /* spaces_app-58.png */,
@@ -683,6 +689,16 @@
 			);
 			name = Twitter;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D180CACE11F33D6C00A5EB5F /* About */ = {
+			isa = PBXGroup;
+			children = (
+				D180CACF11F33D8600A5EB5F /* AboutViewController.h */,
+				D180CAD011F33D8600A5EB5F /* AboutViewController.m */,
+				D180CAD111F33D8600A5EB5F /* AboutViewController.xib */,
+			);
+			name = About;
 			sourceTree = "<group>";
 		};
 		D19554A511F15E6B00BE5546 /* Tests */ = {
@@ -1154,12 +1170,13 @@
 				D180C8E811F2B33900A5EB5F /* gradient.png in Resources */,
 				D180C8E911F2B33900A5EB5F /* gradient@2x.png in Resources */,
 				D180C9E411F2D4B500A5EB5F /* pink_gradient.png in Resources */,
-				588E92A111F2C05C001046D9 /* tab_spaces.png in Resources */,
 				D180CA6711F32EEE00A5EB5F /* tab_about.png in Resources */,
 				D180CA6811F32EEE00A5EB5F /* tab_about@2x.png in Resources */,
-				D180CA6911F32EEE00A5EB5F /* tab_spaces@2x.png in Resources */,
 				D180CA6A11F32EEE00A5EB5F /* tab_twitter.png in Resources */,
 				D180CA6B11F32EEE00A5EB5F /* tab_twitter@2x.png in Resources */,
+				D180CACA11F33A7300A5EB5F /* tab_challenges.png in Resources */,
+				D180CACB11F33A7300A5EB5F /* tab_challenges@2x.png in Resources */,
+				D180CAD311F33D8600A5EB5F /* AboutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1217,6 +1234,7 @@
 				D1EFDB3011F26CF700C79C31 /* SBJsonWriter.m in Sources */,
 				4C97258A11F2A3CA00BA4EC4 /* Reachability.m in Sources */,
 				4C9725BD11F2C44F00BA4EC4 /* NoReachabilityViewController.m in Sources */,
+				D180CAD211F33D8600A5EB5F /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
