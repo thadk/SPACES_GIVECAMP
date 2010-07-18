@@ -168,7 +168,14 @@
 	
 	//check for user credentials
 	if (username != nil && password != nil) {
-		[self showPhotoPickerView];
+		SpacesTwitterConnection *twitter = [[[SpacesTwitterConnection alloc] initWithDelegate:self] autorelease];
+		[twitter setUsername:username andPassword:password];
+
+		PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
+		[self.navigationController pushViewController:pickerController animated:YES];
+		pickerController.twitter = twitter;
+		pickerController.challengeIdentifier = spacesTag;
+		[pickerController release];
 	}
 	else {
 		LoginViewController *loginViewController = [[LoginViewController alloc] init];
@@ -184,12 +191,6 @@
 		[self.navigationController presentModalViewController:navController animated:YES];
 		[navController release];
 	}
-}
-
-- (void)showPhotoPickerView {
-	PhotoPickerViewController *pickerController = [[PhotoPickerViewController alloc] init];
-	[self.navigationController pushViewController:pickerController animated:YES];
-	[pickerController release];
 }
 
 
