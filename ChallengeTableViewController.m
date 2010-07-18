@@ -134,7 +134,7 @@
 	
 	[cell setBackgroundColor:[UIColor clearColor]];
 	cell.published.text = dateStr;
-	
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
