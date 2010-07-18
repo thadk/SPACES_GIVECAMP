@@ -29,7 +29,7 @@
 }
 
 + (NSString *)twitterAccountName {
-	return @"@galleryspaces";
+	return @"@spacesgallery";
 }
 
 + (NSString *)twitterChallengePrefix {
