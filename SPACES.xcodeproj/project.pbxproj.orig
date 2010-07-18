@@ -16,19 +16,11 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* SPACESViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* SPACESViewController.m */; };
 		4C97211F11F1EB0500BA4EC4 /* SPACESPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97211E11F1EB0500BA4EC4 /* SPACESPostController.m */; };
-		4C97221A11F202BF00BA4EC4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97221811F202BF00BA4EC4 /* LoginViewController.m */; };
-		4C97221B11F202BF00BA4EC4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C97221911F202BF00BA4EC4 /* LoginViewController.xib */; };
-		4C97241311F2525700BA4EC4 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97241111F2525700BA4EC4 /* SignupViewController.m */; };
-		4C97241411F2525700BA4EC4 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C97241211F2525700BA4EC4 /* SignupViewController.xib */; };
 		58817C9211F171E60063AE77 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58817C9011F171E60063AE77 /* PhotoPickerViewController.m */; };
 		58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */; };
 		D104309E11F14A430028C3CD /* libMGTwitterEngineLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D104309B11F14A2D0028C3CD /* libMGTwitterEngineLib.a */; };
 		D180C17F11F14F8700A5EB5F /* SpacesTwitterConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */; };
 		D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */; };
-		D180C5F411F2319F00A5EB5F /* CustomSpacesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C5F211F2319F00A5EB5F /* CustomSpacesCell.m */; };
-		D180C5F511F2319F00A5EB5F /* CustomSpacesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */; };
-		D180C6BD11F24E8B00A5EB5F /* CustomChallengesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */; };
-		D180C6BE11F24E8B00A5EB5F /* CustomChallengesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */; };
 		D19554A811F15F0300BE5546 /* Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554A711F15F0300BE5546 /* Spec.m */; };
 		D195552B11F15F5900BE5546 /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B211F15F5900BE5546 /* KWAfterAllNode.m */; };
 		D195552C11F15F5900BE5546 /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B411F15F5900BE5546 /* KWAfterEachNode.m */; };
@@ -106,20 +98,6 @@
 		D1EFD6AE11F1EF4800C79C31 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EFD6A411F1EEE100C79C31 /* libThree20UI.a */; };
 		D1EFD6DB11F1EFBC00C79C31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EFD6DA11F1EFBC00C79C31 /* QuartzCore.framework */; };
 		D1EFD6E111F1EFDC00C79C31 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EFD6E011F1EFDC00C79C31 /* libxml2.dylib */; };
-		D1EFD8EC11F21A2D00C79C31 /* MockPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFD8EB11F21A2D00C79C31 /* MockPhotoSource.m */; };
-		D1EFD8ED11F21A2D00C79C31 /* MockPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFD8EB11F21A2D00C79C31 /* MockPhotoSource.m */; };
-		D1EFDB2511F26CF700C79C31 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB1A11F26CF700C79C31 /* NSObject+SBJSON.m */; };
-		D1EFDB2611F26CF700C79C31 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB1C11F26CF700C79C31 /* NSString+SBJSON.m */; };
-		D1EFDB2711F26CF700C79C31 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB1E11F26CF700C79C31 /* SBJSON.m */; };
-		D1EFDB2811F26CF700C79C31 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2011F26CF700C79C31 /* SBJsonBase.m */; };
-		D1EFDB2911F26CF700C79C31 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2211F26CF700C79C31 /* SBJsonParser.m */; };
-		D1EFDB2A11F26CF700C79C31 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2411F26CF700C79C31 /* SBJsonWriter.m */; };
-		D1EFDB2B11F26CF700C79C31 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB1A11F26CF700C79C31 /* NSObject+SBJSON.m */; };
-		D1EFDB2C11F26CF700C79C31 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB1C11F26CF700C79C31 /* NSString+SBJSON.m */; };
-		D1EFDB2D11F26CF700C79C31 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB1E11F26CF700C79C31 /* SBJSON.m */; };
-		D1EFDB2E11F26CF700C79C31 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2011F26CF700C79C31 /* SBJsonBase.m */; };
-		D1EFDB2F11F26CF700C79C31 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2211F26CF700C79C31 /* SBJsonParser.m */; };
-		D1EFDB3011F26CF700C79C31 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFDB2411F26CF700C79C31 /* SBJsonWriter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,105 +133,105 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD59111F1E82800C79C31 /* Three20.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libThree20.a */;
 			remoteInfo = Three20;
 		};
 		D1EFD5BE11F1E82900C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD59111F1E82800C79C31 /* Three20.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C /* UnitTests.octest */;
 			remoteInfo = UnitTests;
 		};
 		D1EFD5C711F1E88C00C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD59111F1E82800C79C31 /* Three20.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = BEF31F390F352DF5000DE5D2;
+			remoteGlobalIDString = BEF31F390F352DF5000DE5D2 /* Three20 */;
 			remoteInfo = Three20;
 		};
 		D1EFD68511F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67111F1EEE100C79C31 /* Three20Core.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libThree20Core.a */;
 			remoteInfo = Three20Core;
 		};
 		D1EFD68711F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67111F1EEE100C79C31 /* Three20Core.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C /* CoreUnitTests.octest */;
 			remoteInfo = UnitTests;
 		};
 		D1EFD68B11F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67411F1EEE100C79C31 /* Three20Network.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libThree20Network.a */;
 			remoteInfo = Three20Network;
 		};
 		D1EFD68D11F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67411F1EEE100C79C31 /* Three20Network.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C /* UnitTests.octest */;
 			remoteInfo = UnitTests;
 		};
 		D1EFD69111F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67711F1EEE100C79C31 /* Three20Style.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libThree20Style.a */;
 			remoteInfo = Three20Style;
 		};
 		D1EFD69311F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67711F1EEE100C79C31 /* Three20Style.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C /* UnitTests.octest */;
 			remoteInfo = UnitTests;
 		};
 		D1EFD69711F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67A11F1EEE100C79C31 /* Three20UICommon.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libThree20UICommon.a */;
 			remoteInfo = Three20UICommon;
 		};
 		D1EFD69911F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67A11F1EEE100C79C31 /* Three20UICommon.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C /* UnitTests.octest */;
 			remoteInfo = UnitTests;
 		};
 		D1EFD69D11F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67D11F1EEE100C79C31 /* Three20UINavigator.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libThree20UINavigator.a */;
 			remoteInfo = Three20UINavigator;
 		};
 		D1EFD69F11F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD67D11F1EEE100C79C31 /* Three20UINavigator.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C /* UnitTests.octest */;
 			remoteInfo = UnitTests;
 		};
 		D1EFD6A311F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD68011F1EEE100C79C31 /* Three20UI.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libThree20UI.a */;
 			remoteInfo = Three20UI;
 		};
 		D1EFD6A511F1EEE100C79C31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D1EFD68011F1EEE100C79C31 /* Three20UI.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C /* UnitTests.octest */;
 			remoteInfo = UnitTests;
 		};
 /* End PBXContainerItemProxy section */
@@ -273,12 +251,6 @@
 		32CA4F630368D1EE00C91783 /* SPACES_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPACES_Prefix.pch; sourceTree = "<group>"; };
 		4C97211D11F1EB0500BA4EC4 /* SPACESPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPACESPostController.h; sourceTree = "<group>"; };
 		4C97211E11F1EB0500BA4EC4 /* SPACESPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPACESPostController.m; sourceTree = "<group>"; };
-		4C97221711F202BF00BA4EC4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		4C97221811F202BF00BA4EC4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		4C97221911F202BF00BA4EC4 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		4C97241011F2525700BA4EC4 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
-		4C97241111F2525700BA4EC4 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
-		4C97241211F2525700BA4EC4 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		58817C8F11F171E60063AE77 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		58817C9011F171E60063AE77 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPickerViewController.xib; sourceTree = "<group>"; };
@@ -288,12 +260,6 @@
 		D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpacesTwitterConnection.m; path = Classes/SpacesTwitterConnection.m; sourceTree = "<group>"; };
 		D180C3EA11F1EB7C00A5EB5F /* ChallengeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeTableViewController.h; sourceTree = "<group>"; };
 		D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableViewController.m; sourceTree = "<group>"; };
-		D180C5F111F2319F00A5EB5F /* CustomSpacesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSpacesCell.h; sourceTree = "<group>"; };
-		D180C5F211F2319F00A5EB5F /* CustomSpacesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSpacesCell.m; sourceTree = "<group>"; };
-		D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSpacesCell.xib; sourceTree = "<group>"; };
-		D180C6BA11F24E8B00A5EB5F /* CustomChallengesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomChallengesCell.h; sourceTree = "<group>"; };
-		D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomChallengesCell.m; sourceTree = "<group>"; };
-		D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomChallengesCell.xib; sourceTree = "<group>"; };
 		D19553E911F15E2E00BE5546 /* Unit Test Bundle.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Test Bundle.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19553EA11F15E2E00BE5546 /* Unit Test Bundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Test Bundle-Info.plist"; sourceTree = "<group>"; };
 		D19554A711F15F0300BE5546 /* Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spec.m; sourceTree = "<group>"; };
@@ -438,21 +404,6 @@
 		D1EFD68011F1EEE100C79C31 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = "<group>"; };
 		D1EFD6DA11F1EFBC00C79C31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D1EFD6E011F1EFDC00C79C31 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		D1EFD8EA11F21A2D00C79C31 /* MockPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockPhotoSource.h; sourceTree = "<group>"; };
-		D1EFD8EB11F21A2D00C79C31 /* MockPhotoSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockPhotoSource.m; sourceTree = "<group>"; };
-		D1EFDB1811F26CF700C79C31 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		D1EFDB1911F26CF700C79C31 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		D1EFDB1A11F26CF700C79C31 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		D1EFDB1B11F26CF700C79C31 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		D1EFDB1C11F26CF700C79C31 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		D1EFDB1D11F26CF700C79C31 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		D1EFDB1E11F26CF700C79C31 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
-		D1EFDB1F11F26CF700C79C31 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		D1EFDB2011F26CF700C79C31 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
-		D1EFDB2111F26CF700C79C31 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		D1EFDB2211F26CF700C79C31 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		D1EFDB2311F26CF700C79C31 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		D1EFDB2411F26CF700C79C31 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -516,7 +467,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				D1EFDB1711F26CF700C79C31 /* JSON */,
 				D1EFD67011F1EEE100C79C31 /* Dependencies */,
 				D1EFD59111F1E82800C79C31 /* Three20.xcodeproj */,
 				D104308B11F14A2C0028C3CD /* MGTwitterEngine.xcodeproj */,
@@ -544,8 +494,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */,
-				D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */,
 				2899E5210DE3E06400AC0155 /* SPACESViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* SPACES-Info.plist */,
@@ -599,22 +547,13 @@
 				D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */,
 				D195571C11F1833100BE5546 /* TwitterTableViewController.h */,
 				D195571D11F1833100BE5546 /* TwitterTableViewController.m */,
+<<<<<<< HEAD
 				D180C3EA11F1EB7C00A5EB5F /* ChallengeTableViewController.h */,
 				D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */,
+=======
 				D1EFD61511F1EB6100C79C31 /* SubmissionsPhotoSource.h */,
 				D1EFD61611F1EB6100C79C31 /* SubmissionsPhotoSource.m */,
-				D1EFD8EA11F21A2D00C79C31 /* MockPhotoSource.h */,
-				D1EFD8EB11F21A2D00C79C31 /* MockPhotoSource.m */,
-				4C97221711F202BF00BA4EC4 /* LoginViewController.h */,
-				4C97221811F202BF00BA4EC4 /* LoginViewController.m */,
-				4C97221911F202BF00BA4EC4 /* LoginViewController.xib */,
-				4C97241011F2525700BA4EC4 /* SignupViewController.h */,
-				4C97241111F2525700BA4EC4 /* SignupViewController.m */,
-				4C97241211F2525700BA4EC4 /* SignupViewController.xib */,
-				D180C5F111F2319F00A5EB5F /* CustomSpacesCell.h */,
-				D180C5F211F2319F00A5EB5F /* CustomSpacesCell.m */,
-				D180C6BA11F24E8B00A5EB5F /* CustomChallengesCell.h */,
-				D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */,
+>>>>>>> 816fe30f57241fb4de9b40d8e895b9803f7a1f80
 			);
 			name = Twitter;
 			path = ..;
@@ -837,26 +776,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D1EFDB1711F26CF700C79C31 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				D1EFDB1811F26CF700C79C31 /* JSON.h */,
-				D1EFDB1911F26CF700C79C31 /* NSObject+SBJSON.h */,
-				D1EFDB1A11F26CF700C79C31 /* NSObject+SBJSON.m */,
-				D1EFDB1B11F26CF700C79C31 /* NSString+SBJSON.h */,
-				D1EFDB1C11F26CF700C79C31 /* NSString+SBJSON.m */,
-				D1EFDB1D11F26CF700C79C31 /* SBJSON.h */,
-				D1EFDB1E11F26CF700C79C31 /* SBJSON.m */,
-				D1EFDB1F11F26CF700C79C31 /* SBJsonBase.h */,
-				D1EFDB2011F26CF700C79C31 /* SBJsonBase.m */,
-				D1EFDB2111F26CF700C79C31 /* SBJsonParser.h */,
-				D1EFDB2211F26CF700C79C31 /* SBJsonParser.m */,
-				D1EFDB2311F26CF700C79C31 /* SBJsonWriter.h */,
-				D1EFDB2411F26CF700C79C31 /* SBJsonWriter.m */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1074,10 +993,6 @@
 				2899E5220DE3E06400AC0155 /* SPACESViewController.xib in Resources */,
 				58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */,
 				D1EFD62811F1EBC800C79C31 /* Three20.bundle in Resources */,
-				4C97221B11F202BF00BA4EC4 /* LoginViewController.xib in Resources */,
-				4C97241411F2525700BA4EC4 /* SignupViewController.xib in Resources */,
-				D180C5F511F2319F00A5EB5F /* CustomSpacesCell.xib in Resources */,
-				D180C6BE11F24E8B00A5EB5F /* CustomChallengesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,20 +1034,12 @@
 				D195562B11F16CBF00BE5546 /* NSString+UUID.m in Sources */,
 				58817C9211F171E60063AE77 /* PhotoPickerViewController.m in Sources */,
 				D195571F11F1833100BE5546 /* TwitterTableViewController.m in Sources */,
+<<<<<<< HEAD
+				D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */,
+=======
 				D1EFD61811F1EB6100C79C31 /* SubmissionsPhotoSource.m in Sources */,
 				4C97211F11F1EB0500BA4EC4 /* SPACESPostController.m in Sources */,
-				D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */,
-				4C97221A11F202BF00BA4EC4 /* LoginViewController.m in Sources */,
-				4C97241311F2525700BA4EC4 /* SignupViewController.m in Sources */,
-				D180C5F411F2319F00A5EB5F /* CustomSpacesCell.m in Sources */,
-				D180C6BD11F24E8B00A5EB5F /* CustomChallengesCell.m in Sources */,
-				D1EFD8ED11F21A2D00C79C31 /* MockPhotoSource.m in Sources */,
-				D1EFDB2B11F26CF700C79C31 /* NSObject+SBJSON.m in Sources */,
-				D1EFDB2C11F26CF700C79C31 /* NSString+SBJSON.m in Sources */,
-				D1EFDB2D11F26CF700C79C31 /* SBJSON.m in Sources */,
-				D1EFDB2E11F26CF700C79C31 /* SBJsonBase.m in Sources */,
-				D1EFDB2F11F26CF700C79C31 /* SBJsonParser.m in Sources */,
-				D1EFDB3011F26CF700C79C31 /* SBJsonWriter.m in Sources */,
+>>>>>>> 816fe30f57241fb4de9b40d8e895b9803f7a1f80
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1202,13 +1109,6 @@
 				D195562A11F16CBF00BE5546 /* NSString+UUID.m in Sources */,
 				D195571E11F1833100BE5546 /* TwitterTableViewController.m in Sources */,
 				D1EFD61711F1EB6100C79C31 /* SubmissionsPhotoSource.m in Sources */,
-				D1EFD8EC11F21A2D00C79C31 /* MockPhotoSource.m in Sources */,
-				D1EFDB2511F26CF700C79C31 /* NSObject+SBJSON.m in Sources */,
-				D1EFDB2611F26CF700C79C31 /* NSString+SBJSON.m in Sources */,
-				D1EFDB2711F26CF700C79C31 /* SBJSON.m in Sources */,
-				D1EFDB2811F26CF700C79C31 /* SBJsonBase.m in Sources */,
-				D1EFDB2911F26CF700C79C31 /* SBJsonParser.m in Sources */,
-				D1EFDB2A11F26CF700C79C31 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,7 +1147,6 @@
 					"MGTwitterEngine/**",
 				);
 				INFOPLIST_FILE = "SPACES-Info.plist";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SPACES;
 			};
 			name = Debug;
@@ -1264,7 +1163,6 @@
 					"MGTwitterEngine/**",
 				);
 				INFOPLIST_FILE = "SPACES-Info.plist";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SPACES;
 				VALIDATE_PRODUCT = YES;
 			};

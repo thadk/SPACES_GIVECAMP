@@ -21,8 +21,22 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
++ (SPACESAppDelegate *)sharedDelegate {
+	return (SPACESAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
++ (NSString *)twitterAccountName {
+	return @"@galleryspaces";
+}
+
++ (NSString *)twitterChallengePrefix {
+	return @"#SPC";
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {  
 	NSLog(@"application");  
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];	
+	
 //	NSString *tweets = [SpacesTwitterConnection getAllSpacesTweets];
 	//[[tweets shouldNot] equal:nil];
     // Override point for customization after application launch.

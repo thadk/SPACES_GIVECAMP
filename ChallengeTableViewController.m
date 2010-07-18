@@ -7,10 +7,12 @@
 //
 
 #import "ChallengeTableViewController.h"
-
+#import "SPACESPostController.h"
+#import "CustomChallengesCell.h"
+#import "SBJSON.h"
 @implementation ChallengeTableViewController
-@synthesize statuses;
-@synthesize twitter;
+@synthesize statuses, twitter;
+
 #pragma mark -
 #pragma mark Initialization
 
@@ -27,20 +29,29 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
- - (void)viewDidLoad {
- [super viewDidLoad];
- 
- // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
- // self.navigationItem.rightBarButtonItem = self.editButtonItem;
- }
- */
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+	// self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	format = [[NSDateFormatter alloc] init];
+	[format setDateFormat:@"MMM dd, yyyy HH:mm"];
+	self.title = @"Challenges";
+
+}
 
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	twitter = [[SpacesTwitterConnection alloc] initWithDelegate:self];
-	[twitter getChallengeTweets];
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+
+	NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://bloggedupspaces.org/tweetapp/announcementJSON.php"]];
+	NSHTTPURLResponse *res = nil;
+	NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:nil];
+	SBJSON *sb = [[SBJSON alloc]init];
+  NSDictionary *results = [sb objectWithString:[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]];
+	self.statuses = [results objectForKey:@"results"];
+	
 }
 
 /*
@@ -85,11 +96,22 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CustomChallengesCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    CustomChallengesCell *cell = (CustomChallengesCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) 
+	{
+		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CustomChallengesCell" owner:nil options:nil];
+		for (id currentObject in topLevelObjects)
+		{
+			if ([currentObject isKindOfClass:[UITableViewCell class]])
+			{
+				cell = (CustomChallengesCell *) currentObject;
+				break;
+			}
+		}
+		//		for (int currentObject in topLevelObjects)
+		//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...
@@ -97,7 +119,14 @@
   	cell.textLabel.font = [UIFont systemFontOfSize:15];
 	cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
   	cell.textLabel.numberOfLines = 0;
-    return cell;
+
+	NSDictionary* response = [statuses objectAtIndex: indexPath.row];
+	NSNumber *dateNum = [response objectForKey: @"created_at"];
+	NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
+	NSString *dateStr = [format stringFromDate:date];
+	cell.published.text = dateStr;
+    
+	return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -154,13 +183,38 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+	
+	NSString *hashTag = @"";
+    NSString *statusText = [[statuses objectAtIndex:indexPath.row] objectForKey:@"text"];
+	NSArray *chunks = [statusText componentsSeparatedByString: @" "];
+	for (NSString *word in chunks)
+	{	
+		NSRange range = [word rangeOfString:@"#SPC" options:NSCaseInsensitiveSearch];
+		if (range.location != NSNotFound)
+		{
+			hashTag = word;
+			break;
+		}
+	}
+	
+	NSString *spacesURL = @"";
+	for (NSString *word in chunks)
+	{	
+		NSRange range = [word rangeOfString:@"http"];
+		if (range.location != NSNotFound)
+		{
+			spacesURL = word;
+			break;
+		}
+	}
+	
+	SPACESPostController *detailedViewController = [[SPACESPostController alloc] init];
+	detailedViewController.spacesURL = spacesURL;
+	detailedViewController.spacesTag = hashTag;
+	
+	// Pass the selected object to the new view controller.
+	[self.navigationController pushViewController:detailedViewController animated:YES];
+	[detailedViewController release];
 }
 
 #pragma mark -
@@ -177,7 +231,17 @@
 //	
 //}
 - (void)statusesReceived:(NSArray *)_statuses forRequest:(NSString *)connectionIdentifier{
-	self.statuses = _statuses;
+	NSMutableArray *tempStatuses = [NSMutableArray arrayWithArray: _statuses];
+	for (int i=[tempStatuses count]-1; i>=0; i--) 
+	{
+		NSString *text = [[tempStatuses objectAtIndex: i] objectForKey: @"text"];
+		NSRange range = [text rangeOfString:@"#Daily"];
+		if (range.location == NSNotFound)
+		{
+			[tempStatuses removeObjectAtIndex: i];
+		}
+	}
+	self.statuses = [NSArray arrayWithArray: tempStatuses];
 	[self.tableView reloadData];
 }
 
@@ -206,3 +270,5 @@
 
 
 @end
+
+

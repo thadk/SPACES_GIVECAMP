@@ -13,6 +13,7 @@
 @interface TwitterTableViewController : UITableViewController {
 	NSArray *statuses;
 	SpacesTwitterConnection *twitter;
+	NSDateFormatter *format;
 }
 @property(nonatomic,retain)NSArray *statuses;
 @property(nonatomic,retain)SpacesTwitterConnection *twitter;

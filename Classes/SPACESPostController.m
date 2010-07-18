@@ -9,6 +9,7 @@
 #import "SPACESPostController.h"
 #import "PhotoPickerViewController.h"
 #import "LoginViewController.h"
+#import "SubmissionsPhotoSource.h"
 #import "SpacesTwitterConnection.h"
 
 #define kToolbarHeight			44.0
@@ -54,6 +55,8 @@
 	CGRect toolFrame = CGRectMake(0, self.view.frame.size.height - kToolbarHeight-90, viewBounds.size.width, kToolbarHeight);
 	
 	self.toolbar = [[[UIToolbar alloc] initWithFrame:toolFrame] autorelease];
+	self.toolbar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+
 	UIBarButtonItem *submission = [[UIBarButtonItem alloc] 
 								   initWithTitle:@"Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
 	UIBarButtonItem *submit = [[UIBarButtonItem alloc] 
@@ -88,6 +91,15 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+-(void)reviewSubmissions{
+	
+	NSString *removed_hash_from_tag = [spacesTag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	removed_hash_from_tag = [removed_hash_from_tag stringByReplacingOccurrencesOfString:@"#" withString:@""];
+	SubmissionsPhotoSource *cont = [[SubmissionsPhotoSource alloc] initWithTwitterTag:removed_hash_from_tag];
+	[self.navigationController pushViewController:cont animated:YES];
+	[cont release];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
