@@ -139,8 +139,8 @@
 			//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		//		for (int currentObject in topLevelObjects)
-		//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+		//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease]
+	
 	else {
 				CGRect f = cell.frame;
 				f.size.height = [self tableView: tableView heightForRowAtIndexPath: indexPath];
