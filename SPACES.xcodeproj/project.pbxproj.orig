@@ -22,6 +22,12 @@
 		4C97241411F2525700BA4EC4 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C97241211F2525700BA4EC4 /* SignupViewController.xib */; };
 		58817C9211F171E60063AE77 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58817C9011F171E60063AE77 /* PhotoPickerViewController.m */; };
 		58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */; };
+		58817E7611F2803E0063AE77 /* spaces_app-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817E7411F2803E0063AE77 /* spaces_app-57.png */; };
+		58817E7711F2803E0063AE77 /* spaces_app-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817E7511F2803E0063AE77 /* spaces_app-114.png */; };
+		58817F0F11F292220063AE77 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817F0B11F292220063AE77 /* Default.png */; };
+		58817F1311F2924F0063AE77 /* spaces_app-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817F1111F2924F0063AE77 /* spaces_app-29.png */; };
+		58817F1411F2924F0063AE77 /* spaces_app-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817F1211F2924F0063AE77 /* spaces_app-58.png */; };
+		58817F3511F2955A0063AE77 /* Default4.png in Resources */ = {isa = PBXBuildFile; fileRef = 58817F3411F2955A0063AE77 /* Default4.png */; };
 		D104309E11F14A430028C3CD /* libMGTwitterEngineLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D104309B11F14A2D0028C3CD /* libMGTwitterEngineLib.a */; };
 		D180C17F11F14F8700A5EB5F /* SpacesTwitterConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */; };
 		D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C3EB11F1EB7D00A5EB5F /* ChallengeTableViewController.m */; };
@@ -29,6 +35,9 @@
 		D180C5F511F2319F00A5EB5F /* CustomSpacesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */; };
 		D180C6BD11F24E8B00A5EB5F /* CustomChallengesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */; };
 		D180C6BE11F24E8B00A5EB5F /* CustomChallengesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */; };
+		D180C83A11F28B3C00A5EB5F /* gradient2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D180C83911F28B3C00A5EB5F /* gradient2.jpg */; };
+		D180C8E811F2B33900A5EB5F /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D180C8E611F2B33900A5EB5F /* gradient.png */; };
+		D180C8E911F2B33900A5EB5F /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180C8E711F2B33900A5EB5F /* gradient@2x.png */; };
 		D19554A811F15F0300BE5546 /* Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554A711F15F0300BE5546 /* Spec.m */; };
 		D195552B11F15F5900BE5546 /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B211F15F5900BE5546 /* KWAfterAllNode.m */; };
 		D195552C11F15F5900BE5546 /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B411F15F5900BE5546 /* KWAfterEachNode.m */; };
@@ -282,6 +291,12 @@
 		58817C8F11F171E60063AE77 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		58817C9011F171E60063AE77 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		58817C9111F171E60063AE77 /* PhotoPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPickerViewController.xib; sourceTree = "<group>"; };
+		58817E7411F2803E0063AE77 /* spaces_app-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spaces_app-57.png"; sourceTree = "<group>"; };
+		58817E7511F2803E0063AE77 /* spaces_app-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spaces_app-114.png"; sourceTree = "<group>"; };
+		58817F0B11F292220063AE77 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		58817F1111F2924F0063AE77 /* spaces_app-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spaces_app-29.png"; sourceTree = "<group>"; };
+		58817F1211F2924F0063AE77 /* spaces_app-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spaces_app-58.png"; sourceTree = "<group>"; };
+		58817F3411F2955A0063AE77 /* Default4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default4.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SPACES-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SPACES-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D104308B11F14A2C0028C3CD /* MGTwitterEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MGTwitterEngine.xcodeproj; path = MGTwitterEngine/MGTwitterEngine.xcodeproj; sourceTree = "<group>"; };
 		D180C17D11F14F8700A5EB5F /* SpacesTwitterConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpacesTwitterConnection.h; path = Classes/SpacesTwitterConnection.h; sourceTree = "<group>"; };
@@ -294,6 +309,9 @@
 		D180C6BA11F24E8B00A5EB5F /* CustomChallengesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomChallengesCell.h; sourceTree = "<group>"; };
 		D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomChallengesCell.m; sourceTree = "<group>"; };
 		D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomChallengesCell.xib; sourceTree = "<group>"; };
+		D180C83911F28B3C00A5EB5F /* gradient2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient2.jpg; sourceTree = "<group>"; };
+		D180C8E611F2B33900A5EB5F /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
+		D180C8E711F2B33900A5EB5F /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
 		D19553E911F15E2E00BE5546 /* Unit Test Bundle.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Test Bundle.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19553EA11F15E2E00BE5546 /* Unit Test Bundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Test Bundle-Info.plist"; sourceTree = "<group>"; };
 		D19554A711F15F0300BE5546 /* Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spec.m; sourceTree = "<group>"; };
@@ -544,6 +562,16 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				D180C83911F28B3C00A5EB5F /* gradient2.jpg */,
+=======
+				58817F3411F2955A0063AE77 /* Default4.png */,
+				58817F1111F2924F0063AE77 /* spaces_app-29.png */,
+				58817F1211F2924F0063AE77 /* spaces_app-58.png */,
+				58817F0B11F292220063AE77 /* Default.png */,
+				58817E7411F2803E0063AE77 /* spaces_app-57.png */,
+				58817E7511F2803E0063AE77 /* spaces_app-114.png */,
+>>>>>>> e057a841091d347b298b6203d829f531869d6ea2
 				D180C5F311F2319F00A5EB5F /* CustomSpacesCell.xib */,
 				D180C6BC11F24E8B00A5EB5F /* CustomChallengesCell.xib */,
 				2899E5210DE3E06400AC0155 /* SPACESViewController.xib */,
@@ -594,6 +622,8 @@
 		D180C18011F14F9300A5EB5F /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				D180C8E611F2B33900A5EB5F /* gradient.png */,
+				D180C8E711F2B33900A5EB5F /* gradient@2x.png */,
 				D1EFD62611F1EBC800C79C31 /* Three20.bundle */,
 				D180C17D11F14F8700A5EB5F /* SpacesTwitterConnection.h */,
 				D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */,
@@ -608,16 +638,13 @@
 				4C97221711F202BF00BA4EC4 /* LoginViewController.h */,
 				4C97221811F202BF00BA4EC4 /* LoginViewController.m */,
 				4C97221911F202BF00BA4EC4 /* LoginViewController.xib */,
-<<<<<<< HEAD
 				4C97241011F2525700BA4EC4 /* SignupViewController.h */,
 				4C97241111F2525700BA4EC4 /* SignupViewController.m */,
 				4C97241211F2525700BA4EC4 /* SignupViewController.xib */,
-=======
 				D180C5F111F2319F00A5EB5F /* CustomSpacesCell.h */,
 				D180C5F211F2319F00A5EB5F /* CustomSpacesCell.m */,
 				D180C6BA11F24E8B00A5EB5F /* CustomChallengesCell.h */,
 				D180C6BB11F24E8B00A5EB5F /* CustomChallengesCell.m */,
->>>>>>> 60aee7e3c027c40162cc937a616e4174f7d31ec7
 			);
 			name = Twitter;
 			path = ..;
@@ -1078,12 +1105,21 @@
 				58817C9311F171E60063AE77 /* PhotoPickerViewController.xib in Resources */,
 				D1EFD62811F1EBC800C79C31 /* Three20.bundle in Resources */,
 				4C97221B11F202BF00BA4EC4 /* LoginViewController.xib in Resources */,
-<<<<<<< HEAD
 				4C97241411F2525700BA4EC4 /* SignupViewController.xib in Resources */,
-=======
 				D180C5F511F2319F00A5EB5F /* CustomSpacesCell.xib in Resources */,
 				D180C6BE11F24E8B00A5EB5F /* CustomChallengesCell.xib in Resources */,
->>>>>>> 60aee7e3c027c40162cc937a616e4174f7d31ec7
+<<<<<<< HEAD
+				D180C83A11F28B3C00A5EB5F /* gradient2.jpg in Resources */,
+				D180C8E811F2B33900A5EB5F /* gradient.png in Resources */,
+				D180C8E911F2B33900A5EB5F /* gradient@2x.png in Resources */,
+=======
+				58817E7611F2803E0063AE77 /* spaces_app-57.png in Resources */,
+				58817E7711F2803E0063AE77 /* spaces_app-114.png in Resources */,
+				58817F0F11F292220063AE77 /* Default.png in Resources */,
+				58817F1311F2924F0063AE77 /* spaces_app-29.png in Resources */,
+				58817F1411F2924F0063AE77 /* spaces_app-58.png in Resources */,
+				58817F3511F2955A0063AE77 /* Default4.png in Resources */,
+>>>>>>> e057a841091d347b298b6203d829f531869d6ea2
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1129,9 +1165,7 @@
 				4C97211F11F1EB0500BA4EC4 /* SPACESPostController.m in Sources */,
 				D180C3EC11F1EB7D00A5EB5F /* ChallengeTableViewController.m in Sources */,
 				4C97221A11F202BF00BA4EC4 /* LoginViewController.m in Sources */,
-<<<<<<< HEAD
 				4C97241311F2525700BA4EC4 /* SignupViewController.m in Sources */,
-=======
 				D180C5F411F2319F00A5EB5F /* CustomSpacesCell.m in Sources */,
 				D180C6BD11F24E8B00A5EB5F /* CustomChallengesCell.m in Sources */,
 				D1EFD8ED11F21A2D00C79C31 /* MockPhotoSource.m in Sources */,
@@ -1141,7 +1175,6 @@
 				D1EFDB2E11F26CF700C79C31 /* SBJsonBase.m in Sources */,
 				D1EFDB2F11F26CF700C79C31 /* SBJsonParser.m in Sources */,
 				D1EFDB3011F26CF700C79C31 /* SBJsonWriter.m in Sources */,
->>>>>>> 60aee7e3c027c40162cc937a616e4174f7d31ec7
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

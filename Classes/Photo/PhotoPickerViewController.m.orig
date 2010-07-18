@@ -30,19 +30,22 @@
  */
 
 
+<<<<<<< HEAD
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	messageView.layer.cornerRadius=5;
 	messageView.clipsToBounds = YES;
-	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
-	
-	self.navigationItem.leftBarButtonItem.style = UIBarButtonItemStyleBordered;
-	self.navigationItem.leftBarButtonItem.title = @"Cancel";
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleBordered target:self action:@selector(submit:)];
-	self.navigationItem.rightBarButtonItem.title = @"Submit";
+}
+=======
+
+ // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 }
 
+>>>>>>> 5468bc701519ba9245ed4c93f178267bb2f6d0a1
 
 
 /*
@@ -120,11 +123,11 @@
 - (IBAction)submit:(id)sender {
 	// TODO: submit image to twitpic
 	
-	[self.navigationController popViewControllerAnimated:YES];
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)cancel:(id)sender {
-	[self.navigationController popViewControllerAnimated:YES];
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark ---cleanup

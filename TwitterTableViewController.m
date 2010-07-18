@@ -11,7 +11,7 @@
 #import "CustomSpacesCell.h"
 
 @implementation TwitterTableViewController
-@synthesize statuses,twitter;
+@synthesize statuses,twitter,shade;
 
 #pragma mark -
 #pragma mark Initialization
@@ -37,15 +37,37 @@
 	format = [[NSDateFormatter alloc] init];
 	[format setDateFormat:@"MMM dd, yyyy HH:mm"];
 	self.title = @"SPACES";
+	self.statuses = nil;
+	
+	self.shade = [[UIView alloc] initWithFrame:self.view.frame];
+	shade.backgroundColor = [UIColor blackColor];
+	shade.alpha = 0.7;
+	
+	CGRect t = shade.frame;
+	t.origin.y = 0;
+	shade.frame = t;
+	
+	
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	CGRect f = spinner.frame;
+	f.origin.x = self.view.frame.size.width /2 - f.size.width/2;
+	f.origin.y = self.view.frame.size.height /2 - f.size.height/2 - 50;
+	spinner.frame = f;
+	[spinner startAnimating];
+	[shade addSubview:spinner];
+	[spinner release];  
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
-
+	[self performSelectorInBackground:@selector(getData) withObject:nil];
+	[self.view addSubview:shade];
+}
+-(void)getData{
 	twitter = [[SpacesTwitterConnection alloc ]initWithDelegate:self];
-	[twitter getAllSpacesTweets];
+	[twitter performSelectorOnMainThread:@selector(getAllSpacesTweets) withObject:nil waitUntilDone:NO];
 }
 
 /*
@@ -83,7 +105,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [statuses count];
+	NSLog(@"Rows %d", [statuses count]);
+    return [statuses count] + 1;
 }
 
 
@@ -104,34 +127,51 @@
 				break;
 			}
 		}
-//		for (int currentObject in topLevelObjects)
-//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...
 	
-	NSDictionary* response = [statuses objectAtIndex: indexPath.row];
-	NSNumber *dateNum = [response objectForKey: @"created_at"];
-	NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
-	NSString *dateStr = [format stringFromDate:date];
-	cell.published.text = dateStr;
+    if (indexPath.row == [statuses count])
+	{
+		cell.published.text = @"";
+		cell.status.text = @"   LOAD MORE...";
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"pink_gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+		cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"pink_gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+	}
+	else
+	{
+		NSDictionary* response = [statuses objectAtIndex: indexPath.row];
+		NSNumber *dateNum = [response objectForKey: @"created_at"];
+		NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
+		NSString *dateStr = [format stringFromDate:date];
+		cell.published.text = dateStr;		
+		cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+		cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
+	}
+	[cell setBackgroundColor:[UIColor clearColor]];
 	
-    cell.status.text = [response objectForKey: @"text"];
-	
-	
-//    cell.textLabel.text = [[statuses objectAtIndex: indexPath.row] objectForKey: @"text"];
-//  	cell.textLabel.font = [UIFont systemFontOfSize: 15];
-//	cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-//  	cell.textLabel.numberOfLines = 0;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UIFont *font = [UIFont boldSystemFontOfSize:15];
-	CGSize size = CGSizeMake([[self tableView] frame].size.width - 20.0, FLT_MAX);
-	CGSize calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
-
-	return calcSize.height;
+	UIFont *font = [UIFont fontWithName:@"Helvetica" size:13.0f];
+	CGSize size = CGSizeMake([[self tableView] frame].size.width - 40.0, FLT_MAX);
+	CGSize calcSize;
+    if (indexPath.row == [statuses count])
+	{
+		calcSize = [@"   LOAD MORE..." sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
+		return 44;
+	}
+	else
+	{
+		 calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] 
+					 sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
+		return calcSize.height + 35;
+	}
+//	
+//	return calcSize.height + 35;
+//    return [indexPath row] * 1.5 + 20;
 }
 
 
@@ -188,6 +228,11 @@
 //	// Pass the selected object to the new view controller.
 //	[self.navigationController pushViewController:detailedViewController animated:YES];
 //	[detailedViewController release];
+	
+    if (indexPath.row == [statuses count])
+	{
+		[twitter getSomeSpacesTweets: [statuses count]+20];
+	}
 }
 
 #pragma mark -
@@ -208,13 +253,18 @@
 	for (int i=[tempStatuses count]-1; i>=0; i--) 
 	{
 		NSString *text = [[tempStatuses objectAtIndex: i] objectForKey: @"text"];
-		NSRange range = [text rangeOfString:@"#Daily"];
+		NSRange range = [text rangeOfString:@"#SPC"];
 		if (range.location != NSNotFound)
 		{
 			[tempStatuses removeObjectAtIndex: i];
 		}
 	}
 	self.statuses = [NSArray arrayWithArray: tempStatuses];
+	
+	[shade removeFromSuperview];
+
+	
+	
 	[self.tableView reloadData];
 }
 
