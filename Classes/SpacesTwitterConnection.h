@@ -24,4 +24,5 @@
 -(NSString*)getAllSpacesTweets;
 -(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg;
 -(NSString *)checkUserCredentials;
+-(NSString*)getSubmissionsForTag:(NSString*)_tag;
 @end

@@ -94,9 +94,8 @@
 
 - (void)startArrayWithKey:(NSString *)key
 {
-#if DEBUG_PARSING
+
 	NSLog(@"search: array start = %@", key);
-#endif
 	insideArray = YES;
 	metaDataObject = NO;
 }

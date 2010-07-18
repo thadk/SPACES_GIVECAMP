@@ -7,15 +7,11 @@
 //
 
 #import "PhotoPickerViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PhotoPickerViewController
 
-@synthesize selectImageLabel;
-@synthesize submitButton;
-@synthesize thumbnailView;
 @synthesize thumbnailImage;
-@synthesize photoController;
 
 /*
  // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -34,12 +30,14 @@
  */
 
 
-/*
- // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
- - (void)viewDidLoad {
- [super viewDidLoad];
- }
- */
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	messageView.layer.cornerRadius=5;
+	messageView.clipsToBounds = YES;
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+}
+
 
 
 /*
@@ -115,7 +113,12 @@
 }
 
 - (IBAction)submit:(id)sender {
+	// TODO: submit image to twitpic
 	
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)cancel:(id)sender {
 	[self dismissModalViewControllerAnimated:YES];
 }
 
@@ -135,6 +138,8 @@
 
 
 - (void)dealloc {
+	if (thumbnailImage) [thumbnailImage release], thumbnailImage = nil;
+	
     [super dealloc];
 }
 
