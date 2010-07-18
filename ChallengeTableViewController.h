@@ -15,9 +15,11 @@
 	NSArray *statuses;
 	SpacesTwitterConnection *twitter;
 	NSDateFormatter *format;
+	UIView *shade;
 }
 
 @property (nonatomic, retain) NSArray *statuses;
 @property (nonatomic, retain) SpacesTwitterConnection *twitter;
+@property (nonatomic,retain) UIView *shade;
 
 @end
