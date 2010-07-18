@@ -50,7 +50,7 @@
 	NSHTTPURLResponse *res = nil;
 	NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:nil];
 	SBJSON *sb = [[SBJSON alloc]init];
-  NSDictionary *results = [sb objectWithString:[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]];
+	NSDictionary *results = [sb objectWithString:[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]];
 	self.statuses = [results objectForKey:@"results"];
 	
 }
@@ -94,57 +94,53 @@
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"CustomSpacesCell";
-    
-    CustomSpacesCell *cell = (CustomSpacesCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) 
-	{
-		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CustomSpacesCell" owner:nil options:nil];
-		for (id currentObject in topLevelObjects)
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	CustomSpacesCell *cell;
+		static NSString *CellIdentifier = @"CustomSpacesCell";
+		
+		cell = (CustomSpacesCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) 
 		{
-			if ([currentObject isKindOfClass:[UITableViewCell class]])
+			NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CustomSpacesCell" owner:nil options:nil];
+			for (id currentObject in topLevelObjects)
 			{
-				cell = (CustomSpacesCell *) currentObject;
-				break;
+				if ([currentObject isKindOfClass:[UITableViewCell class]])
+				{
+					cell = (CustomSpacesCell *) currentObject;
+					break;
+				}
 			}
+			//		for (int currentObject in topLevelObjects)
+			//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
-		//		for (int currentObject in topLevelObjects)
-		//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-	else {
-		//		CGRect f = cell.frame;
-		//		f.size.height = [self tableView: tableView heightForRowAtIndexPath: indexPath];
-		//		cell.frame = f;
-	}
-	
-    
-    // Configure the cell...
-	
-	NSDictionary* response = [statuses objectAtIndex: indexPath.row];
-	NSNumber *dateNum = [response objectForKey: @"created_at"];
-	NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
-	NSString *dateStr = [format stringFromDate:date];
-	cell.published.text = dateStr;
-	
-    cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		else {
+			//		CGRect f = cell.frame;
+			//		f.size.height = [self tableView: tableView heightForRowAtIndexPath: indexPath];
+			//		cell.frame = f;
+		}
+		
+		
+		// Configure the cell...
+		NSDictionary* response = [statuses objectAtIndex: indexPath.row];
+		NSNumber *dateNum = [response objectForKey: @"created_at"];
+		NSDate *date = [NSDate dateWithTimeIntervalSince1970: [dateNum intValue]];
+		NSString *dateStr = [format stringFromDate:date];
+		cell.published.text = dateStr;		
+		cell.status.text = [[response objectForKey: @"text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
 	cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"gradient.png"] 	stretchableImageWithLeftCapWidth:0 topCapHeight:53]];
-	
 	[cell setBackgroundColor:[UIColor clearColor]];
-	cell.published.text = dateStr;
-	
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
 	UIFont *font = [UIFont fontWithName:@"Helvetica" size:13.0f];
 	CGSize size = CGSizeMake([[self tableView] frame].size.width - 40.0, FLT_MAX);
 	CGSize calcSize = [[[statuses objectAtIndex:indexPath.row] objectForKey:@"text"] sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
-	//	
 	return calcSize.height + 35;
-	//    return [indexPath row] * 1.5 + 20;
 }
 
 

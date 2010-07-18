@@ -29,7 +29,14 @@
 
 -(NSString*)getAllSpacesTweets
 {
-	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:200];
+	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:20];
+	NSLog(ret,nil);
+	return ret;
+}
+
+-(NSString*)getSomeSpacesTweets: (int) cnt
+{
+	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:cnt];
 	NSLog(ret,nil);
 	return ret;
 }
@@ -38,7 +45,7 @@
 {
 //	NSString *url = @"from:spacesgallery+#DailyArtDose";
 //	NSString *ret = [twitter getSearchResultsForQuery:url];
-	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:200];
+	NSString *ret = [twitter getUserTimelineFor:@"spacesgallery" sinceID:0 startingAtPage:0 count:52];
 	NSLog(ret,nil);
 	return ret;
 }

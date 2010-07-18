@@ -22,6 +22,7 @@
 -(void)setUsername:(NSString*)username andPassword:(NSString*)password;
 -(NSString *) getChallengeTweets;
 -(NSString*)getAllSpacesTweets;
+-(NSString*)getSomeSpacesTweets: (int) cnt;
 -(void) uploadPicAndPost: (UIImage *)pic andMessage:(NSString *)msg;
 -(NSString *)checkUserCredentials;
 -(NSString*)getSubmissionsForTag:(NSString*)_tag;
