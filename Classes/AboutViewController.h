@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AboutViewController : UIViewController 
+@interface AboutViewController : UIViewController<UIWebViewDelegate> 
 {
 	IBOutlet UIWebView *webView;
+	UIView *shade;
 }
 
 @property (nonatomic, retain) UIWebView *webView;
+@property(nonatomic,retain) UIView *shade;
 
 @end

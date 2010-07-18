@@ -12,7 +12,7 @@
 @implementation AboutViewController
 
 @synthesize webView;
-
+@synthesize shade;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -30,6 +30,37 @@
 	NSURL *url = [NSURL URLWithString:urlAddress];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
 	[webView loadRequest:requestObj];
+	
+	self.shade = [[UIView alloc] initWithFrame:self.view.frame];
+	shade.backgroundColor = [UIColor blackColor];
+	shade.alpha = 0.7;
+	
+	
+	CGRect t = shade.frame;
+	t.origin.y = 0;
+	shade.frame = t;
+	
+	
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	CGRect f = spinner.frame;
+	f.origin.x = self.view.frame.size.width /2 - f.size.width/2;
+	f.origin.y = self.view.frame.size.height /2 - f.size.height/2 - 20;
+	spinner.frame = f;
+	[spinner startAnimating];
+	[shade addSubview:spinner];
+	[spinner release];  
+}
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+	[self.view addSubview:shade];
+
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+	[shade removeFromSuperview];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+	[shade removeFromSuperview];
 }
 
 
@@ -57,6 +88,7 @@
 
 - (void)dealloc {
 	[webView release];
+	if(shade)[shade release], shade = nil;
     [super dealloc];
 }
 
