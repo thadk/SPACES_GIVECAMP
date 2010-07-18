@@ -7,7 +7,7 @@
 //
 
 #import "PhotoPickerViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PhotoPickerViewController
 
@@ -30,11 +30,12 @@
  */
 
 
-
- // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+	[super viewDidLoad];
+	messageView.layer.cornerRadius=5;
+	messageView.clipsToBounds = YES;
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
 }
 
 
@@ -112,7 +113,12 @@
 }
 
 - (IBAction)submit:(id)sender {
+	// TODO: submit image to twitpic
 	
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)cancel:(id)sender {
 	[self dismissModalViewControllerAnimated:YES];
 }
 

@@ -10,9 +10,10 @@
 
 
 @interface PhotoPickerViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate> {
-	IBOutlet UIButton *submitButton;
+	IBOutlet UIButton *cancelButton;
 	IBOutlet UIImageView *thumbnailView;
 	IBOutlet UILabel *selectImageLabel;
+	IBOutlet UITextView *messageView;
 	
 	NSString *challengeIdentifier;
 	UIImage *thumbnailImage;
@@ -22,6 +23,7 @@
 @property (nonatomic, retain) UIImage *thumbnailImage;
 
 - (IBAction)submit:(id)sender;
+- (IBAction)cancel:(id)sender;
 - (IBAction)capture:(id)sender;
 
 @end
