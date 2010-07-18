@@ -51,6 +51,7 @@
 		D180CACB11F33A7300A5EB5F /* tab_challenges@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CAC911F33A7300A5EB5F /* tab_challenges@2x.png */; };
 		D180CAD211F33D8600A5EB5F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D180CAD011F33D8600A5EB5F /* AboutViewController.m */; };
 		D180CAD311F33D8600A5EB5F /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180CAD111F33D8600A5EB5F /* AboutViewController.xib */; };
+		D180CAE511F3484400A5EB5F /* pink_gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D180CAE311F3484400A5EB5F /* pink_gradient@2x.png */; };
 		D19554A811F15F0300BE5546 /* Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554A711F15F0300BE5546 /* Spec.m */; };
 		D195552B11F15F5900BE5546 /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B211F15F5900BE5546 /* KWAfterAllNode.m */; };
 		D195552C11F15F5900BE5546 /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D19554B411F15F5900BE5546 /* KWAfterEachNode.m */; };
@@ -341,6 +342,7 @@
 		D180CACF11F33D8600A5EB5F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		D180CAD011F33D8600A5EB5F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		D180CAD111F33D8600A5EB5F /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		D180CAE311F3484400A5EB5F /* pink_gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_gradient@2x.png"; sourceTree = "<group>"; };
 		D19553E911F15E2E00BE5546 /* Unit Test Bundle.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Test Bundle.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19553EA11F15E2E00BE5546 /* Unit Test Bundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Test Bundle-Info.plist"; sourceTree = "<group>"; };
 		D19554A711F15F0300BE5546 /* Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spec.m; sourceTree = "<group>"; };
@@ -598,6 +600,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D180C8E611F2B33900A5EB5F /* gradient.png */,
+				D180C8E711F2B33900A5EB5F /* gradient@2x.png */,
+				D180CAE311F3484400A5EB5F /* pink_gradient@2x.png */,
 				D180CAC811F33A7300A5EB5F /* tab_challenges.png */,
 				D180CAC911F33A7300A5EB5F /* tab_challenges@2x.png */,
 				D180CA6211F32EEE00A5EB5F /* tab_about.png */,
@@ -663,8 +668,6 @@
 		D180C18011F14F9300A5EB5F /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
-				D180C8E611F2B33900A5EB5F /* gradient.png */,
-				D180C8E711F2B33900A5EB5F /* gradient@2x.png */,
 				D1EFD62611F1EBC800C79C31 /* Three20.bundle */,
 				D180C17D11F14F8700A5EB5F /* SpacesTwitterConnection.h */,
 				D180C17E11F14F8700A5EB5F /* SpacesTwitterConnection.m */,
@@ -1177,6 +1180,7 @@
 				D180CACA11F33A7300A5EB5F /* tab_challenges.png in Resources */,
 				D180CACB11F33A7300A5EB5F /* tab_challenges@2x.png in Resources */,
 				D180CAD311F33D8600A5EB5F /* AboutViewController.xib in Resources */,
+				D180CAE511F3484400A5EB5F /* pink_gradient@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
