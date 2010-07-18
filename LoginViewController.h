@@ -17,6 +17,11 @@
 	UIBarButtonItem *signupButtonItem;
 	UIBarButtonItem *loginButtonItem;
 	
+	UIView *flashMessageView;
+	UILabel *flashMessageLabel;
+	UIActivityIndicatorView *loginActivityView;
+	
+	
 	NSString *username;
 	NSString *password;
 }
@@ -28,6 +33,10 @@
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *signupButtonItem;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *loginButtonItem;
+
+@property (nonatomic, retain) IBOutlet UIView *flashMessageView;
+@property (nonatomic, retain) IBOutlet UILabel *flashMessageLabel;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loginActivityView;
 
 
 - (IBAction)twitterSignup;
