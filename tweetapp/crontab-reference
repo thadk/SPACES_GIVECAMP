@@ -1,2 +1,2 @@
 MAILTO="????"
-*/10 * * * * /usr/bin/curl -s http://bloggedupspaces.org/tweetapp/cronContestFetch.php 1>&2 &>/dev/null
+*/10 * * * * /home/givecampspaces/bloggedupspaces.org/tweetapp/cronContestFetch.sh
