@@ -1024,7 +1024,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* SPACES */ = {
+		1D6058900D05DD3D006BFB54 /* iPhone */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SPACES" */;
 			buildPhases = (
@@ -1113,7 +1113,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* SPACES */,
+				1D6058900D05DD3D006BFB54 /* iPhone */,
 				D19553E811F15E2E00BE5546 /* Unit Test Bundle */,
 			);
 		};
@@ -1489,6 +1489,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicole Edwards (VNQ53CE5F7)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SPACES_Prefix.pch;
@@ -1504,6 +1505,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = SPACES;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "313C2AB9-B32D-48C9-8DA3-EE08683EA82B";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1552,7 +1554,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = SPACES;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6AEF5E55-82C5-4A4B-9405-8A7ACBAEEFB1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7379E2A3-D7A5-49D1-BC2D-5EE196377647";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = AdHoc;
