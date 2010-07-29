@@ -74,7 +74,17 @@
 	[shade addSubview:spinner];
 	[spinner release];  
 	
+	UILabel *label = [[UILabel alloc] init];
+	label.frame = CGRectMake(0, self.view.frame.size.height / 2 + f.size.height, self.view.frame.size.width, f.size.height * 3);
+	label.textAlignment = UITextAlignmentCenter;
+	label.numberOfLines = 0;
+	label.backgroundColor = [UIColor clearColor];
+	label.textColor = [UIColor whiteColor];
+	label.text = @"Submitting image...";
+	[shade addSubview:label];
+	[label release];
 	
+	[shade release];
 }
 
 
@@ -159,12 +169,14 @@
 
 - (IBAction)submit:(id)sender {
 	// TODO: submit image to twitpic
+	[messageView resignFirstResponder];
 	NSString *tweetMessage = [NSString stringWithFormat:@"%@ %@ %@", messageView.text, [SPACESAppDelegate twitterAccountName], self.challengeIdentifier];
 	[self.view addSubview:shade];
 	[twitter uploadPicAndPost:self.fullImage andMessage:tweetMessage sender:self ];	
 }
 
 - (IBAction)cancel:(id)sender {
+	[messageView resignFirstResponder];
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
