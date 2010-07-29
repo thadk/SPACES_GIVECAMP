@@ -78,34 +78,20 @@
 	[request setDidFailSelector:@selector(requestFailed:)];
 	
 	[request start];
+	[[UIApplication sharedApplication] beginIgnoringInteractionEvents];
 	
 	sender = _sender;
-	
-//	// convert data into string
-//	NSString *responseString = [[[NSString alloc] initWithBytes:[responseData bytes]
-//														 length:[responseData length]
-//													   encoding:NSUTF8StringEncoding] autorelease];
-//	
-//	// see if we get a welcome result
-//	NSLog(@"%@", responseString);
-//	
-//	// create a scanner
-//	NSString *mediaURL = nil;
-//	NSScanner *scanner = [NSScanner scannerWithString:responseString];
-//	[scanner scanUpToString:@"<mediaurl>" intoString:nil];
-//	[scanner scanString:@"<mediaurl>" intoString:nil];
-//	[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"<"] intoString:&mediaURL];
-//	
-//	NSLog(@"mediaURL is %@", mediaURL);
 }
 
 - (void)requestDone:(ASIHTTPRequest *)request {
 	CFShow(request);
+	[[UIApplication sharedApplication] endIgnoringInteractionEvents];
 	[sender removeShade];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
 	CFShow(request);
+	[[UIApplication sharedApplication] endIgnoringInteractionEvents];
 	[sender removeShade];
 }
 
@@ -120,21 +106,3 @@
 
 
 @end
-
-//  PROBABLY SIMPLER AND ASYNCHRONOUS
-//
-//NSData *imageData = UIImagePNGRepresentation(imageToPost);
-//NSURL *twitpicURL = [NSURL URLWithString:@"http://twitpic.com/api/uploadAndPost"];
-//
-//ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:twitpicURL] autorelease];
-//
-//[request setData:imageData forKey:@"media"];
-//[request setPostValue:@"myUsername" forKey:@"username"];
-//[request setPostValue:@"myPassword" forKey:@"password"];
-//[request setPostValue:@"myMessage" forKey:@"message"];
-//
-//[request setDelegate:self];
-//[request setDidFinishSelector:@selector(requestDone:)];
-//[request setDidFailSelector:@selector(requestFailed:)];
-//
-//[request start];
