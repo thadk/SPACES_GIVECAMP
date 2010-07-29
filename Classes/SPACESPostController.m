@@ -19,6 +19,7 @@
 @synthesize spacesTag;
 @synthesize spacesWebView;
 @synthesize toolbar;
+@synthesize shade;
 //@synthesize loadWebIndicatorView;
 
 /*
@@ -42,7 +43,7 @@
 	CGRect webFrame = CGRectMake(0, 0, viewBounds.size.width, viewBounds.size.height - kToolbarHeight);
 	self.spacesWebView = [[[UIWebView alloc] initWithFrame:webFrame] autorelease];
 	self.spacesWebView.delegate = self;
-	self.spacesWebView.backgroundColor = [UIColor whiteColor];
+	self.spacesWebView.backgroundColor = [UIColor blackColor];
 	self.spacesWebView.scalesPageToFit = YES;
 	self.spacesWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 	self.spacesWebView.delegate = self;
@@ -50,8 +51,22 @@
 	
 	[self.spacesWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.spacesURL]]];
 	
+	self.shade = [[UIView alloc] initWithFrame:self.view.frame];
+	shade.backgroundColor = [UIColor blackColor];
+	shade.alpha = 0.7;
 	
-	
+	CGRect t = shade.frame;
+	t.origin.y = 0;
+	shade.frame = t;
+
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	CGRect f = spinner.frame;
+	f.origin.x = self.view.frame.size.width /2 - f.size.width/2;
+	f.origin.y = self.view.frame.size.height /2 - f.size.height/2 - 50;
+	spinner.frame = f;
+	[spinner startAnimating];
+	[shade addSubview:spinner];
+	[spinner release];  
 	
 	// figure out the actual location to place the toolbar
 	// !!! ========================================================== !!!
@@ -112,6 +127,7 @@
 }
 
 - (void)dealloc {
+	[shade release];
 	[spacesURL release];
 	[spacesTag release];
 	[spacesWebView release];
@@ -129,6 +145,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     // starting the load, show the activity indicator in the status bar
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	[self.view.superview addSubview:shade];
 	
 	//[self.loadWebIndicatorView startAnimating];
 	//self.loadWebIndicatorView.hidden = NO;
@@ -137,6 +154,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     // finished loading, hide the activity indicator in the status bar
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	[shade removeFromSuperview];
 	
 	//[self.loadWebIndicatorView stopAnimating];
 	//self.loadWebIndicatorView.hidden = YES;

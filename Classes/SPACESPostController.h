@@ -15,12 +15,15 @@
 	NSString *spacesTag;
 	UIWebView *spacesWebView;
 	UIToolbar *toolbar;
+
+	UIView *shade;
 }
 
 @property (nonatomic, retain) IBOutlet NSString *spacesURL;
 @property (nonatomic, retain) IBOutlet NSString *spacesTag;
 @property (nonatomic, retain) IBOutlet UIWebView *spacesWebView;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
+@property (nonatomic,retain)UIView *shade;
 
 - (IBAction)submitPhoto;
 - (void)showPhotoPickerView;
