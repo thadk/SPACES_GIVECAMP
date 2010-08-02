@@ -270,6 +270,10 @@
 		detailedViewController.spacesTag = hashTag;
 		
 		// Pass the selected object to the new view controller.
+		self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back"
+																				 style:UIBarButtonItemStyleBordered
+																				target:nil
+																				action:nil] autorelease];	
 		[self.navigationController pushViewController:detailedViewController animated:YES];
 		[detailedViewController release];
 	}

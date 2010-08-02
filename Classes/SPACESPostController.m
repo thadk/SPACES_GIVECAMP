@@ -36,6 +36,11 @@
 }
 */
 
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
@@ -78,7 +83,7 @@
 	UIBarButtonItem *submission = [[UIBarButtonItem alloc] 
 								   initWithTitle:@"View All Photo Submissions" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewSubmissions)];
 	UIBarButtonItem *submit = [[UIBarButtonItem alloc] 
-							   initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submitPhoto)];
+							   initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(submitPhoto)];
 	self.navigationItem.rightBarButtonItem = submit;
 	
 	UIBarButtonItem *space = [[UIBarButtonItem alloc] 

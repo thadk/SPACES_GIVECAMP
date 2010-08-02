@@ -168,7 +168,6 @@
 }
 
 - (IBAction)submit:(id)sender {
-	// TODO: submit image to twitpic
 	[messageView resignFirstResponder];
 	NSString *tweetMessage = [NSString stringWithFormat:@"%@ %@ %@", messageView.text, [SPACESAppDelegate twitterAccountName], self.challengeIdentifier];
 	[self.view addSubview:shade];
