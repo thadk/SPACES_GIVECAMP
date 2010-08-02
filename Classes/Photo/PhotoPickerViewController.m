@@ -174,6 +174,22 @@
 	[twitter uploadPicAndPost:self.fullImage andMessage:tweetMessage sender:self ];	
 }
 
+-(void)submissionSuccessful {
+	[self removeShade];
+	[[self navigationController] popViewControllerAnimated:YES];
+	UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"digiSPACES"
+													 message:@"Thank you!\n\nIt may take up to 15 minutes for your image to appear in the list." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+	[alert show];
+}	 
+
+-(void)submissionFailed {
+	[self removeShade];
+	UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"digiSPACES"
+													 message:@"We're sorry, your submission didn't complete.\n\nPlease try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+	[alert show];
+}
+	 
+	 
 - (IBAction)cancel:(id)sender {
 	[messageView resignFirstResponder];
 	[self.navigationController popViewControllerAnimated:YES];
@@ -217,7 +233,6 @@
 
 -(void) removeShade{	
 	[shade removeFromSuperview];
-	[[self navigationController] popViewControllerAnimated:YES];
 }
 
 

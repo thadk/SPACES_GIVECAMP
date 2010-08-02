@@ -86,13 +86,17 @@
 - (void)requestDone:(ASIHTTPRequest *)request {
 	CFShow(request);
 	[[UIApplication sharedApplication] endIgnoringInteractionEvents];
-	[sender removeShade];
+	if ([sender respondsToSelector:@selector(submissionSuccessful)]) {
+		[sender performSelectorOnMainThread:@selector(submissionSuccessful) withObject:nil waitUntilDone:NO];
+	}
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
 	CFShow(request);
 	[[UIApplication sharedApplication] endIgnoringInteractionEvents];
-	[sender removeShade];
+	if ([sender respondsToSelector:@selector(submissionFailed)]) {
+		[sender performSelectorOnMainThread:@selector(submissionFailed) withObject:nil waitUntilDone:NO];
+	}
 }
 
 -(NSString*)getSubmissionsForTag:(NSString*)_tag{
