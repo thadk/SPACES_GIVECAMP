@@ -172,7 +172,10 @@
 		cell.published.text = dateRes;
 			
 		[cell setBackgroundColor:[UIColor clearColor]];
-		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AccDisclosure.png"]];
+//		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		UIImageView *accView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AccDisclosure.png"]] autorelease];
+		accView.frame = CGRectMake(0, 0, 10, 13);
+		cell.accessoryView = accView;
 	}
 	return cell;
 }

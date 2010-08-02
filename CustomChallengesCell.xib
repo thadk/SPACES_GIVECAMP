@@ -49,7 +49,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUILabel" id="845642226">
 								<reference key="NSNextResponder" ref="780991136"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{13, 3}, {287, 36}}</string>
 								<reference key="NSSuperview" ref="780991136"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -68,7 +68,7 @@
 							</object>
 							<object class="IBUILabel" id="1070133206">
 								<reference key="NSNextResponder" ref="780991136"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{245, 47}, {42, 21}}</string>
 								<reference key="NSSuperview" ref="780991136"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -83,7 +83,7 @@
 								<float key="IBUIMinimumFontSize">10</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 75}</string>
+						<string key="NSFrameSize">{300, 75}</string>
 						<reference key="NSSuperview" ref="58728206"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -104,6 +104,7 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISeparatorStyle">1</int>
+				<int key="IBUIAccessoryType">1</int>
 				<reference key="IBUIContentView" ref="780991136"/>
 			</object>
 		</object>
@@ -272,6 +273,20 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/Kiwi/NSObject+KiwiVerifierAdditions.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">JSON/NSObject+SBJSON.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">JSON/SBJsonWriter.h</string>
 					</object>
 				</object>
 			</object>
